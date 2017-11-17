@@ -18,5 +18,12 @@ namespace ProjectRPG
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ProjectRPG_MainForm());
         }
+
+        static void PlayerCreation()
+        {
+            Player NewPlayer = new Player();
+
+            
+        }
     }
 }

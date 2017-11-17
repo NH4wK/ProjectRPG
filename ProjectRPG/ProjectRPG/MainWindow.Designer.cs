@@ -47,6 +47,7 @@
             this.MainMenu_StartButton.TabIndex = 0;
             this.MainMenu_StartButton.Text = "START";
             this.MainMenu_StartButton.UseVisualStyleBackColor = false;
+            this.MainMenu_StartButton.Click += new System.EventHandler(this.MainMenu_StartButton_Click);
             // 
             // MainMenu_SettingsButton
             // 

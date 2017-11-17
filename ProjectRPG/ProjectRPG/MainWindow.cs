@@ -16,5 +16,12 @@ namespace ProjectRPG
         {
             InitializeComponent();
         }
+
+        private void MainMenu_StartButton_Click(object sender, EventArgs e)
+        {
+            PlayerCreationForm PlayerCF = new PlayerCreationForm();
+            PlayerCF.ShowDialog();
+            
+        }
     }
 }
