@@ -8,13 +8,15 @@ namespace ProjectRPG
 {
     public class Player
     {
-        public string Name { get { return Name; } private set { Name = value; } }
-        public int Strength { get { return Strength; } private set { Strength = value; } }
-        public int Intelligence { get { return Intelligence; } private set { Intelligence = value; } }
-        public int Dexterity { get { return Dexterity; } private set { Dexterity = value; } }
-        public int Vitality { get { return Vitality; } private set { Vitality = value; } }
-        public int Health { get { return Health;  } private set { Health = (Vitality * 4); } }
-        public int Mana { get { return Mana; } private set { Mana = (Intelligence * 6); } }
+        public string Name { get; set; }
+        public int Strength { get; set; }
+        public int Intelligence { get; set; }
+        public int Dexterity { get; set; }
+        public int Vitality { get; set; }
+        public int Health { get; set; }
+        public int Mana { get; set; }
+        public int Experience { get; set; }
+        public int LevelNumber { get; set; }
 
         public Player()
         {
@@ -23,6 +25,8 @@ namespace ProjectRPG
             Intelligence = 0;
             Dexterity = 0;
             Vitality = 0;
+            Experience = 0;
+            LevelNumber = 1;
         }
 
         public Player(string name, int str, int intel, int dex, int vit)
@@ -32,6 +36,29 @@ namespace ProjectRPG
             Intelligence = intel;
             Dexterity = dex;
             Vitality = vit;
+            Experience = 0;
+            LevelNumber = 1;
+            Health = Strength * Vitality * 4;
+            Mana = Intelligence * 4;
         }
+
+        public void SetHealthPool()
+        {
+            Health = Strength * Vitality * 4;
+        }
+
+        public void SetManaPool()
+        {
+            Mana = Intelligence * 8;
+        }
+
+        public void CheatGodMode()
+        {
+            Strength = 9999;
+            Intelligence = 9999;
+            Dexterity = 9999;
+            Vitality = 9999;
+        }
+
     }
 }

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ProjectRPG
 {
-    static class Program
+    static public class Game
     {
         /// <summary>
         /// The main entry point for the application.
@@ -16,14 +16,18 @@ namespace ProjectRPG
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ProjectRPG_MainForm());
+            Application.Run(MainWindow = new ProjectRPG_MainForm());
         }
 
-        static void PlayerCreation()
+        public static void CreateGameWindow()
         {
-            Player NewPlayer = new Player();
-
-            
+            GameWindow = new GameWindow();
+            GameWindow.ShowDialog();
         }
+
+        public static Player Player = null;
+        public static GameWindow GameWindow = null;
+        public static ProjectRPG_MainForm MainWindow = null;
+
     }
 }

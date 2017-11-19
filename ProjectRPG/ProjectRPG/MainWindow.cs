@@ -19,9 +19,10 @@ namespace ProjectRPG
 
         private void MainMenu_StartButton_Click(object sender, EventArgs e)
         {
-            PlayerCreationForm PlayerCF = new PlayerCreationForm();
-            PlayerCF.ShowDialog();
-            
+            PlayerCreationForm playerCF = new PlayerCreationForm();
+            playerCF.ShowDialog();
+
+            Game.CreateGameWindow();
         }
     }
 }
