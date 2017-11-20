@@ -38,18 +38,32 @@ namespace ProjectRPG
             Vitality = vit;
             Experience = 0;
             LevelNumber = 1;
-            Health = Strength * Vitality * 4;
-            Mana = Intelligence * 4;
+            Health = Strength * Vitality * 5;
+            Mana = Intelligence * 8;
         }
 
         public void SetHealthPool()
         {
-            Health = Strength * Vitality * 4;
+            Health = Strength * Vitality * 5;
         }
 
         public void SetManaPool()
         {
             Mana = Intelligence * 8;
+        }
+
+        public void AddEXP(int xpGained)
+        {
+            Experience += xpGained;       
+        }
+
+        public void LevelUp()
+        {
+            LevelNumber += 1;
+            Strength += 1;
+            Intelligence += 1;
+            Dexterity += 1;
+            Vitality += 1;
         }
 
         public void CheatGodMode()
@@ -59,6 +73,5 @@ namespace ProjectRPG
             Dexterity = 9999;
             Vitality = 9999;
         }
-
     }
 }

@@ -28,6 +28,7 @@ namespace ProjectRPG
         public static Player Player = null;
         public static GameWindow GameWindow = null;
         public static ProjectRPG_MainForm MainWindow = null;
+        public static Enemy Enemy = null;
 
     }
 }

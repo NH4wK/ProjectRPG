@@ -15,8 +15,10 @@ namespace ProjectRPG
         public GameWindow()
         {
             InitializeComponent();
-            CharacterInit();
 
+            CharacterInit();
+            MenuInit();
+            EnemyInit();
         }
 
         void CharacterInit()
@@ -34,16 +36,53 @@ namespace ProjectRPG
             GW_VitVal_Label.Text = Convert.ToString(Game.Player.Vitality);
         }
 
-
-        /*
-        private void TestStrength_Button_Click(object sender, EventArgs e)
+        void MenuInit()
         {
-            Game.Player.Strength += 100;
-            GW_StrVal_Label.Text = Convert.ToString(Game.Player.Strength);
-            Game.Player.SetHealthPool();
-            GW_HPVal_Label.Text = Convert.ToString(Game.Player.Health);
-
+            GW_Weapon_Panel.Hide();
+            GW_Inventory_Panel.Hide();
         }
-        */
+
+        void EnemyInit()
+        {
+            Game.Enemy = new Enemy();
+            Game.Enemy.GenerateEnemy();
+
+            GW_EnemyName_Label.Text = Game.Enemy.Name;
+            GW_EnemyHealthVal_Label.Text = Convert.ToString(Game.Enemy.Health);
+            GW_EnemyTypeVal_Label.Text = Game.Enemy.Type;
+            GW_EnemyStrVal_Label.Text = Convert.ToString(Game.Enemy.Strength);
+            GW_EnemyIntelVal_Label.Text = Convert.ToString(Game.Enemy.Intelligence);
+            GW_EnemyDexVal_Label.Text = Convert.ToString(Game.Enemy.Dexterity);
+            GW_EnemyVitVal_Label.Text = Convert.ToString(Game.Enemy.Vitality);
+        }
+
+        private void GW_Attack_Button_Click(object sender, EventArgs e)
+        {
+            if (!GW_Weapon_Panel.Visible)
+            {
+                GW_Weapon_Panel.Show();
+                GW_Inventory_Panel.Hide();
+            }
+            else
+                GW_Weapon_Panel.Hide();
+        }
+
+        private void GW_Items_Button_Click(object sender, EventArgs e)
+        {
+            if (!GW_Inventory_Panel.Visible)
+            {
+                GW_Inventory_Panel.Show();
+                GW_Weapon_Panel.Hide();
+            }
+            else
+                GW_Inventory_Panel.Hide();
+        }
+
+        private void GW_ExecMove_Button_Click(object sender, EventArgs e)
+        {
+            GW_Weapon_Panel.Hide();
+
+            Game.Player.LevelUp();
+        }
     }
 }
