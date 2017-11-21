@@ -55,6 +55,17 @@ namespace ProjectRPG
 
         void PlayerUpdate()
         {
+            if (Game.Player.Health <= 0)
+            {
+                Game.Player.Health = 0;
+                GW_HPVal_Label.Text = Convert.ToString(Game.Player.Health);
+                //Show Death Screen
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} has been slained by {Game.Enemy.Name}!");
+                GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+                GW_BattleAction_TextBox.ScrollToCaret();
+                return;
+            }
+
             if (Game.Player.Experience > 100)
             {
                 if (Game.Player.Experience > 100)
@@ -65,8 +76,7 @@ namespace ProjectRPG
                 Game.Player.LevelUp();
             }
 
-            Game.Player.SetHealthPool();
-            Game.Player.SetManaPool();
+            //Update Labels
             GW_HPVal_Label.Text = Convert.ToString(Game.Player.Health);
             GW_MPVal_Label.Text = Convert.ToString(Game.Player.Mana);
             GW_XPVal_Label.Text = ($"{ Convert.ToString(Game.Player.Experience)} / 100");
@@ -102,7 +112,6 @@ namespace ProjectRPG
             }
             else
                 GW_Weapon_Panel.Hide();
-
         }
         private void GW_Items_Button_Click(object sender, EventArgs e)
         {
@@ -117,12 +126,14 @@ namespace ProjectRPG
 
         private void GW_ExecMove_Button_Click(object sender, EventArgs e)
         {
+
             GW_Weapon_Panel.Hide();
+
             GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} attacked {Game.Enemy.Name} for ___ Damage!");
             GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
             GW_BattleAction_TextBox.ScrollToCaret();
 
-
+            //Player Turn
             Game.Enemy.Health -= 100;
             GW_EnemyHealthVal_Label.Text = Convert.ToString(Game.Enemy.Health);
 
@@ -138,10 +149,20 @@ namespace ProjectRPG
                 Game.Player.Vitality += Game.Enemy.Vitality;
                 Game.Player.Experience += 75;
 
+                Game.Player.SetHealthPool();
+                Game.Player.SetManaPool();
+
                 Game.Enemy.GenerateEnemy();
                 PlayerUpdate();
                 EnemyUpdate();
             }
+
+            //Enemy Turn
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} attacked {Game.Player.Name} for ___ Damage!");
+            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+            GW_BattleAction_TextBox.ScrollToCaret();
+            Game.Player.Health -= 150;
+            PlayerUpdate();
         }
 
         private void GW_WeapMove1_RadButton_CheckedChanged(object sender, EventArgs e)

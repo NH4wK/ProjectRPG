@@ -44,7 +44,7 @@ namespace ProjectRPG
 
         public void SetHealthPool()
         {
-            Health = Strength * Vitality * 2;
+            Health = Strength * Vitality * 3;
         }
 
         public void SetManaPool()

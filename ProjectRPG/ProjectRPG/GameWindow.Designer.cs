@@ -155,7 +155,7 @@
             // 
             this.GW_LevelVal_Label.AutoSize = true;
             this.GW_LevelVal_Label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_LevelVal_Label.Location = new System.Drawing.Point(83, 33);
+            this.GW_LevelVal_Label.Location = new System.Drawing.Point(76, 34);
             this.GW_LevelVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_LevelVal_Label.Name = "GW_LevelVal_Label";
             this.GW_LevelVal_Label.Size = new System.Drawing.Size(65, 23);
@@ -166,7 +166,7 @@
             // 
             this.GW_Level_Label.AutoSize = true;
             this.GW_Level_Label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_Level_Label.Location = new System.Drawing.Point(25, 33);
+            this.GW_Level_Label.Location = new System.Drawing.Point(23, 34);
             this.GW_Level_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_Level_Label.Name = "GW_Level_Label";
             this.GW_Level_Label.Size = new System.Drawing.Size(58, 23);
