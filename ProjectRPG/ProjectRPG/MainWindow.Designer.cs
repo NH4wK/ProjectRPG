@@ -41,10 +41,10 @@
             this.MainMenu_StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MainMenu_StartButton.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenu_StartButton.ForeColor = System.Drawing.Color.Transparent;
-            this.MainMenu_StartButton.Location = new System.Drawing.Point(430, 456);
-            this.MainMenu_StartButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MainMenu_StartButton.Location = new System.Drawing.Point(573, 561);
+            this.MainMenu_StartButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MainMenu_StartButton.Name = "MainMenu_StartButton";
-            this.MainMenu_StartButton.Size = new System.Drawing.Size(146, 54);
+            this.MainMenu_StartButton.Size = new System.Drawing.Size(195, 66);
             this.MainMenu_StartButton.TabIndex = 0;
             this.MainMenu_StartButton.Text = "START";
             this.MainMenu_StartButton.UseVisualStyleBackColor = false;
@@ -57,10 +57,10 @@
             this.MainMenu_SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MainMenu_SettingsButton.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenu_SettingsButton.ForeColor = System.Drawing.Color.Transparent;
-            this.MainMenu_SettingsButton.Location = new System.Drawing.Point(600, 456);
-            this.MainMenu_SettingsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MainMenu_SettingsButton.Location = new System.Drawing.Point(800, 561);
+            this.MainMenu_SettingsButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MainMenu_SettingsButton.Name = "MainMenu_SettingsButton";
-            this.MainMenu_SettingsButton.Size = new System.Drawing.Size(146, 54);
+            this.MainMenu_SettingsButton.Size = new System.Drawing.Size(195, 66);
             this.MainMenu_SettingsButton.TabIndex = 1;
             this.MainMenu_SettingsButton.Text = "SETTINGS";
             this.MainMenu_SettingsButton.UseVisualStyleBackColor = false;
@@ -72,28 +72,29 @@
             this.MainMenu_ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MainMenu_ExitButton.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenu_ExitButton.ForeColor = System.Drawing.Color.Transparent;
-            this.MainMenu_ExitButton.Location = new System.Drawing.Point(765, 456);
-            this.MainMenu_ExitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MainMenu_ExitButton.Location = new System.Drawing.Point(1020, 561);
+            this.MainMenu_ExitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MainMenu_ExitButton.Name = "MainMenu_ExitButton";
-            this.MainMenu_ExitButton.Size = new System.Drawing.Size(146, 54);
+            this.MainMenu_ExitButton.Size = new System.Drawing.Size(195, 66);
             this.MainMenu_ExitButton.TabIndex = 2;
             this.MainMenu_ExitButton.Text = "QUIT";
             this.MainMenu_ExitButton.UseVisualStyleBackColor = false;
+            this.MainMenu_ExitButton.Click += new System.EventHandler(this.MainMenu_ExitButton_Click);
             // 
             // ProjectRPG_MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(962, 591);
+            this.ClientSize = new System.Drawing.Size(1280, 718);
             this.Controls.Add(this.MainMenu_ExitButton);
             this.Controls.Add(this.MainMenu_SettingsButton);
             this.Controls.Add(this.MainMenu_StartButton);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MaximumSize = new System.Drawing.Size(978, 630);
-            this.MinimumSize = new System.Drawing.Size(978, 630);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1298, 765);
+            this.MinimumSize = new System.Drawing.Size(1298, 765);
             this.Name = "ProjectRPG_MainForm";
             this.Text = "ProjectRPG - Main Menu";
             this.ResumeLayout(false);

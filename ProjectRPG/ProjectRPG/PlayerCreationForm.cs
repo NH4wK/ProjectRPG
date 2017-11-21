@@ -37,7 +37,7 @@ namespace ProjectRPG
             int StatValue1 = RanVal.Next(1, 12);
             int StatValue2 = RanVal.Next(1, 12);
             int StatValue3 = RanVal.Next(1, 12);
-            int StatValue4 = RanVal.Next(1, 12);
+            int StatValue4 = RanVal.Next(6, 12);
 
             Str_NumUpDown.Value = StatValue1;
             Intel_NumUpDown.Value = StatValue2;

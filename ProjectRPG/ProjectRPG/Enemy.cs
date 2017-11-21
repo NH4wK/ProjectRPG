@@ -40,19 +40,53 @@ namespace ProjectRPG
 
         public void GenerateEnemy()
         {
-
             Random RanVal = new Random();
-            int StatValue1 = RanVal.Next(Game.Player.Strength, Game.Player.Strength + 4);
-            int StatValue2 = RanVal.Next(Game.Player.Intelligence, Game.Player.Intelligence + 4);
-            int StatValue3 = RanVal.Next(Game.Player.Dexterity, Game.Player.Dexterity + 4);
-            int StatValue4 = RanVal.Next(Game.Player.Vitality, Game.Player.Vitality + 4);
+            int StatValue1 = RanVal.Next(Game.Player.Strength, Game.Player.Strength + 10);
+            int StatValue2 = RanVal.Next(Game.Player.Intelligence, Game.Player.Intelligence + 10);
+            int StatValue3 = RanVal.Next(Game.Player.Dexterity, Game.Player.Dexterity + 10);
+            int StatValue4 = RanVal.Next(Game.Player.Vitality, Game.Player.Vitality + 10);
+
+            Name = GenerateEnemyName();
+            Type = GenerateEnemyType();
 
             Strength = StatValue1;
             Intelligence = StatValue2;
             Dexterity = StatValue3;
             Vitality = StatValue4;
 
-            Health = Strength * Vitality * 4;
+            Health = Strength * Vitality * 2;
+        }
+
+        public string GenerateEnemyName()
+        {
+            Random RanVal = new Random();
+
+
+            string[] name = { "Vargan", "Kulgha", "Nag", "Slughig", "Yolmar",
+                                "Slaugh", "Nurghed", "Ogharod", "Nargulg",
+                                    "Shurkul", "Urog", "Bor", "Glasha", "Uloth",
+                                        "Bagrak", "Ugak", "Gharol", "Ghak"};
+            string[] adjective = { "Impaler", "Soft", "Courageous", "Basher",
+                                      "Fat", "Fighter", "Powerful", "Full", "Tough",
+                                            "Unbroken", "Unchained", "Deserving", "Jealous",
+                                                    "Destroyer", "Small", "Large", "Blind",
+                                                          "Giant", "Hand", "Warrior","Mighty", "Defiant"};
+
+            int Value1 = RanVal.Next(0, name.Count());
+            int Value2 = RanVal.Next(0, adjective.Count());
+            string nameResult = name[Value1] + " " + "the" + " "+ adjective[Value2];
+
+            return nameResult;
+        }
+
+        public string GenerateEnemyType()
+        {
+            Random RanVal = new Random();
+
+            string[] type = { "Demon", "Normal", "Elemental", "Fairy" };
+            int Value = RanVal.Next(0, type.Count());
+
+            return type[Value];
         }
 
 

@@ -70,20 +70,24 @@
             this.GW_Battle_Menu_Label = new System.Windows.Forms.Label();
             this.GW_Attack_Button = new System.Windows.Forms.Button();
             this.GW_Weapon_Panel = new System.Windows.Forms.Panel();
-            this.GW_Weapon_Label = new System.Windows.Forms.Label();
-            this.GW_WeaponName_Label = new System.Windows.Forms.Label();
-            this.GW_WeapMove1_Label = new System.Windows.Forms.RadioButton();
-            this.GW_WeapMove2_Label = new System.Windows.Forms.RadioButton();
-            this.GW_WeapMove3_Label = new System.Windows.Forms.RadioButton();
-            this.GW_WeapMove4_Label = new System.Windows.Forms.RadioButton();
             this.GW_ExecMove_Button = new System.Windows.Forms.Button();
+            this.GW_WeapMove4_RadButton = new System.Windows.Forms.RadioButton();
+            this.GW_WeapMove3_RadButton = new System.Windows.Forms.RadioButton();
+            this.GW_WeapMove2_RadButton = new System.Windows.Forms.RadioButton();
+            this.GW_WeapMove1_RadButton = new System.Windows.Forms.RadioButton();
+            this.GW_WeaponName_Label = new System.Windows.Forms.Label();
+            this.GW_Weapon_Label = new System.Windows.Forms.Label();
             this.GW_Inventory_Panel = new System.Windows.Forms.Panel();
             this.GW_Inventory_Label = new System.Windows.Forms.Label();
+            this.GW_BattleAction_Panel = new System.Windows.Forms.Panel();
+            this.GW_BattleAction_TextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.GW_PlayerPanel1.SuspendLayout();
             this.GW_Enemy_Panel.SuspendLayout();
             this.GW_Battle_Panel.SuspendLayout();
             this.GW_Weapon_Panel.SuspendLayout();
             this.GW_Inventory_Panel.SuspendLayout();
+            this.GW_BattleAction_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // GW_PlayerPanel1
@@ -109,7 +113,7 @@
             this.GW_PlayerPanel1.Controls.Add(this.GW_Str_Label);
             this.GW_PlayerPanel1.Controls.Add(this.GW_ChName_Label);
             this.GW_PlayerPanel1.Location = new System.Drawing.Point(13, 401);
-            this.GW_PlayerPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GW_PlayerPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.GW_PlayerPanel1.Name = "GW_PlayerPanel1";
             this.GW_PlayerPanel1.Size = new System.Drawing.Size(225, 263);
             this.GW_PlayerPanel1.TabIndex = 0;
@@ -129,7 +133,7 @@
             // 
             this.GW_MPVal_Label.AutoSize = true;
             this.GW_MPVal_Label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_MPVal_Label.Location = new System.Drawing.Point(88, 81);
+            this.GW_MPVal_Label.Location = new System.Drawing.Point(88, 80);
             this.GW_MPVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_MPVal_Label.Name = "GW_MPVal_Label";
             this.GW_MPVal_Label.Size = new System.Drawing.Size(69, 23);
@@ -140,7 +144,7 @@
             // 
             this.GW_HPVal_Label.AutoSize = true;
             this.GW_HPVal_Label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_HPVal_Label.Location = new System.Drawing.Point(95, 59);
+            this.GW_HPVal_Label.Location = new System.Drawing.Point(95, 57);
             this.GW_HPVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_HPVal_Label.Name = "GW_HPVal_Label";
             this.GW_HPVal_Label.Size = new System.Drawing.Size(65, 23);
@@ -151,7 +155,7 @@
             // 
             this.GW_LevelVal_Label.AutoSize = true;
             this.GW_LevelVal_Label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_LevelVal_Label.Location = new System.Drawing.Point(81, 39);
+            this.GW_LevelVal_Label.Location = new System.Drawing.Point(83, 33);
             this.GW_LevelVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_LevelVal_Label.Name = "GW_LevelVal_Label";
             this.GW_LevelVal_Label.Size = new System.Drawing.Size(65, 23);
@@ -162,7 +166,7 @@
             // 
             this.GW_Level_Label.AutoSize = true;
             this.GW_Level_Label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_Level_Label.Location = new System.Drawing.Point(23, 39);
+            this.GW_Level_Label.Location = new System.Drawing.Point(25, 33);
             this.GW_Level_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_Level_Label.Name = "GW_Level_Label";
             this.GW_Level_Label.Size = new System.Drawing.Size(58, 23);
@@ -250,7 +254,7 @@
             // 
             this.GW_Mana_Label.AutoSize = true;
             this.GW_Mana_Label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_Mana_Label.Location = new System.Drawing.Point(23, 81);
+            this.GW_Mana_Label.Location = new System.Drawing.Point(23, 80);
             this.GW_Mana_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_Mana_Label.Name = "GW_Mana_Label";
             this.GW_Mana_Label.Size = new System.Drawing.Size(74, 23);
@@ -272,7 +276,7 @@
             // 
             this.GW_HP_Label.AutoSize = true;
             this.GW_HP_Label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_HP_Label.Location = new System.Drawing.Point(23, 59);
+            this.GW_HP_Label.Location = new System.Drawing.Point(23, 57);
             this.GW_HP_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_HP_Label.Name = "GW_HP_Label";
             this.GW_HP_Label.Size = new System.Drawing.Size(75, 23);
@@ -305,7 +309,7 @@
             // 
             this.GW_ChName_Label.AutoSize = true;
             this.GW_ChName_Label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_ChName_Label.Location = new System.Drawing.Point(11, 16);
+            this.GW_ChName_Label.Location = new System.Drawing.Point(11, 13);
             this.GW_ChName_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_ChName_Label.Name = "GW_ChName_Label";
             this.GW_ChName_Label.Size = new System.Drawing.Size(98, 23);
@@ -331,10 +335,10 @@
             this.GW_Enemy_Panel.Controls.Add(this.GW_EnemyHealth_Label);
             this.GW_Enemy_Panel.Controls.Add(this.GW_EnemyIntel_Label);
             this.GW_Enemy_Panel.Controls.Add(this.GW_EnemyStr_Label);
-            this.GW_Enemy_Panel.Location = new System.Drawing.Point(896, 401);
-            this.GW_Enemy_Panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GW_Enemy_Panel.Location = new System.Drawing.Point(920, 401);
+            this.GW_Enemy_Panel.Margin = new System.Windows.Forms.Padding(4);
             this.GW_Enemy_Panel.Name = "GW_Enemy_Panel";
-            this.GW_Enemy_Panel.Size = new System.Drawing.Size(353, 263);
+            this.GW_Enemy_Panel.Size = new System.Drawing.Size(329, 263);
             this.GW_Enemy_Panel.TabIndex = 1;
             // 
             // GW_EnemyVitVal_Label
@@ -385,7 +389,7 @@
             // 
             this.GW_EnemyHealthVal_Label.AutoSize = true;
             this.GW_EnemyHealthVal_Label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyHealthVal_Label.Location = new System.Drawing.Point(96, 62);
+            this.GW_EnemyHealthVal_Label.Location = new System.Drawing.Point(96, 63);
             this.GW_EnemyHealthVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyHealthVal_Label.Name = "GW_EnemyHealthVal_Label";
             this.GW_EnemyHealthVal_Label.Size = new System.Drawing.Size(65, 23);
@@ -396,7 +400,7 @@
             // 
             this.GW_EnemyTypeVal_Label.AutoSize = true;
             this.GW_EnemyTypeVal_Label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyTypeVal_Label.Location = new System.Drawing.Point(84, 39);
+            this.GW_EnemyTypeVal_Label.Location = new System.Drawing.Point(84, 36);
             this.GW_EnemyTypeVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyTypeVal_Label.Name = "GW_EnemyTypeVal_Label";
             this.GW_EnemyTypeVal_Label.Size = new System.Drawing.Size(85, 23);
@@ -407,7 +411,7 @@
             // 
             this.GW_EnemyName_Label.AutoSize = true;
             this.GW_EnemyName_Label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyName_Label.Location = new System.Drawing.Point(95, 17);
+            this.GW_EnemyName_Label.Location = new System.Drawing.Point(96, 13);
             this.GW_EnemyName_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyName_Label.Name = "GW_EnemyName_Label";
             this.GW_EnemyName_Label.Size = new System.Drawing.Size(136, 23);
@@ -418,7 +422,7 @@
             // 
             this.GW_Enemy_Label.AutoSize = true;
             this.GW_Enemy_Label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_Enemy_Label.Location = new System.Drawing.Point(13, 17);
+            this.GW_Enemy_Label.Location = new System.Drawing.Point(13, 13);
             this.GW_Enemy_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_Enemy_Label.Name = "GW_Enemy_Label";
             this.GW_Enemy_Label.Size = new System.Drawing.Size(82, 23);
@@ -429,7 +433,7 @@
             // 
             this.GW_EnemyType.AutoSize = true;
             this.GW_EnemyType.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyType.Location = new System.Drawing.Point(24, 39);
+            this.GW_EnemyType.Location = new System.Drawing.Point(24, 36);
             this.GW_EnemyType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyType.Name = "GW_EnemyType";
             this.GW_EnemyType.Size = new System.Drawing.Size(59, 23);
@@ -473,7 +477,7 @@
             // 
             this.GW_EnemyHealth_Label.AutoSize = true;
             this.GW_EnemyHealth_Label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyHealth_Label.Location = new System.Drawing.Point(24, 62);
+            this.GW_EnemyHealth_Label.Location = new System.Drawing.Point(24, 63);
             this.GW_EnemyHealth_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyHealth_Label.Name = "GW_EnemyHealth_Label";
             this.GW_EnemyHealth_Label.Size = new System.Drawing.Size(75, 23);
@@ -512,7 +516,7 @@
             this.GW_Battle_Panel.Controls.Add(this.GW_Battle_Menu_Label);
             this.GW_Battle_Panel.Controls.Add(this.GW_Attack_Button);
             this.GW_Battle_Panel.Location = new System.Drawing.Point(253, 537);
-            this.GW_Battle_Panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GW_Battle_Panel.Margin = new System.Windows.Forms.Padding(4);
             this.GW_Battle_Panel.Name = "GW_Battle_Panel";
             this.GW_Battle_Panel.Size = new System.Drawing.Size(267, 127);
             this.GW_Battle_Panel.TabIndex = 2;
@@ -522,19 +526,20 @@
             this.GW_Retreat_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GW_Retreat_Button.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GW_Retreat_Button.Location = new System.Drawing.Point(144, 80);
-            this.GW_Retreat_Button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GW_Retreat_Button.Margin = new System.Windows.Forms.Padding(4);
             this.GW_Retreat_Button.Name = "GW_Retreat_Button";
             this.GW_Retreat_Button.Size = new System.Drawing.Size(100, 31);
             this.GW_Retreat_Button.TabIndex = 4;
             this.GW_Retreat_Button.Text = "Retreat";
             this.GW_Retreat_Button.UseVisualStyleBackColor = true;
+            this.GW_Retreat_Button.Click += new System.EventHandler(this.GW_Retreat_Button_Click);
             // 
             // GW_Items_Button
             // 
             this.GW_Items_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GW_Items_Button.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GW_Items_Button.Location = new System.Drawing.Point(23, 80);
-            this.GW_Items_Button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GW_Items_Button.Margin = new System.Windows.Forms.Padding(4);
             this.GW_Items_Button.Name = "GW_Items_Button";
             this.GW_Items_Button.Size = new System.Drawing.Size(100, 31);
             this.GW_Items_Button.TabIndex = 3;
@@ -548,12 +553,13 @@
             this.GW_Defend_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GW_Defend_Button.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GW_Defend_Button.Location = new System.Drawing.Point(144, 38);
-            this.GW_Defend_Button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GW_Defend_Button.Margin = new System.Windows.Forms.Padding(4);
             this.GW_Defend_Button.Name = "GW_Defend_Button";
             this.GW_Defend_Button.Size = new System.Drawing.Size(100, 31);
             this.GW_Defend_Button.TabIndex = 2;
             this.GW_Defend_Button.Text = "Defend";
             this.GW_Defend_Button.UseVisualStyleBackColor = false;
+            this.GW_Defend_Button.Click += new System.EventHandler(this.GW_Defend_Button_Click);
             // 
             // GW_Battle_Menu_Label
             // 
@@ -571,7 +577,7 @@
             this.GW_Attack_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GW_Attack_Button.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GW_Attack_Button.Location = new System.Drawing.Point(23, 38);
-            this.GW_Attack_Button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GW_Attack_Button.Margin = new System.Windows.Forms.Padding(4);
             this.GW_Attack_Button.Name = "GW_Attack_Button";
             this.GW_Attack_Button.Size = new System.Drawing.Size(100, 31);
             this.GW_Attack_Button.TabIndex = 0;
@@ -584,10 +590,10 @@
             this.GW_Weapon_Panel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.GW_Weapon_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.GW_Weapon_Panel.Controls.Add(this.GW_ExecMove_Button);
-            this.GW_Weapon_Panel.Controls.Add(this.GW_WeapMove4_Label);
-            this.GW_Weapon_Panel.Controls.Add(this.GW_WeapMove3_Label);
-            this.GW_Weapon_Panel.Controls.Add(this.GW_WeapMove2_Label);
-            this.GW_Weapon_Panel.Controls.Add(this.GW_WeapMove1_Label);
+            this.GW_Weapon_Panel.Controls.Add(this.GW_WeapMove4_RadButton);
+            this.GW_Weapon_Panel.Controls.Add(this.GW_WeapMove3_RadButton);
+            this.GW_Weapon_Panel.Controls.Add(this.GW_WeapMove2_RadButton);
+            this.GW_Weapon_Panel.Controls.Add(this.GW_WeapMove1_RadButton);
             this.GW_Weapon_Panel.Controls.Add(this.GW_WeaponName_Label);
             this.GW_Weapon_Panel.Controls.Add(this.GW_Weapon_Label);
             this.GW_Weapon_Panel.Location = new System.Drawing.Point(253, 401);
@@ -595,15 +601,66 @@
             this.GW_Weapon_Panel.Size = new System.Drawing.Size(267, 127);
             this.GW_Weapon_Panel.TabIndex = 3;
             // 
-            // GW_Weapon_Label
+            // GW_ExecMove_Button
             // 
-            this.GW_Weapon_Label.AutoSize = true;
-            this.GW_Weapon_Label.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_Weapon_Label.Location = new System.Drawing.Point(6, 10);
-            this.GW_Weapon_Label.Name = "GW_Weapon_Label";
-            this.GW_Weapon_Label.Size = new System.Drawing.Size(69, 17);
-            this.GW_Weapon_Label.TabIndex = 0;
-            this.GW_Weapon_Label.Text = "Weapon:";
+            this.GW_ExecMove_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GW_ExecMove_Button.Enabled = false;
+            this.GW_ExecMove_Button.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GW_ExecMove_Button.Location = new System.Drawing.Point(66, 91);
+            this.GW_ExecMove_Button.Name = "GW_ExecMove_Button";
+            this.GW_ExecMove_Button.Size = new System.Drawing.Size(123, 31);
+            this.GW_ExecMove_Button.TabIndex = 6;
+            this.GW_ExecMove_Button.Text = "Attack!";
+            this.GW_ExecMove_Button.UseVisualStyleBackColor = true;
+            this.GW_ExecMove_Button.Click += new System.EventHandler(this.GW_ExecMove_Button_Click);
+            // 
+            // GW_WeapMove4_RadButton
+            // 
+            this.GW_WeapMove4_RadButton.AutoSize = true;
+            this.GW_WeapMove4_RadButton.Location = new System.Drawing.Point(150, 64);
+            this.GW_WeapMove4_RadButton.Name = "GW_WeapMove4_RadButton";
+            this.GW_WeapMove4_RadButton.Size = new System.Drawing.Size(71, 21);
+            this.GW_WeapMove4_RadButton.TabIndex = 5;
+            this.GW_WeapMove4_RadButton.TabStop = true;
+            this.GW_WeapMove4_RadButton.Text = "Move4";
+            this.GW_WeapMove4_RadButton.UseVisualStyleBackColor = true;
+            this.GW_WeapMove4_RadButton.CheckedChanged += new System.EventHandler(this.GW_WeapMove4_RadButton_CheckedChanged);
+            // 
+            // GW_WeapMove3_RadButton
+            // 
+            this.GW_WeapMove3_RadButton.AutoSize = true;
+            this.GW_WeapMove3_RadButton.Location = new System.Drawing.Point(150, 37);
+            this.GW_WeapMove3_RadButton.Name = "GW_WeapMove3_RadButton";
+            this.GW_WeapMove3_RadButton.Size = new System.Drawing.Size(71, 21);
+            this.GW_WeapMove3_RadButton.TabIndex = 4;
+            this.GW_WeapMove3_RadButton.TabStop = true;
+            this.GW_WeapMove3_RadButton.Text = "Move3";
+            this.GW_WeapMove3_RadButton.UseVisualStyleBackColor = true;
+            this.GW_WeapMove3_RadButton.CheckedChanged += new System.EventHandler(this.GW_WeapMove3_RadButton_CheckedChanged);
+            // 
+            // GW_WeapMove2_RadButton
+            // 
+            this.GW_WeapMove2_RadButton.AutoSize = true;
+            this.GW_WeapMove2_RadButton.Location = new System.Drawing.Point(34, 64);
+            this.GW_WeapMove2_RadButton.Name = "GW_WeapMove2_RadButton";
+            this.GW_WeapMove2_RadButton.Size = new System.Drawing.Size(71, 21);
+            this.GW_WeapMove2_RadButton.TabIndex = 3;
+            this.GW_WeapMove2_RadButton.TabStop = true;
+            this.GW_WeapMove2_RadButton.Text = "Move2";
+            this.GW_WeapMove2_RadButton.UseVisualStyleBackColor = true;
+            this.GW_WeapMove2_RadButton.CheckedChanged += new System.EventHandler(this.GW_WeapMove2_RadButton_CheckedChanged);
+            // 
+            // GW_WeapMove1_RadButton
+            // 
+            this.GW_WeapMove1_RadButton.AutoSize = true;
+            this.GW_WeapMove1_RadButton.Location = new System.Drawing.Point(34, 37);
+            this.GW_WeapMove1_RadButton.Name = "GW_WeapMove1_RadButton";
+            this.GW_WeapMove1_RadButton.Size = new System.Drawing.Size(71, 21);
+            this.GW_WeapMove1_RadButton.TabIndex = 2;
+            this.GW_WeapMove1_RadButton.TabStop = true;
+            this.GW_WeapMove1_RadButton.Text = "Move1";
+            this.GW_WeapMove1_RadButton.UseVisualStyleBackColor = true;
+            this.GW_WeapMove1_RadButton.CheckedChanged += new System.EventHandler(this.GW_WeapMove1_RadButton_CheckedChanged);
             // 
             // GW_WeaponName_Label
             // 
@@ -615,61 +672,15 @@
             this.GW_WeaponName_Label.TabIndex = 1;
             this.GW_WeaponName_Label.Text = "WeaponName";
             // 
-            // GW_WeapMove1_Label
+            // GW_Weapon_Label
             // 
-            this.GW_WeapMove1_Label.AutoSize = true;
-            this.GW_WeapMove1_Label.Location = new System.Drawing.Point(34, 37);
-            this.GW_WeapMove1_Label.Name = "GW_WeapMove1_Label";
-            this.GW_WeapMove1_Label.Size = new System.Drawing.Size(71, 21);
-            this.GW_WeapMove1_Label.TabIndex = 2;
-            this.GW_WeapMove1_Label.TabStop = true;
-            this.GW_WeapMove1_Label.Text = "Move1";
-            this.GW_WeapMove1_Label.UseVisualStyleBackColor = true;
-            // 
-            // GW_WeapMove2_Label
-            // 
-            this.GW_WeapMove2_Label.AutoSize = true;
-            this.GW_WeapMove2_Label.Location = new System.Drawing.Point(34, 64);
-            this.GW_WeapMove2_Label.Name = "GW_WeapMove2_Label";
-            this.GW_WeapMove2_Label.Size = new System.Drawing.Size(71, 21);
-            this.GW_WeapMove2_Label.TabIndex = 3;
-            this.GW_WeapMove2_Label.TabStop = true;
-            this.GW_WeapMove2_Label.Text = "Move2";
-            this.GW_WeapMove2_Label.UseVisualStyleBackColor = true;
-            // 
-            // GW_WeapMove3_Label
-            // 
-            this.GW_WeapMove3_Label.AutoSize = true;
-            this.GW_WeapMove3_Label.Location = new System.Drawing.Point(150, 37);
-            this.GW_WeapMove3_Label.Name = "GW_WeapMove3_Label";
-            this.GW_WeapMove3_Label.Size = new System.Drawing.Size(71, 21);
-            this.GW_WeapMove3_Label.TabIndex = 4;
-            this.GW_WeapMove3_Label.TabStop = true;
-            this.GW_WeapMove3_Label.Text = "Move3";
-            this.GW_WeapMove3_Label.UseVisualStyleBackColor = true;
-            // 
-            // GW_WeapMove4_Label
-            // 
-            this.GW_WeapMove4_Label.AutoSize = true;
-            this.GW_WeapMove4_Label.Location = new System.Drawing.Point(150, 64);
-            this.GW_WeapMove4_Label.Name = "GW_WeapMove4_Label";
-            this.GW_WeapMove4_Label.Size = new System.Drawing.Size(71, 21);
-            this.GW_WeapMove4_Label.TabIndex = 5;
-            this.GW_WeapMove4_Label.TabStop = true;
-            this.GW_WeapMove4_Label.Text = "Move4";
-            this.GW_WeapMove4_Label.UseVisualStyleBackColor = true;
-            // 
-            // GW_ExecMove_Button
-            // 
-            this.GW_ExecMove_Button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GW_ExecMove_Button.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_ExecMove_Button.Location = new System.Drawing.Point(66, 91);
-            this.GW_ExecMove_Button.Name = "GW_ExecMove_Button";
-            this.GW_ExecMove_Button.Size = new System.Drawing.Size(123, 31);
-            this.GW_ExecMove_Button.TabIndex = 6;
-            this.GW_ExecMove_Button.Text = "Attack!";
-            this.GW_ExecMove_Button.UseVisualStyleBackColor = true;
-            this.GW_ExecMove_Button.Click += new System.EventHandler(this.GW_ExecMove_Button_Click);
+            this.GW_Weapon_Label.AutoSize = true;
+            this.GW_Weapon_Label.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GW_Weapon_Label.Location = new System.Drawing.Point(6, 10);
+            this.GW_Weapon_Label.Name = "GW_Weapon_Label";
+            this.GW_Weapon_Label.Size = new System.Drawing.Size(69, 17);
+            this.GW_Weapon_Label.TabIndex = 0;
+            this.GW_Weapon_Label.Text = "Weapon:";
             // 
             // GW_Inventory_Panel
             // 
@@ -678,30 +689,62 @@
             this.GW_Inventory_Panel.Controls.Add(this.GW_Inventory_Label);
             this.GW_Inventory_Panel.Location = new System.Drawing.Point(537, 401);
             this.GW_Inventory_Panel.Name = "GW_Inventory_Panel";
-            this.GW_Inventory_Panel.Size = new System.Drawing.Size(201, 263);
+            this.GW_Inventory_Panel.Size = new System.Drawing.Size(219, 263);
             this.GW_Inventory_Panel.TabIndex = 4;
             // 
             // GW_Inventory_Label
             // 
             this.GW_Inventory_Label.AutoSize = true;
             this.GW_Inventory_Label.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_Inventory_Label.Location = new System.Drawing.Point(13, 10);
+            this.GW_Inventory_Label.Location = new System.Drawing.Point(8, 10);
             this.GW_Inventory_Label.Name = "GW_Inventory_Label";
             this.GW_Inventory_Label.Size = new System.Drawing.Size(68, 17);
             this.GW_Inventory_Label.TabIndex = 0;
             this.GW_Inventory_Label.Text = "Inventory";
+            // 
+            // GW_BattleAction_Panel
+            // 
+            this.GW_BattleAction_Panel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.GW_BattleAction_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GW_BattleAction_Panel.Controls.Add(this.GW_BattleAction_TextBox);
+            this.GW_BattleAction_Panel.Controls.Add(this.label1);
+            this.GW_BattleAction_Panel.Location = new System.Drawing.Point(12, 12);
+            this.GW_BattleAction_Panel.Name = "GW_BattleAction_Panel";
+            this.GW_BattleAction_Panel.Size = new System.Drawing.Size(486, 114);
+            this.GW_BattleAction_Panel.TabIndex = 5;
+            // 
+            // GW_BattleAction_TextBox
+            // 
+            this.GW_BattleAction_TextBox.Location = new System.Drawing.Point(13, 31);
+            this.GW_BattleAction_TextBox.Multiline = true;
+            this.GW_BattleAction_TextBox.Name = "GW_BattleAction_TextBox";
+            this.GW_BattleAction_TextBox.ReadOnly = true;
+            this.GW_BattleAction_TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.GW_BattleAction_TextBox.Size = new System.Drawing.Size(449, 67);
+            this.GW_BattleAction_TextBox.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Battle Log";
             // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.GW_BattleAction_Panel);
             this.Controls.Add(this.GW_Inventory_Panel);
             this.Controls.Add(this.GW_Weapon_Panel);
             this.Controls.Add(this.GW_Battle_Panel);
             this.Controls.Add(this.GW_Enemy_Panel);
             this.Controls.Add(this.GW_PlayerPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1280, 720);
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "GameWindow";
@@ -716,6 +759,8 @@
             this.GW_Weapon_Panel.PerformLayout();
             this.GW_Inventory_Panel.ResumeLayout(false);
             this.GW_Inventory_Panel.PerformLayout();
+            this.GW_BattleAction_Panel.ResumeLayout(false);
+            this.GW_BattleAction_Panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -765,13 +810,16 @@
         private System.Windows.Forms.Button GW_Attack_Button;
         private System.Windows.Forms.Panel GW_Weapon_Panel;
         private System.Windows.Forms.Button GW_ExecMove_Button;
-        private System.Windows.Forms.RadioButton GW_WeapMove4_Label;
-        private System.Windows.Forms.RadioButton GW_WeapMove3_Label;
-        private System.Windows.Forms.RadioButton GW_WeapMove2_Label;
-        private System.Windows.Forms.RadioButton GW_WeapMove1_Label;
+        private System.Windows.Forms.RadioButton GW_WeapMove4_RadButton;
+        private System.Windows.Forms.RadioButton GW_WeapMove3_RadButton;
+        private System.Windows.Forms.RadioButton GW_WeapMove2_RadButton;
+        private System.Windows.Forms.RadioButton GW_WeapMove1_RadButton;
         private System.Windows.Forms.Label GW_WeaponName_Label;
         private System.Windows.Forms.Label GW_Weapon_Label;
         private System.Windows.Forms.Panel GW_Inventory_Panel;
         private System.Windows.Forms.Label GW_Inventory_Label;
+        private System.Windows.Forms.Panel GW_BattleAction_Panel;
+        private System.Windows.Forms.TextBox GW_BattleAction_TextBox;
+        private System.Windows.Forms.Label label1;
     }
 }

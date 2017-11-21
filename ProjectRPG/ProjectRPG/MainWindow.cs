@@ -24,5 +24,10 @@ namespace ProjectRPG
 
             Game.CreateGameWindow();
         }
+
+        private void MainMenu_ExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

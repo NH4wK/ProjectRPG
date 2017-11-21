@@ -38,13 +38,13 @@ namespace ProjectRPG
             Vitality = vit;
             Experience = 0;
             LevelNumber = 1;
-            Health = Strength * Vitality * 5;
+            Health = Strength * Vitality * 2;
             Mana = Intelligence * 8;
         }
 
         public void SetHealthPool()
         {
-            Health = Strength * Vitality * 5;
+            Health = Strength * Vitality * 2;
         }
 
         public void SetManaPool()
