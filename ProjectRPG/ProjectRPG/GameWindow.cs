@@ -15,9 +15,10 @@ namespace ProjectRPG
         public GameWindow()
         {
             InitializeComponent();
+            EnemyInit();
             CharacterInit();
             MenuInit();
-            EnemyInit();
+
         }
 
         void CharacterInit()
@@ -33,6 +34,36 @@ namespace ProjectRPG
             GW_IntelVal_Label.Text = Convert.ToString(Game.Player.Intelligence);
             GW_DexVal_Label.Text = Convert.ToString(Game.Player.Dexterity);
             GW_VitVal_Label.Text = Convert.ToString(Game.Player.Vitality);
+
+            Game.PlayerWeapon = new WarHammer(Game.Player.Strength);
+
+            GW_WeaponName_Label.Text = Game.PlayerWeapon.Name;
+            GW_WeapMove1_RadButton.Text = Game.PlayerWeapon.Move1Name;
+            GW_WeapMove2_RadButton.Text = Game.PlayerWeapon.Move2Name;
+            GW_WeapMove3_RadButton.Text = Game.PlayerWeapon.Move3Name;
+            GW_WeapMove4_RadButton.Text = Game.PlayerWeapon.Move4Name;
+            /*
+            Random rand = new Random();
+            int randVal = rand.Next(0, 6);
+
+            
+            if (randVal == 0)
+                Game.PlayerWeapon = new Warhammer();
+            else if(randVal == 1)
+                Game.PlayerWeapon = new Mace();
+            else if(randVal == 2)
+                Game.PlayerWeapon = new Broadsword();
+            else if(randVal == 3)
+                Game.PlayerWeapon = new Greatsword();
+            else if(randVal == 4)
+                Game.PlayerWeapon = new Katana();
+            else if(randVal == 5)
+                Game.PlayerWeapon = new Wand();
+            else if(randVal == 6)
+                Game.PlayerWeapon = new Staff();
+            else
+                Game.PlayerWeapon = new Weapon();
+            */          
         }
         void MenuInit()
         {

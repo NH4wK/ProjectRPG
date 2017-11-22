@@ -61,11 +61,10 @@ namespace ProjectRPG
         {
             Random RanVal = new Random();
 
-
             string[] name = { "Vargan", "Kulgha", "Nag", "Slughig", "Yolmar",
                                 "Slaugh", "Nurghed", "Ogharod", "Nargulg",
                                     "Shurkul", "Urog", "Bor", "Glasha", "Uloth",
-                                        "Bagrak", "Ugak", "Gharol", "Ghak"};
+                                        "Bagrak", "Ugak", "Gharol", "Ghak", "Koloth"};
             string[] adjective = { "Impaler", "Soft", "Courageous", "Basher",
                                       "Fat", "Fighter", "Powerful", "Full", "Tough",
                                             "Unbroken", "Unchained", "Deserving", "Jealous",
@@ -83,7 +82,7 @@ namespace ProjectRPG
         {
             Random RanVal = new Random();
 
-            string[] type = { "Demon", "Normal", "Elemental", "Fairy" };
+            string[] type = { "Demon", "Normal", "Beast", "Undead" };
             int Value = RanVal.Next(0, type.Count());
 
             return type[Value];
