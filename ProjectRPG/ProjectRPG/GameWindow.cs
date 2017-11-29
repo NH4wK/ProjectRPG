@@ -20,7 +20,6 @@ namespace ProjectRPG
             MenuInit();
 
         }
-
         void CharacterInit()
         {
             Game.Player.SetHealthPool();
@@ -37,11 +36,8 @@ namespace ProjectRPG
 
             Game.PlayerWeapon = new WarHammer(Game.Player.Strength);
 
-            GW_WeaponName_Label.Text = Game.PlayerWeapon.Name;
-            GW_WeapMove1_RadButton.Text = Game.PlayerWeapon.Move1Name;
-            GW_WeapMove2_RadButton.Text = Game.PlayerWeapon.Move2Name;
-            GW_WeapMove3_RadButton.Text = Game.PlayerWeapon.Move3Name;
-            GW_WeapMove4_RadButton.Text = Game.PlayerWeapon.Move4Name;
+            PlayerWeaponUpdate();
+
             /*
             Random rand = new Random();
             int randVal = rand.Next(0, 6);
@@ -63,7 +59,7 @@ namespace ProjectRPG
                 Game.PlayerWeapon = new Staff();
             else
                 Game.PlayerWeapon = new Weapon();
-            */          
+            */
         }
         void MenuInit()
         {
@@ -83,17 +79,33 @@ namespace ProjectRPG
             GW_EnemyDexVal_Label.Text = Convert.ToString(Game.Enemy.Dexterity);
             GW_EnemyVitVal_Label.Text = Convert.ToString(Game.Enemy.Vitality);
         }
+        void PlayerWeaponUpdate()
+        {
+            GW_WeaponName_Label.Text = Game.PlayerWeapon.Name;
+            GW_WeapMove1_RadButton.Text = Game.PlayerWeapon.Move1Name;
+            GW_WeapMove2_RadButton.Text = Game.PlayerWeapon.Move2Name;
+            GW_WeapMove3_RadButton.Text = Game.PlayerWeapon.Move3Name;
+            GW_WeapMove4_RadButton.Text = Game.PlayerWeapon.Move4Name;
 
+            GW_M1AmmoCount_Label.Text = $"{Convert.ToString(Game.PlayerWeapon.Move1Ammo)} / {Convert.ToString(Game.PlayerWeapon.Move1MaxAmmo)}";
+            GW_M2AmmoCount_Label.Text = $"{Convert.ToString(Game.PlayerWeapon.Move2Ammo)} / {Convert.ToString(Game.PlayerWeapon.Move2MaxAmmo)}";
+            GW_M3AmmoCount_Label.Text = $"{Convert.ToString(Game.PlayerWeapon.Move3Ammo)} / {Convert.ToString(Game.PlayerWeapon.Move3MaxAmmo)}";
+            GW_M4AmmoCount_Label.Text = $"{Convert.ToString(Game.PlayerWeapon.Move4Ammo)} / {Convert.ToString(Game.PlayerWeapon.Move4MaxAmmo)}";
+
+            Game.PlayerWeapon.UpdateWeapon(Game.Player.Strength);
+        }
         void PlayerUpdate()
         {
             if (Game.Player.Health <= 0)
             {
                 Game.Player.Health = 0;
                 GW_HPVal_Label.Text = Convert.ToString(Game.Player.Health);
+                
                 //Show Death Screen
                 GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} has been slained by {Game.Enemy.Name}!");
                 GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
                 GW_BattleAction_TextBox.ScrollToCaret();
+
                 return;
             }
 
@@ -157,15 +169,53 @@ namespace ProjectRPG
 
         private void GW_ExecMove_Button_Click(object sender, EventArgs e)
         {
-
             GW_Weapon_Panel.Hide();
 
-            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} attacked {Game.Enemy.Name} for ___ Damage!");
+            int pDamage = 0, eDamage = 0;
+
+            if (GW_WeapMove1_RadButton.Checked)
+            {
+                if (Game.PlayerWeapon.Move1Ammo > 0)
+                {
+                    pDamage = Game.PlayerWeapon.Move1Damage;
+                    Game.PlayerWeapon.Move1Ammo -= 1;
+                }
+            }
+            else if (GW_WeapMove2_RadButton.Checked)
+            {
+                if (Game.PlayerWeapon.Move2Ammo > 0)
+                {
+                    pDamage = Game.PlayerWeapon.Move2Damage;
+                    Game.PlayerWeapon.Move2Ammo -= 1;
+                }
+            }
+            else if (GW_WeapMove3_RadButton.Checked)
+            {
+                if (Game.PlayerWeapon.Move3Ammo > 0)
+                {
+                    pDamage = Game.PlayerWeapon.Move3Damage;
+                    Game.PlayerWeapon.Move3Ammo -= 1;
+                }
+            }
+            else if (GW_WeapMove4_RadButton.Checked)
+            {
+                if (Game.PlayerWeapon.Move4Ammo > 0)
+                {
+                    pDamage = Game.PlayerWeapon.Move4Damage;
+                    Game.PlayerWeapon.Move4Ammo -= 1;
+                }
+            }
+            else
+            {
+                pDamage = 0;
+            }
+
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} attacked {Game.Enemy.Name} for {pDamage} Damage!");
             GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
             GW_BattleAction_TextBox.ScrollToCaret();
 
             //Player Turn
-            Game.Enemy.Health -= 100;
+            Game.Enemy.Health -= pDamage;
             GW_EnemyHealthVal_Label.Text = Convert.ToString(Game.Enemy.Health);
 
             if (Game.Enemy.Health <= 0)
@@ -189,11 +239,12 @@ namespace ProjectRPG
             }
 
             //Enemy Turn
-            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} attacked {Game.Player.Name} for ___ Damage!");
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} attacked {Game.Player.Name} for {eDamage} Damage!");
             GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
             GW_BattleAction_TextBox.ScrollToCaret();
-            Game.Player.Health -= 150;
+            Game.Player.Health -= eDamage;
             PlayerUpdate();
+            PlayerWeaponUpdate();
         }
 
         private void GW_WeapMove1_RadButton_CheckedChanged(object sender, EventArgs e)
@@ -229,5 +280,6 @@ namespace ProjectRPG
             GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
             GW_BattleAction_TextBox.ScrollToCaret();
         }
+
     }
 }

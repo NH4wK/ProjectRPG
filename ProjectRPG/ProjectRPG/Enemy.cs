@@ -35,7 +35,7 @@ namespace ProjectRPG
             Intelligence = intel;
             Dexterity = dex;
             Vitality = vit;
-            Health = Strength * Vitality * 3;
+            Health = Strength * Vitality * 2;
         }
 
         public void GenerateEnemy()
