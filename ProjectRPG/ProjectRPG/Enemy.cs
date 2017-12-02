@@ -54,7 +54,7 @@ namespace ProjectRPG
             Dexterity = StatValue3;
             Vitality = StatValue4;
 
-            Health = Strength * Vitality * 2;
+            Health = Strength * Vitality * 2;            
         }
 
         public string GenerateEnemyName()
@@ -82,7 +82,7 @@ namespace ProjectRPG
         {
             Random RanVal = new Random();
 
-            string[] type = { "Demon", "Normal", "Beast", "Undead" };
+            string[] type = { "Fire", "Normal", "Ice", "Undead" };
             int Value = RanVal.Next(0, type.Count());
 
             return type[Value];
