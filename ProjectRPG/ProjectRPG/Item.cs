@@ -10,6 +10,7 @@ namespace ProjectRPG
     {
         public string Name { get; set; }
         public string EffectDescription { get; set; }
+        public int Quantity { get; set; }
 
         public abstract void Use();
     }

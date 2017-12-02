@@ -14,7 +14,9 @@ namespace ProjectRPG
         public int Dexterity { get; set; }
         public int Vitality { get; set; }
         public int Health { get; set; }
+        public int MaxHealth { get; set; }
         public int Mana { get; set; }
+        public int MaxMana { get; set; }
         public int Experience { get; set; }
         public int LevelNumber { get; set; }
 
@@ -38,18 +40,22 @@ namespace ProjectRPG
             Vitality = vit;
             Experience = 0;
             LevelNumber = 1;
-            Health = Strength * Vitality * 2;
+            Health = Strength * Vitality;
             Mana = Intelligence * 8;
+            MaxHealth = Health;
+            MaxMana = Mana;
         }
 
         public void SetHealthPool()
         {
-            Health = Strength * Vitality * 3;
+            Health = Strength * Vitality;
+            MaxHealth = Health;
         }
 
         public void SetManaPool()
         {
             Mana = Intelligence * 8;
+            MaxMana = Mana;
         }
 
         public void AddEXP(int xpGained)
@@ -60,10 +66,10 @@ namespace ProjectRPG
         public void LevelUp()
         {
             LevelNumber += 1;
-            Strength += 1;
-            Intelligence += 1;
-            Dexterity += 1;
-            Vitality += 1;
+            Strength += (int)(Game.Player.Strength * 0.10);
+            Intelligence += (int)(Game.Player.Intelligence * 0.10);
+            Dexterity += (int)(Game.Player.Dexterity * 0.10);
+            Vitality += (int)(Game.Player.Vitality * 0.10);
         }
 
         public void CheatGodMode()

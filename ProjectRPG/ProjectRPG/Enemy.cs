@@ -35,16 +35,16 @@ namespace ProjectRPG
             Intelligence = intel;
             Dexterity = dex;
             Vitality = vit;
-            Health = Strength * Vitality * 2;
+            Health = Strength * Vitality;
         }
 
         public void GenerateEnemy()
         {
             Random RanVal = new Random();
-            int StatValue1 = RanVal.Next(Game.Player.Strength, Game.Player.Strength + 10);
-            int StatValue2 = RanVal.Next(Game.Player.Intelligence, Game.Player.Intelligence + 10);
-            int StatValue3 = RanVal.Next(Game.Player.Dexterity, Game.Player.Dexterity + 10);
-            int StatValue4 = RanVal.Next(Game.Player.Vitality, Game.Player.Vitality + 10);
+            int StatValue1 = RanVal.Next(Game.Player.Strength, Game.Player.Strength + 5);
+            int StatValue2 = RanVal.Next(Game.Player.Intelligence, Game.Player.Intelligence + 5);
+            int StatValue3 = RanVal.Next(Game.Player.Dexterity, Game.Player.Dexterity + 5);
+            int StatValue4 = RanVal.Next(Game.Player.Vitality, Game.Player.Vitality + 5);
 
             Name = GenerateEnemyName();
             Type = GenerateEnemyType();
@@ -54,7 +54,7 @@ namespace ProjectRPG
             Dexterity = StatValue3;
             Vitality = StatValue4;
 
-            Health = Strength * Vitality * 2;            
+            Health = Strength * Vitality;            
         }
 
         public string GenerateEnemyName()
@@ -71,9 +71,9 @@ namespace ProjectRPG
                                                     "Destroyer", "Small", "Large", "Blind",
                                                           "Giant", "Hand", "Warrior","Mighty", "Defiant"};
 
-            int Value1 = RanVal.Next(0, name.Count());
-            int Value2 = RanVal.Next(0, adjective.Count());
-            string nameResult = name[Value1] + " " + "the" + " "+ adjective[Value2];
+            int value1 = RanVal.Next(0, name.Count());
+            int value2 = RanVal.Next(0, adjective.Count());
+            string nameResult = name[value1] + " " + "the" + " "+ adjective[value2];
 
             return nameResult;
         }
@@ -83,9 +83,29 @@ namespace ProjectRPG
             Random RanVal = new Random();
 
             string[] type = { "Fire", "Normal", "Ice", "Undead" };
-            int Value = RanVal.Next(0, type.Count());
+            int value = RanVal.Next(0, type.Count());
 
-            return type[Value];
+            return type[value];
+        }
+
+        public int Attack()
+        {
+            int AttackPoints;
+
+            Random RanVal = new Random();
+
+            int value = RanVal.Next(1, 3);
+
+            if (value == 1)
+                AttackPoints = Game.EnemyWeapon.Move1Damage;
+            else if (value == 2)
+                AttackPoints = Game.EnemyWeapon.Move2Damage;
+            else if (value == 3)
+                AttackPoints = Game.EnemyWeapon.Move3Damage;
+            else
+                AttackPoints = 0;
+
+            return AttackPoints;
         }
 
 

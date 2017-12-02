@@ -50,19 +50,12 @@ namespace ProjectRPG
             Move3Ammo = 10;
             Move3MaxAmmo = Move3Ammo;
 
-            if (Game.Enemy.Type == "")
-                Move3Damage = BaseAttack + (int)(BaseAttack * 3.95);
-            else
-                Move3Damage = BaseAttack + (int)(BaseAttack * 3.75);
+            Move3Damage = BaseAttack + (int)(BaseAttack * 3.75);
 
             Move4Name = "Power of Zeus";
             Move4Ammo = 1;
             Move4MaxAmmo = Move4Ammo;
-
-            if (Game.Enemy.Type == "")
-                Move4Damage = BaseAttack * 10;
-            else
-                Move4Damage = BaseAttack * 8;
+            Move4Damage = BaseAttack * 8;
         }
 
         private string GenerateWeapName()
@@ -78,20 +71,10 @@ namespace ProjectRPG
         public override void UpdateWeapon(int StrengthStat)
         {
             BaseAttack = StrengthStat * 3;
-
             Move1Damage = BaseAttack;
-
-            Move2Damage = BaseAttack + (int)(BaseAttack * 0.35);
-
-            if (Game.Enemy.Type == "")
-                Move3Damage = BaseAttack + (int)(BaseAttack * 0.45);
-            else
-                Move3Damage = BaseAttack + (int)(BaseAttack * 0.55);
-        
-            if (Game.Enemy.Type == "")
-                Move4Damage = BaseAttack * 6;
-            else
-                Move4Damage = BaseAttack * 4;
+            Move2Damage = BaseAttack + (int)(BaseAttack * 2);
+            Move3Damage = BaseAttack + (int)(BaseAttack * 3.75);      
+            Move4Damage = BaseAttack * 8;
         }
     }
 }

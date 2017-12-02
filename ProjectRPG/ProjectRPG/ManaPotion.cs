@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace ProjectRPG
 {
-    class HealthPotion : Item
+    class ManaPotion : Item
     {
-        public HealthPotion()
+        public ManaPotion()
         {
-            Name = "Health Potion";
-            EffectDescription = "Regain 50% of your Health";
+            Name = "Mana Potion";
+            EffectDescription = "Regain 50% of your Mana";
             Quantity = 0;
         }
 
         public override void Use()
         {
-            Game.Player.Health += (int)(Game.Player.MaxHealth * 0.50);
+            Game.Player.Mana += (int)(Game.Player.MaxMana * 0.50);
             Quantity -= 1;
         }
     }

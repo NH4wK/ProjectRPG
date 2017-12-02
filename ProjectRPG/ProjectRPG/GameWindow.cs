@@ -17,6 +17,7 @@ namespace ProjectRPG
             InitializeComponent();
             EnemyInit();
             CharacterInit();
+            InventoryInit();
             MenuInit();
 
         }
@@ -35,13 +36,14 @@ namespace ProjectRPG
             GW_VitVal_Label.Text = Convert.ToString(Game.Player.Vitality);
 
             Game.PlayerWeapon = new WarHammer(Game.Player.Strength);
+            Game.PlayerHealthPotion = new HealthPotion();
+            Game.PlayerManaPotion = new ManaPotion();
 
             PlayerWeaponUpdate();
 
             /*
             Random rand = new Random();
             int randVal = rand.Next(0, 6);
-
             
             if (randVal == 0)
                 Game.PlayerWeapon = new Warhammer();
@@ -66,10 +68,18 @@ namespace ProjectRPG
             GW_Weapon_Panel.Hide();
             GW_Inventory_Panel.Hide();
         }
+
+        void InventoryInit()
+        {
+            GW_QuantHPot_Label.Text = $"Quantity: {Game.PlayerHealthPotion.Quantity}";
+            GW_QuantMPot_Label.Text = $"Quantity: {Game.PlayerManaPotion.Quantity}";            
+        }
+
         void EnemyInit()
         {
             Game.Enemy = new Enemy();
             Game.Enemy.GenerateEnemy();
+            Game.EnemyWeapon = new WarHammer(Game.Enemy.Strength);
 
             GW_EnemyName_Label.Text = Game.Enemy.Name;
             GW_EnemyHealthVal_Label.Text = Convert.ToString(Game.Enemy.Health);
@@ -101,23 +111,34 @@ namespace ProjectRPG
                 Game.Player.Health = 0;
                 GW_HPVal_Label.Text = Convert.ToString(Game.Player.Health);
                 
-                //Show Death Screen
                 GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} has been slained by {Game.Enemy.Name}!");
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} You have been revived by an unknown force, you feel weaker... (Stats reduced by 10%)");
                 GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
                 GW_BattleAction_TextBox.ScrollToCaret();
+
+                Game.Player.Strength -= (int)(Game.Player.Strength * 0.10);
+                Game.Player.Intelligence -= (int)(Game.Player.Intelligence * 0.10);
+                Game.Player.Dexterity -= (int)(Game.Player.Dexterity * 0.10);
+                Game.Player.Vitality -= (int)(Game.Player.Vitality * 0.10);
+
+                Game.Player.SetHealthPool();
+                Game.Player.SetManaPool();
+                PlayerUpdate();
 
                 return;
             }
 
-            if (Game.Player.Experience > 100)
+            if (Game.Player.Experience >= 100)
             {
-                if (Game.Player.Experience > 100)
+                if (Game.Player.Experience >= 100)
                     Game.Player.Experience = Game.Player.Experience - 100;
                 else
                     Game.Player.Experience = 0;
 
                 Game.Player.LevelUp();
             }
+
+            Game.PlayerWeapon.UpdateWeapon(Game.Player.Strength);
 
             //Update Labels
             GW_HPVal_Label.Text = Convert.ToString(Game.Player.Health);
@@ -138,6 +159,8 @@ namespace ProjectRPG
             GW_EnemyIntelVal_Label.Text = Convert.ToString(Game.Enemy.Intelligence);
             GW_EnemyDexVal_Label.Text = Convert.ToString(Game.Enemy.Dexterity);
             GW_EnemyVitVal_Label.Text = Convert.ToString(Game.Enemy.Vitality);
+
+            Game.EnemyWeapon.UpdateWeapon(Game.Enemy.Strength);
         }
 
         private void GW_Attack_Button_Click(object sender, EventArgs e)
@@ -171,7 +194,7 @@ namespace ProjectRPG
         {
             GW_Weapon_Panel.Hide();
 
-            int pDamage = 0, eDamage = 0;
+            int pDamage = 0, eDamage;
 
             if (GW_WeapMove1_RadButton.Checked)
             {
@@ -234,15 +257,18 @@ namespace ProjectRPG
                 Game.Player.SetManaPool();
 
                 Game.Enemy.GenerateEnemy();
+
                 PlayerUpdate();
                 EnemyUpdate();
             }
 
             //Enemy Turn
+            eDamage = Game.Enemy.Attack();
+            Game.Player.Health -= eDamage;
             GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} attacked {Game.Player.Name} for {eDamage} Damage!");
             GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
             GW_BattleAction_TextBox.ScrollToCaret();
-            Game.Player.Health -= eDamage;
+
             PlayerUpdate();
             PlayerWeaponUpdate();
         }
@@ -281,5 +307,31 @@ namespace ProjectRPG
             GW_BattleAction_TextBox.ScrollToCaret();
         }
 
+        private void GW_HPPotUse_Button_Click(object sender, EventArgs e)
+        {
+            Game.PlayerHealthPotion.Use();
+            GW_QuantHPot_Label.Text = $"Quantity: {Game.PlayerHealthPotion.Quantity}";
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} has used a Health Potion! Restored {Game.Player.MaxHealth * 0.50} Health");
+            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+            GW_BattleAction_TextBox.ScrollToCaret();
+
+            PlayerUpdate();
+        }
+
+        private void GW_MPPotUse_Button_Click(object sender, EventArgs e)
+        {
+            Game.PlayerManaPotion.Use();
+            GW_QuantMPot_Label.Text = $"Quantity: {Game.PlayerManaPotion.Quantity}";
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} has used a Mana Potion! Restored {Game.Player.MaxMana * 0.50} Mana");
+            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+            GW_BattleAction_TextBox.ScrollToCaret();
+
+            PlayerUpdate();
+        }
+
+        private void GW_WeapEquip_Button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

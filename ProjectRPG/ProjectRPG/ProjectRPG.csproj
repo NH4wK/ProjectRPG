@@ -60,6 +60,7 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManaPotion.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerCreationForm.cs">
       <SubType>Form</SubType>
