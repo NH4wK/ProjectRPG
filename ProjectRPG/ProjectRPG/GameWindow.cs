@@ -19,15 +19,14 @@ namespace ProjectRPG
             CharacterInit();
             InventoryInit();
             MenuInit();
-
         }
         void CharacterInit()
         {
             Game.Player.SetHealthPool();
             Game.Player.SetManaPool();
             GW_ChName_Label.Text = Game.Player.Name;
-            GW_HPVal_Label.Text = Convert.ToString(Game.Player.Health);
-            GW_MPVal_Label.Text = Convert.ToString(Game.Player.Mana);
+            GW_HPVal_Label.Text = ($"{Convert.ToString(Game.Player.Health)} / {Convert.ToString(Game.Player.MaxHealth)}");
+            GW_MPVal_Label.Text = ($"{Convert.ToString(Game.Player.Mana)} / {Convert.ToString(Game.Player.MaxMana)}");
             GW_XPVal_Label.Text = ($"{ Convert.ToString(Game.Player.Experience)} / 100");
             GW_LevelVal_Label.Text = Convert.ToString(Game.Player.LevelNumber);
             GW_StrVal_Label.Text = Convert.ToString(Game.Player.Strength);
@@ -38,6 +37,9 @@ namespace ProjectRPG
             Game.PlayerWeapon = new WarHammer(Game.Player.Strength);
             Game.PlayerHealthPotion = new HealthPotion();
             Game.PlayerManaPotion = new ManaPotion();
+
+            Game.PlayerHealthPotion.Quantity = 5;
+            Game.PlayerManaPotion.Quantity = 5;
 
             PlayerWeaponUpdate();
 
@@ -68,13 +70,11 @@ namespace ProjectRPG
             GW_Weapon_Panel.Hide();
             GW_Inventory_Panel.Hide();
         }
-
         void InventoryInit()
         {
             GW_QuantHPot_Label.Text = $"Quantity: {Game.PlayerHealthPotion.Quantity}";
             GW_QuantMPot_Label.Text = $"Quantity: {Game.PlayerManaPotion.Quantity}";            
         }
-
         void EnemyInit()
         {
             Game.Enemy = new Enemy();
@@ -88,6 +88,23 @@ namespace ProjectRPG
             GW_EnemyIntelVal_Label.Text = Convert.ToString(Game.Enemy.Intelligence);
             GW_EnemyDexVal_Label.Text = Convert.ToString(Game.Enemy.Dexterity);
             GW_EnemyVitVal_Label.Text = Convert.ToString(Game.Enemy.Vitality);
+        }
+
+        void InventoryUpdate()
+        {
+            if (Game.PlayerHealthPotion.Quantity == 0)
+                GW_HPPotUse_Button.Enabled = false;
+            else
+                GW_HPPotUse_Button.Enabled = true;
+
+            if (Game.PlayerManaPotion.Quantity == 0)
+                GW_MPPotUse_Button.Enabled = false;
+            else
+                GW_MPPotUse_Button.Enabled = true;
+
+            GW_QuantHPot_Label.Text = $"Quantity: {Game.PlayerHealthPotion.Quantity}";
+            GW_QuantMPot_Label.Text = $"Quantity: {Game.PlayerManaPotion.Quantity}";
+
         }
         void PlayerWeaponUpdate()
         {
@@ -141,8 +158,8 @@ namespace ProjectRPG
             Game.PlayerWeapon.UpdateWeapon(Game.Player.Strength);
 
             //Update Labels
-            GW_HPVal_Label.Text = Convert.ToString(Game.Player.Health);
-            GW_MPVal_Label.Text = Convert.ToString(Game.Player.Mana);
+            GW_HPVal_Label.Text = ($"{Convert.ToString(Game.Player.Health)} / {Convert.ToString(Game.Player.MaxHealth)}");
+            GW_MPVal_Label.Text = ($"{Convert.ToString(Game.Player.Mana)} / {Convert.ToString(Game.Player.MaxMana)}");
             GW_XPVal_Label.Text = ($"{ Convert.ToString(Game.Player.Experience)} / 100");
             GW_LevelVal_Label.Text = Convert.ToString(Game.Player.LevelNumber);
             GW_StrVal_Label.Text = Convert.ToString(Game.Player.Strength);
@@ -161,6 +178,23 @@ namespace ProjectRPG
             GW_EnemyVitVal_Label.Text = Convert.ToString(Game.Enemy.Vitality);
 
             Game.EnemyWeapon.UpdateWeapon(Game.Enemy.Strength);
+        }
+
+        void EnemyDropItems()
+        {
+            Random ranVal = new Random();
+            int value1 = ranVal.Next(1, 3);
+            int value2 = ranVal.Next(1, 3);
+
+            Game.PlayerHealthPotion.Quantity += value1;
+            Game.PlayerManaPotion.Quantity += value2;
+
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} {value1} Health Potion(s) added to your Inventory!");
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} {value2} Mana Potion(s) added to your Inventory!");
+            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+            GW_BattleAction_TextBox.ScrollToCaret();
+
+            InventoryUpdate();
         }
 
         private void GW_Attack_Button_Click(object sender, EventArgs e)
@@ -192,8 +226,6 @@ namespace ProjectRPG
 
         private void GW_ExecMove_Button_Click(object sender, EventArgs e)
         {
-            GW_Weapon_Panel.Hide();
-
             int pDamage = 0, eDamage;
 
             if (GW_WeapMove1_RadButton.Checked)
@@ -256,6 +288,8 @@ namespace ProjectRPG
                 Game.Player.SetHealthPool();
                 Game.Player.SetManaPool();
 
+                EnemyDropItems();
+
                 Game.Enemy.GenerateEnemy();
 
                 PlayerUpdate();
@@ -303,6 +337,9 @@ namespace ProjectRPG
         private void GW_Retreat_Button_Click(object sender, EventArgs e)
         {
             GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} has retreated!");
+            Game.Enemy.GenerateEnemy();
+            EnemyUpdate();
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} has appeared!");
             GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
             GW_BattleAction_TextBox.ScrollToCaret();
         }
@@ -316,6 +353,7 @@ namespace ProjectRPG
             GW_BattleAction_TextBox.ScrollToCaret();
 
             PlayerUpdate();
+            InventoryUpdate();
         }
 
         private void GW_MPPotUse_Button_Click(object sender, EventArgs e)
@@ -327,6 +365,7 @@ namespace ProjectRPG
             GW_BattleAction_TextBox.ScrollToCaret();
 
             PlayerUpdate();
+            InventoryUpdate();
         }
 
         private void GW_WeapEquip_Button_Click(object sender, EventArgs e)

@@ -83,6 +83,9 @@
             this.GW_WeaponName_Label = new System.Windows.Forms.Label();
             this.GW_Weapon_Label = new System.Windows.Forms.Label();
             this.GW_Inventory_Panel = new System.Windows.Forms.Panel();
+            this.GW_WeapEquip_Button = new System.Windows.Forms.Button();
+            this.GW_MPPotUse_Button = new System.Windows.Forms.Button();
+            this.GW_HPPotUse_Button = new System.Windows.Forms.Button();
             this.GW_QuantMPot_Label = new System.Windows.Forms.Label();
             this.GW_QuantHPot_Label = new System.Windows.Forms.Label();
             this.GW_WeapSel_Combo = new System.Windows.Forms.ComboBox();
@@ -95,9 +98,6 @@
             this.GW_BattleAction_Panel = new System.Windows.Forms.Panel();
             this.GW_BattleAction_TextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.GW_HPPotUse_Button = new System.Windows.Forms.Button();
-            this.GW_MPPotUse_Button = new System.Windows.Forms.Button();
-            this.GW_WeapEquip_Button = new System.Windows.Forms.Button();
             this.GW_PlayerPanel1.SuspendLayout();
             this.GW_Enemy_Panel.SuspendLayout();
             this.GW_Battle_Panel.SuspendLayout();
@@ -131,7 +131,7 @@
             this.GW_PlayerPanel1.Controls.Add(this.GW_Intel_Label);
             this.GW_PlayerPanel1.Controls.Add(this.GW_Str_Label);
             this.GW_PlayerPanel1.Controls.Add(this.GW_ChName_Label);
-            this.GW_PlayerPanel1.Location = new System.Drawing.Point(10, 326);
+            this.GW_PlayerPanel1.Location = new System.Drawing.Point(8, 461);
             this.GW_PlayerPanel1.Name = "GW_PlayerPanel1";
             this.GW_PlayerPanel1.Size = new System.Drawing.Size(169, 214);
             this.GW_PlayerPanel1.TabIndex = 0;
@@ -335,9 +335,9 @@
             this.GW_Enemy_Panel.Controls.Add(this.GW_EnemyHealth_Label);
             this.GW_Enemy_Panel.Controls.Add(this.GW_EnemyIntel_Label);
             this.GW_Enemy_Panel.Controls.Add(this.GW_EnemyStr_Label);
-            this.GW_Enemy_Panel.Location = new System.Drawing.Point(690, 326);
+            this.GW_Enemy_Panel.Location = new System.Drawing.Point(957, 461);
             this.GW_Enemy_Panel.Name = "GW_Enemy_Panel";
-            this.GW_Enemy_Panel.Size = new System.Drawing.Size(247, 214);
+            this.GW_Enemy_Panel.Size = new System.Drawing.Size(295, 214);
             this.GW_Enemy_Panel.TabIndex = 1;
             // 
             // GW_EnemyVitVal_Label
@@ -499,7 +499,7 @@
             this.GW_Battle_Panel.Controls.Add(this.GW_Defend_Button);
             this.GW_Battle_Panel.Controls.Add(this.GW_Battle_Menu_Label);
             this.GW_Battle_Panel.Controls.Add(this.GW_Attack_Button);
-            this.GW_Battle_Panel.Location = new System.Drawing.Point(195, 436);
+            this.GW_Battle_Panel.Location = new System.Drawing.Point(190, 571);
             this.GW_Battle_Panel.Name = "GW_Battle_Panel";
             this.GW_Battle_Panel.Size = new System.Drawing.Size(201, 104);
             this.GW_Battle_Panel.TabIndex = 2;
@@ -578,7 +578,7 @@
             this.GW_Weapon_Panel.Controls.Add(this.GW_WeapMove1_RadButton);
             this.GW_Weapon_Panel.Controls.Add(this.GW_WeaponName_Label);
             this.GW_Weapon_Panel.Controls.Add(this.GW_Weapon_Label);
-            this.GW_Weapon_Panel.Location = new System.Drawing.Point(195, 280);
+            this.GW_Weapon_Panel.Location = new System.Drawing.Point(190, 415);
             this.GW_Weapon_Panel.Margin = new System.Windows.Forms.Padding(2);
             this.GW_Weapon_Panel.Name = "GW_Weapon_Panel";
             this.GW_Weapon_Panel.Size = new System.Drawing.Size(302, 149);
@@ -728,11 +728,41 @@
             this.GW_Inventory_Panel.Controls.Add(this.GW_MP_Icon_PicBox);
             this.GW_Inventory_Panel.Controls.Add(this.GW_HP_Icon_PicBox);
             this.GW_Inventory_Panel.Controls.Add(this.GW_Inventory_Label);
-            this.GW_Inventory_Panel.Location = new System.Drawing.Point(10, 130);
+            this.GW_Inventory_Panel.Location = new System.Drawing.Point(8, 279);
             this.GW_Inventory_Panel.Margin = new System.Windows.Forms.Padding(2);
             this.GW_Inventory_Panel.Name = "GW_Inventory_Panel";
             this.GW_Inventory_Panel.Size = new System.Drawing.Size(208, 177);
             this.GW_Inventory_Panel.TabIndex = 4;
+            // 
+            // GW_WeapEquip_Button
+            // 
+            this.GW_WeapEquip_Button.Location = new System.Drawing.Point(45, 141);
+            this.GW_WeapEquip_Button.Name = "GW_WeapEquip_Button";
+            this.GW_WeapEquip_Button.Size = new System.Drawing.Size(64, 23);
+            this.GW_WeapEquip_Button.TabIndex = 11;
+            this.GW_WeapEquip_Button.Text = "Equip";
+            this.GW_WeapEquip_Button.UseVisualStyleBackColor = true;
+            this.GW_WeapEquip_Button.Click += new System.EventHandler(this.GW_WeapEquip_Button_Click);
+            // 
+            // GW_MPPotUse_Button
+            // 
+            this.GW_MPPotUse_Button.Location = new System.Drawing.Point(144, 79);
+            this.GW_MPPotUse_Button.Name = "GW_MPPotUse_Button";
+            this.GW_MPPotUse_Button.Size = new System.Drawing.Size(49, 23);
+            this.GW_MPPotUse_Button.TabIndex = 10;
+            this.GW_MPPotUse_Button.Text = "Use";
+            this.GW_MPPotUse_Button.UseVisualStyleBackColor = true;
+            this.GW_MPPotUse_Button.Click += new System.EventHandler(this.GW_MPPotUse_Button_Click);
+            // 
+            // GW_HPPotUse_Button
+            // 
+            this.GW_HPPotUse_Button.Location = new System.Drawing.Point(144, 42);
+            this.GW_HPPotUse_Button.Name = "GW_HPPotUse_Button";
+            this.GW_HPPotUse_Button.Size = new System.Drawing.Size(49, 23);
+            this.GW_HPPotUse_Button.TabIndex = 9;
+            this.GW_HPPotUse_Button.Text = "Use";
+            this.GW_HPPotUse_Button.UseVisualStyleBackColor = true;
+            this.GW_HPPotUse_Button.Click += new System.EventHandler(this.GW_HPPotUse_Button_Click);
             // 
             // GW_QuantMPot_Label
             // 
@@ -765,6 +795,7 @@
             // 
             // GW_WeapIcon_PicBox
             // 
+            this.GW_WeapIcon_PicBox.BackColor = System.Drawing.Color.Transparent;
             this.GW_WeapIcon_PicBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.GW_WeapIcon_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("GW_WeapIcon_PicBox.Image")));
             this.GW_WeapIcon_PicBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("GW_WeapIcon_PicBox.InitialImage")));
@@ -797,6 +828,7 @@
             // 
             // GW_MP_Icon_PicBox
             // 
+            this.GW_MP_Icon_PicBox.BackColor = System.Drawing.Color.Transparent;
             this.GW_MP_Icon_PicBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.GW_MP_Icon_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("GW_MP_Icon_PicBox.Image")));
             this.GW_MP_Icon_PicBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("GW_MP_Icon_PicBox.InitialImage")));
@@ -809,6 +841,7 @@
             // 
             // GW_HP_Icon_PicBox
             // 
+            this.GW_HP_Icon_PicBox.BackColor = System.Drawing.Color.Transparent;
             this.GW_HP_Icon_PicBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.GW_HP_Icon_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("GW_HP_Icon_PicBox.Image")));
             this.GW_HP_Icon_PicBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("GW_HP_Icon_PicBox.InitialImage")));
@@ -839,7 +872,7 @@
             this.GW_BattleAction_Panel.Location = new System.Drawing.Point(9, 10);
             this.GW_BattleAction_Panel.Margin = new System.Windows.Forms.Padding(2);
             this.GW_BattleAction_Panel.Name = "GW_BattleAction_Panel";
-            this.GW_BattleAction_Panel.Size = new System.Drawing.Size(365, 93);
+            this.GW_BattleAction_Panel.Size = new System.Drawing.Size(365, 148);
             this.GW_BattleAction_Panel.TabIndex = 5;
             // 
             // GW_BattleAction_TextBox
@@ -850,7 +883,7 @@
             this.GW_BattleAction_TextBox.Name = "GW_BattleAction_TextBox";
             this.GW_BattleAction_TextBox.ReadOnly = true;
             this.GW_BattleAction_TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.GW_BattleAction_TextBox.Size = new System.Drawing.Size(338, 55);
+            this.GW_BattleAction_TextBox.Size = new System.Drawing.Size(338, 103);
             this.GW_BattleAction_TextBox.TabIndex = 1;
             // 
             // label1
@@ -864,49 +897,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Battle Log";
             // 
-            // GW_HPPotUse_Button
-            // 
-            this.GW_HPPotUse_Button.Location = new System.Drawing.Point(144, 42);
-            this.GW_HPPotUse_Button.Name = "GW_HPPotUse_Button";
-            this.GW_HPPotUse_Button.Size = new System.Drawing.Size(49, 23);
-            this.GW_HPPotUse_Button.TabIndex = 9;
-            this.GW_HPPotUse_Button.Text = "Use";
-            this.GW_HPPotUse_Button.UseVisualStyleBackColor = true;
-            this.GW_HPPotUse_Button.Click += new System.EventHandler(this.GW_HPPotUse_Button_Click);
-            // 
-            // GW_MPPotUse_Button
-            // 
-            this.GW_MPPotUse_Button.Location = new System.Drawing.Point(144, 79);
-            this.GW_MPPotUse_Button.Name = "GW_MPPotUse_Button";
-            this.GW_MPPotUse_Button.Size = new System.Drawing.Size(49, 23);
-            this.GW_MPPotUse_Button.TabIndex = 10;
-            this.GW_MPPotUse_Button.Text = "Use";
-            this.GW_MPPotUse_Button.UseVisualStyleBackColor = true;
-            this.GW_MPPotUse_Button.Click += new System.EventHandler(this.GW_MPPotUse_Button_Click);
-            // 
-            // GW_WeapEquip_Button
-            // 
-            this.GW_WeapEquip_Button.Location = new System.Drawing.Point(45, 141);
-            this.GW_WeapEquip_Button.Name = "GW_WeapEquip_Button";
-            this.GW_WeapEquip_Button.Size = new System.Drawing.Size(64, 23);
-            this.GW_WeapEquip_Button.TabIndex = 11;
-            this.GW_WeapEquip_Button.Text = "Equip";
-            this.GW_WeapEquip_Button.UseVisualStyleBackColor = true;
-            this.GW_WeapEquip_Button.Click += new System.EventHandler(this.GW_WeapEquip_Button_Click);
-            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 553);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.GW_BattleAction_Panel);
             this.Controls.Add(this.GW_Inventory_Panel);
             this.Controls.Add(this.GW_Weapon_Panel);
             this.Controls.Add(this.GW_Battle_Panel);
             this.Controls.Add(this.GW_Enemy_Panel);
             this.Controls.Add(this.GW_PlayerPanel1);
-            this.MaximumSize = new System.Drawing.Size(964, 592);
-            this.MinimumSize = new System.Drawing.Size(964, 592);
+            this.MaximumSize = new System.Drawing.Size(1280, 720);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "GameWindow";
             this.Text = "ProjectRPG - Game";
             this.GW_PlayerPanel1.ResumeLayout(false);

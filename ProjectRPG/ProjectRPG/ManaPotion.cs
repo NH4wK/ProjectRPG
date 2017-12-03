@@ -17,7 +17,11 @@ namespace ProjectRPG
 
         public override void Use()
         {
-            Game.Player.Mana += (int)(Game.Player.MaxMana * 0.50);
+            if ((Game.Player.Mana + (int)(Game.Player.MaxMana * 0.50)) < Game.Player.MaxMana)
+                Game.Player.Mana += (int)(Game.Player.MaxMana * 0.50);
+            else
+                Game.Player.Mana = Game.Player.MaxMana;
+
             Quantity -= 1;
         }
     }

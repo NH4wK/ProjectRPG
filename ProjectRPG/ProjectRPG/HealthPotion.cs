@@ -17,7 +17,11 @@ namespace ProjectRPG
 
         public override void Use()
         {
-            Game.Player.Health += (int)(Game.Player.MaxHealth * 0.50);
+            if ((Game.Player.Health + (int)(Game.Player.MaxHealth * 0.50)) < Game.Player.MaxHealth)
+                Game.Player.Health += (int)(Game.Player.MaxHealth * 0.50);
+            else
+                Game.Player.Health = Game.Player.MaxHealth;
+
             Quantity -= 1;
         }
     }

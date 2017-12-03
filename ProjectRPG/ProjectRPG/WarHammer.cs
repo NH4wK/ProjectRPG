@@ -50,10 +50,10 @@ namespace ProjectRPG
             Move3Ammo = 10;
             Move3MaxAmmo = Move3Ammo;
 
-            Move3Damage = BaseAttack + (int)(BaseAttack * 3.75);
+            Move3Damage = BaseAttack + (int)(BaseAttack * 2.5);
 
             Move4Name = "Power of Zeus";
-            Move4Ammo = 1;
+            Move4Ammo = 5;
             Move4MaxAmmo = Move4Ammo;
             Move4Damage = BaseAttack * 8;
         }
@@ -73,7 +73,7 @@ namespace ProjectRPG
             BaseAttack = StrengthStat * 3;
             Move1Damage = BaseAttack;
             Move2Damage = BaseAttack + (int)(BaseAttack * 2);
-            Move3Damage = BaseAttack + (int)(BaseAttack * 3.75);      
+            Move3Damage = BaseAttack + (int)(BaseAttack * 2.5);      
             Move4Damage = BaseAttack * 8;
         }
     }
