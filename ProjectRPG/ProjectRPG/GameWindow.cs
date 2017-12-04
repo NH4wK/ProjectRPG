@@ -88,7 +88,6 @@ namespace ProjectRPG
         {
             Game.Enemy = new Enemy();
             Game.Enemy.GenerateEnemy();
-            Game.EnemyWeapon = new WarHammer(Game.Enemy.Strength);
 
             GW_EnemyName_Label.Text = Game.Enemy.Name;
             GW_EnemyHealthVal_Label.Text = Convert.ToString(Game.Enemy.Health);
@@ -97,6 +96,7 @@ namespace ProjectRPG
             GW_EnemyIntelVal_Label.Text = Convert.ToString(Game.Enemy.Intelligence);
             GW_EnemyDexVal_Label.Text = Convert.ToString(Game.Enemy.Dexterity);
             GW_EnemyVitVal_Label.Text = Convert.ToString(Game.Enemy.Vitality);
+            GW_EnemyWeap_Label.Text = $"Weapon: {Game.EnemyWeapon.Name}";
         }
 
         void InventoryUpdate()
@@ -137,8 +137,6 @@ namespace ProjectRPG
         }
         void PlayerUpdate()
         {
-
-
             if (Game.Player.Health <= 0)
             {
                 Game.Player.Health = 0;
@@ -192,6 +190,7 @@ namespace ProjectRPG
             GW_EnemyIntelVal_Label.Text = Convert.ToString(Game.Enemy.Intelligence);
             GW_EnemyDexVal_Label.Text = Convert.ToString(Game.Enemy.Dexterity);
             GW_EnemyVitVal_Label.Text = Convert.ToString(Game.Enemy.Vitality);
+            GW_EnemyWeap_Label.Text = $"Weapon: {Game.EnemyWeapon.Name}";
 
             Game.EnemyWeapon.UpdateWeapon(Game.Enemy.Strength);
         }

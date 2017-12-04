@@ -57,7 +57,28 @@ namespace ProjectRPG
             if (Game.Enemy.Health >= 2147483647 || Game.Enemy.Health < 0)
                 Health = 2147483647;
             else
-                Health = Strength * Vitality;            
+                Health = Strength * Vitality;
+
+            //Randomly Choose a Weapon for the Player
+            Random rand = new Random();
+            int randVal = rand.Next(0, 6);
+
+            if (randVal == 0)
+                Game.EnemyWeapon = new WarHammer(Game.Enemy.Strength);
+            else if (randVal == 1)
+                Game.EnemyWeapon = new Mace(Game.Enemy.Strength);
+            else if (randVal == 2)
+                Game.EnemyWeapon = new Broadsword(Game.Enemy.Strength);
+            else if (randVal == 3)
+                Game.EnemyWeapon = new Greatsword(Game.Enemy.Strength);
+            else if (randVal == 4)
+                Game.EnemyWeapon = new Katana(Game.Enemy.Strength);
+            else if (randVal == 5)
+                Game.EnemyWeapon = new SpellTome(Game.Enemy.Strength);
+            else if (randVal == 6)
+                Game.EnemyWeapon = new Staff(Game.Enemy.Strength);
+            else
+                Game.EnemyWeapon = null;
         }
 
         public string GenerateEnemyName()
@@ -110,8 +131,5 @@ namespace ProjectRPG
 
             return AttackPoints;
         }
-
-
-
     }
 }

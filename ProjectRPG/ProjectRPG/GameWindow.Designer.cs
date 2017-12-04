@@ -103,6 +103,7 @@
             this.GW_BattleAction_Panel = new System.Windows.Forms.Panel();
             this.GW_BattleAction_TextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.GW_EnemyWeap_Label = new System.Windows.Forms.Label();
             this.GW_PlayerPanel1.SuspendLayout();
             this.GW_Enemy_Panel.SuspendLayout();
             this.GW_Battle_Panel.SuspendLayout();
@@ -355,6 +356,7 @@
             // 
             this.GW_Enemy_Panel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.GW_Enemy_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GW_Enemy_Panel.Controls.Add(this.GW_EnemyWeap_Label);
             this.GW_Enemy_Panel.Controls.Add(this.GW_EnemyVitVal_Label);
             this.GW_Enemy_Panel.Controls.Add(this.GW_EnemyDexVal_Label);
             this.GW_Enemy_Panel.Controls.Add(this.GW_EnemyIntelVal_Label);
@@ -380,7 +382,7 @@
             // 
             this.GW_EnemyVitVal_Label.AutoSize = true;
             this.GW_EnemyVitVal_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyVitVal_Label.Location = new System.Drawing.Point(96, 186);
+            this.GW_EnemyVitVal_Label.Location = new System.Drawing.Point(96, 204);
             this.GW_EnemyVitVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyVitVal_Label.Name = "GW_EnemyVitVal_Label";
             this.GW_EnemyVitVal_Label.Size = new System.Drawing.Size(61, 21);
@@ -391,7 +393,7 @@
             // 
             this.GW_EnemyDexVal_Label.AutoSize = true;
             this.GW_EnemyDexVal_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyDexVal_Label.Location = new System.Drawing.Point(113, 165);
+            this.GW_EnemyDexVal_Label.Location = new System.Drawing.Point(113, 183);
             this.GW_EnemyDexVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyDexVal_Label.Name = "GW_EnemyDexVal_Label";
             this.GW_EnemyDexVal_Label.Size = new System.Drawing.Size(70, 21);
@@ -402,7 +404,7 @@
             // 
             this.GW_EnemyIntelVal_Label.AutoSize = true;
             this.GW_EnemyIntelVal_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyIntelVal_Label.Location = new System.Drawing.Point(139, 144);
+            this.GW_EnemyIntelVal_Label.Location = new System.Drawing.Point(139, 162);
             this.GW_EnemyIntelVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyIntelVal_Label.Name = "GW_EnemyIntelVal_Label";
             this.GW_EnemyIntelVal_Label.Size = new System.Drawing.Size(74, 21);
@@ -413,7 +415,7 @@
             // 
             this.GW_EnemyStrVal_Label.AutoSize = true;
             this.GW_EnemyStrVal_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyStrVal_Label.Location = new System.Drawing.Point(105, 123);
+            this.GW_EnemyStrVal_Label.Location = new System.Drawing.Point(105, 141);
             this.GW_EnemyStrVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyStrVal_Label.Name = "GW_EnemyStrVal_Label";
             this.GW_EnemyStrVal_Label.Size = new System.Drawing.Size(58, 21);
@@ -479,7 +481,7 @@
             // 
             this.GW_EnemyStats_Label.AutoSize = true;
             this.GW_EnemyStats_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyStats_Label.Location = new System.Drawing.Point(13, 102);
+            this.GW_EnemyStats_Label.Location = new System.Drawing.Point(13, 120);
             this.GW_EnemyStats_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyStats_Label.Name = "GW_EnemyStats_Label";
             this.GW_EnemyStats_Label.Size = new System.Drawing.Size(50, 19);
@@ -490,7 +492,7 @@
             // 
             this.GW_EnemyVit_Label.AutoSize = true;
             this.GW_EnemyVit_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyVit_Label.Location = new System.Drawing.Point(27, 186);
+            this.GW_EnemyVit_Label.Location = new System.Drawing.Point(27, 204);
             this.GW_EnemyVit_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyVit_Label.Name = "GW_EnemyVit_Label";
             this.GW_EnemyVit_Label.Size = new System.Drawing.Size(76, 21);
@@ -501,7 +503,7 @@
             // 
             this.GW_EnemyDex_Label.AutoSize = true;
             this.GW_EnemyDex_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyDex_Label.Location = new System.Drawing.Point(27, 165);
+            this.GW_EnemyDex_Label.Location = new System.Drawing.Point(27, 183);
             this.GW_EnemyDex_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyDex_Label.Name = "GW_EnemyDex_Label";
             this.GW_EnemyDex_Label.Size = new System.Drawing.Size(93, 21);
@@ -523,7 +525,7 @@
             // 
             this.GW_EnemyIntel_Label.AutoSize = true;
             this.GW_EnemyIntel_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyIntel_Label.Location = new System.Drawing.Point(27, 144);
+            this.GW_EnemyIntel_Label.Location = new System.Drawing.Point(27, 162);
             this.GW_EnemyIntel_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyIntel_Label.Name = "GW_EnemyIntel_Label";
             this.GW_EnemyIntel_Label.Size = new System.Drawing.Size(116, 21);
@@ -534,7 +536,7 @@
             // 
             this.GW_EnemyStr_Label.AutoSize = true;
             this.GW_EnemyStr_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyStr_Label.Location = new System.Drawing.Point(27, 123);
+            this.GW_EnemyStr_Label.Location = new System.Drawing.Point(27, 141);
             this.GW_EnemyStr_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyStr_Label.Name = "GW_EnemyStr_Label";
             this.GW_EnemyStr_Label.Size = new System.Drawing.Size(89, 21);
@@ -1008,6 +1010,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Battle Log";
             // 
+            // GW_EnemyWeap_Label
+            // 
+            this.GW_EnemyWeap_Label.AutoSize = true;
+            this.GW_EnemyWeap_Label.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GW_EnemyWeap_Label.Location = new System.Drawing.Point(13, 93);
+            this.GW_EnemyWeap_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.GW_EnemyWeap_Label.Name = "GW_EnemyWeap_Label";
+            this.GW_EnemyWeap_Label.Size = new System.Drawing.Size(136, 17);
+            this.GW_EnemyWeap_Label.TabIndex = 27;
+            this.GW_EnemyWeap_Label.Text = "Weapon: WeapVal";
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1121,5 +1134,6 @@
         private System.Windows.Forms.Label GW_QuantWRPot_Label;
         private System.Windows.Forms.Label GW_WeapRestorPotion_Label;
         private System.Windows.Forms.PictureBox GW_WeapRestorePot_PicBox;
+        private System.Windows.Forms.Label GW_EnemyWeap_Label;
     }
 }
