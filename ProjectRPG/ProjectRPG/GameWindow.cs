@@ -34,36 +34,44 @@ namespace ProjectRPG
             GW_DexVal_Label.Text = Convert.ToString(Game.Player.Dexterity);
             GW_VitVal_Label.Text = Convert.ToString(Game.Player.Vitality);
 
-            Game.PlayerWeapon = new WarHammer(Game.Player.Strength);
             Game.PlayerHealthPotion = new HealthPotion();
             Game.PlayerManaPotion = new ManaPotion();
+            Game.PlayerWeapRestorePotion = new WeapRestorePotion();
 
+            //Randomly Choose a Weapon for the Player
+            Random rand = new Random();
+            int randVal = rand.Next(0, 6);
+
+            if (randVal == 0)
+                Game.PlayerWeapon = new WarHammer(Game.Player.Strength);
+            else if (randVal == 1)
+                Game.PlayerWeapon = new Mace(Game.Player.Strength);
+            else if (randVal == 2)
+                Game.PlayerWeapon = new Broadsword(Game.Player.Strength);
+            else if (randVal == 3)
+                Game.PlayerWeapon = new Greatsword(Game.Player.Strength);
+            else if (randVal == 4)
+                Game.PlayerWeapon = new Katana(Game.Player.Strength);
+            else if (randVal == 5)
+                Game.PlayerWeapon = new SpellTome(Game.Player.Strength);
+            else if (randVal == 6)
+                Game.PlayerWeapon = new Staff(Game.Player.Strength);
+            else
+                Game.PlayerWeapon = null;
+
+            //Add Initial Weapon to Inventory
+            Game.WeaponBox.Add(Game.PlayerWeapon);
+            GW_WeapSel_Combo.Items.Add(Game.PlayerWeapon.Name);
+            GW_WeapSel_Combo.Text = Game.PlayerWeapon.Name;
+
+            //Starting Items
             Game.PlayerHealthPotion.Quantity = 5;
             Game.PlayerManaPotion.Quantity = 5;
+            Game.PlayerWeapRestorePotion.Quantity = 1;
 
             PlayerWeaponUpdate();
 
-            /*
-            Random rand = new Random();
-            int randVal = rand.Next(0, 6);
-            
-            if (randVal == 0)
-                Game.PlayerWeapon = new Warhammer();
-            else if(randVal == 1)
-                Game.PlayerWeapon = new Mace();
-            else if(randVal == 2)
-                Game.PlayerWeapon = new Broadsword();
-            else if(randVal == 3)
-                Game.PlayerWeapon = new Greatsword();
-            else if(randVal == 4)
-                Game.PlayerWeapon = new Katana();
-            else if(randVal == 5)
-                Game.PlayerWeapon = new Wand();
-            else if(randVal == 6)
-                Game.PlayerWeapon = new Staff();
-            else
-                Game.PlayerWeapon = new Weapon();
-            */
+
         }
         void MenuInit()
         {
@@ -73,7 +81,8 @@ namespace ProjectRPG
         void InventoryInit()
         {
             GW_QuantHPot_Label.Text = $"Quantity: {Game.PlayerHealthPotion.Quantity}";
-            GW_QuantMPot_Label.Text = $"Quantity: {Game.PlayerManaPotion.Quantity}";            
+            GW_QuantMPot_Label.Text = $"Quantity: {Game.PlayerManaPotion.Quantity}";
+            GW_QuantWRPot_Label.Text = $"Quantity: {Game.PlayerWeapRestorePotion.Quantity}";
         }
         void EnemyInit()
         {
@@ -102,9 +111,14 @@ namespace ProjectRPG
             else
                 GW_MPPotUse_Button.Enabled = true;
 
+            if (Game.PlayerWeapRestorePotion.Quantity == 0)
+                GW_WRPotUse_Button.Enabled = false;
+            else
+                GW_WRPotUse_Button.Enabled = true;
+
             GW_QuantHPot_Label.Text = $"Quantity: {Game.PlayerHealthPotion.Quantity}";
             GW_QuantMPot_Label.Text = $"Quantity: {Game.PlayerManaPotion.Quantity}";
-
+            GW_QuantWRPot_Label.Text = $"Quantity: {Game.PlayerWeapRestorePotion.Quantity}";
         }
         void PlayerWeaponUpdate()
         {
@@ -123,6 +137,8 @@ namespace ProjectRPG
         }
         void PlayerUpdate()
         {
+
+
             if (Game.Player.Health <= 0)
             {
                 Game.Player.Health = 0;
@@ -186,11 +202,50 @@ namespace ProjectRPG
             int value1 = ranVal.Next(1, 3);
             int value2 = ranVal.Next(1, 3);
 
+            //Add a random number of potion to the player's inventory
             Game.PlayerHealthPotion.Quantity += value1;
             Game.PlayerManaPotion.Quantity += value2;
 
-            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} {value1} Health Potion(s) added to your Inventory!");
-            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} {value2} Mana Potion(s) added to your Inventory!");
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} {value1} Health Potion(s) has been added to your Inventory!");
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} {value2} Mana Potion(s) has been added to your Inventory!");
+
+            if (Game.Player.KillCount % 3 == 0) //Every 3 kills drop a Random Weapon
+            {
+                //Randomly drop a weapon for the Player
+                Random rand = new Random();
+                int randVal = rand.Next(0, 6);
+
+                if (randVal == 0)
+                    Game.PlayerWeaponTemp = new WarHammer(Game.Player.Strength);
+                else if (randVal == 1)
+                    Game.PlayerWeaponTemp = new Mace(Game.Player.Strength);
+                else if (randVal == 2)
+                    Game.PlayerWeaponTemp = new Broadsword(Game.Player.Strength);
+                else if (randVal == 3)
+                    Game.PlayerWeaponTemp = new Greatsword(Game.Player.Strength);
+                else if (randVal == 4)
+                    Game.PlayerWeaponTemp = new Katana(Game.Player.Strength);
+                else if (randVal == 5)
+                    Game.PlayerWeaponTemp = new SpellTome(Game.Player.Strength);
+                else if (randVal == 6)
+                    Game.PlayerWeaponTemp = new Staff(Game.Player.Strength);
+                else
+                    Game.PlayerWeaponTemp = null;
+
+                Game.WeaponBox.Add(Game.PlayerWeaponTemp);
+                GW_WeapSel_Combo.Items.Add(Game.PlayerWeaponTemp.Name);
+                GW_WeapSel_Combo.Text = Game.PlayerWeaponTemp.Name;
+
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} {Game.PlayerWeaponTemp.Name} has been added to your Inventory!");
+            }
+
+            if (Game.Player.KillCount % 5 == 0) //Every 5 kills drop a weapon restore potion
+            {
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} A Weapon Restore Potion has been added to your Inventory!");
+                Game.PlayerWeapRestorePotion.Quantity += 1;
+            }
+
+
             GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
             GW_BattleAction_TextBox.ScrollToCaret();
 
@@ -273,8 +328,10 @@ namespace ProjectRPG
             Game.Enemy.Health -= pDamage;
             GW_EnemyHealthVal_Label.Text = Convert.ToString(Game.Enemy.Health);
 
+            //Enemy Killed
             if (Game.Enemy.Health <= 0)
             {
+                Game.Enemy.Health = 0;
                 GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} has been slained. You have absorbed {Game.Enemy.Name}'s power!");
                 GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
                 GW_BattleAction_TextBox.ScrollToCaret();
@@ -287,6 +344,9 @@ namespace ProjectRPG
 
                 Game.Player.SetHealthPool();
                 Game.Player.SetManaPool();
+
+                Game.Player.KillCount += 1;
+                GW_PlayerKillCount_Label.Text = ($"Kills: {Game.Player.KillCount}");
 
                 EnemyDropItems();
 
@@ -370,7 +430,30 @@ namespace ProjectRPG
 
         private void GW_WeapEquip_Button_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < Game.WeaponBox.Count; i++)
+            {
+                if ((GW_WeapSel_Combo.SelectedItem.ToString()) == Game.WeaponBox[i].Name)
+                {
+                    Game.PlayerWeapon = Game.WeaponBox[i];
+                    PlayerWeaponUpdate();
+                }
+            }
 
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} has equipped {Game.PlayerWeapon.Name}!");
+            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+            GW_BattleAction_TextBox.ScrollToCaret();
+        }
+
+        private void GW_WRPotUse_Button_Click(object sender, EventArgs e)
+        {
+            Game.PlayerWeapRestorePotion.Use();
+            GW_QuantWRPot_Label.Text = $"Quantity: {Game.PlayerWeapRestorePotion.Quantity}";
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} has used a Weapon Restore Potion! {Game.PlayerWeapon.Name} has been restored!");
+            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+            GW_BattleAction_TextBox.ScrollToCaret();
+
+            PlayerWeaponUpdate();
+            InventoryUpdate();
         }
     }
 }

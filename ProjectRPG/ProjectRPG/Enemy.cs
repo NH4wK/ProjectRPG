@@ -54,7 +54,10 @@ namespace ProjectRPG
             Dexterity = StatValue3;
             Vitality = StatValue4;
 
-            Health = Strength * Vitality;            
+            if (Game.Enemy.Health >= 2147483647 || Game.Enemy.Health < 0)
+                Health = 2147483647;
+            else
+                Health = Strength * Vitality;            
         }
 
         public string GenerateEnemyName()

@@ -19,6 +19,7 @@ namespace ProjectRPG
         public int MaxMana { get; set; }
         public int Experience { get; set; }
         public int LevelNumber { get; set; }
+        public int KillCount { get; set; }
 
         public Player()
         {
@@ -44,17 +45,26 @@ namespace ProjectRPG
             Mana = Intelligence * 8;
             MaxHealth = Health;
             MaxMana = Mana;
+            KillCount = 0;
         }
 
         public void SetHealthPool()
         {
-            Health = Strength * Vitality;
+            if (Game.Player.Health >= 2147483647 || Game.Player.Health < 0)
+                Health = 2147483647;
+            else
+                Health = Strength * Vitality;
+
             MaxHealth = Health;
         }
 
         public void SetManaPool()
         {
-            Mana = Intelligence * 8;
+            if (Game.Player.Mana >= 2147483647 || Game.Player.Mana < 0)
+                Mana = 2147483647;
+            else
+                Mana = Intelligence * 8;
+
             MaxMana = Mana;
         }
 
