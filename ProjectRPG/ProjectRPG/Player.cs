@@ -50,21 +50,21 @@ namespace ProjectRPG
 
         public void SetHealthPool()
         {
+            Health = Strength * Vitality;
+
             if (Game.Player.Health >= 2147483647 || Game.Player.Health < 0)
                 Health = 2147483647;
-            else
-                Health = Strength * Vitality;
 
             MaxHealth = Health;
         }
 
         public void SetManaPool()
         {
+            Mana = Intelligence * 8;
+
             if (Game.Player.Mana >= 2147483647 || Game.Player.Mana < 0)
                 Mana = 2147483647;
-            else
-                Mana = Intelligence * 8;
-
+            
             MaxMana = Mana;
         }
 
@@ -84,10 +84,10 @@ namespace ProjectRPG
 
         public void CheatGodMode()
         {
-            Strength = 9999;
-            Intelligence = 9999;
-            Dexterity = 9999;
-            Vitality = 9999;
+            Strength = 2147483647;
+            Intelligence = 2147483647;
+            Dexterity = 2147483647;
+            Vitality = 2147483647;
         }
     }
 }

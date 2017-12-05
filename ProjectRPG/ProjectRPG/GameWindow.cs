@@ -77,6 +77,8 @@ namespace ProjectRPG
         {
             GW_Weapon_Panel.Hide();
             GW_Inventory_Panel.Hide();
+            GW_GameStatus_Panel.Hide();
+            GW_Boss_Encounter_Panel.Hide();
         }
         void InventoryInit()
         {
@@ -90,7 +92,7 @@ namespace ProjectRPG
             Game.Enemy.GenerateEnemy();
 
             GW_EnemyName_Label.Text = Game.Enemy.Name;
-            GW_EnemyHealthVal_Label.Text = Convert.ToString(Game.Enemy.Health);
+            GW_EnemyHealthVal_Label.Text = ($"{Convert.ToString(Game.Enemy.Health)} / {Convert.ToString(Game.Enemy.MaxHealth)}");
             GW_EnemyTypeVal_Label.Text = Game.Enemy.Type;
             GW_EnemyStrVal_Label.Text = Convert.ToString(Game.Enemy.Strength);
             GW_EnemyIntelVal_Label.Text = Convert.ToString(Game.Enemy.Intelligence);
@@ -137,6 +139,7 @@ namespace ProjectRPG
         }
         void PlayerUpdate()
         {
+            //Death Condition (Defeated by Enemy)
             if (Game.Player.Health <= 0)
             {
                 Game.Player.Health = 0;
@@ -147,16 +150,41 @@ namespace ProjectRPG
                 GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
                 GW_BattleAction_TextBox.ScrollToCaret();
 
-                Game.Player.Strength -= (int)(Game.Player.Strength * 0.10);
-                Game.Player.Intelligence -= (int)(Game.Player.Intelligence * 0.10);
-                Game.Player.Dexterity -= (int)(Game.Player.Dexterity * 0.10);
-                Game.Player.Vitality -= (int)(Game.Player.Vitality * 0.10);
+                if (Game.Player.Strength >= 10 || Game.Player.Intelligence >= 10 || Game.Player.Dexterity >= 10 || Game.Player.Vitality >= 10)
+                {
+                    Game.Player.Strength -= (int)(Game.Player.Strength * 0.10);
+                    Game.Player.Intelligence -= (int)(Game.Player.Intelligence * 0.10);
+                    Game.Player.Dexterity -= (int)(Game.Player.Dexterity * 0.10);
+                    Game.Player.Vitality -= (int)(Game.Player.Vitality * 0.10);
+                }
+                else
+                {
+                    Game.Player.Strength -= 1;
+                    Game.Player.Intelligence -= 1;
+                    Game.Player.Dexterity -= 1;
+                    Game.Player.Vitality -= 1;
+                }
+
+                if (Game.Player.Strength <= 0)
+                    Game.Player.Strength = 0;
+
+                if (Game.Player.Intelligence <= 0)
+                    Game.Player.Intelligence = 0;
+
+                if (Game.Player.Dexterity <= 0)
+                    Game.Player.Dexterity = 0;
+
+                if (Game.Player.Vitality <= 0)
+                    Game.Player.Vitality = 0;
+
+                if ((Game.Player.Strength + Game.Player.Intelligence + Game.Player.Dexterity + Game.Player.Vitality) == 0)
+                {
+                    GameOver();
+                }
+
 
                 Game.Player.SetHealthPool();
                 Game.Player.SetManaPool();
-                PlayerUpdate();
-
-                return;
             }
 
             if (Game.Player.Experience >= 100)
@@ -184,7 +212,7 @@ namespace ProjectRPG
         void EnemyUpdate()
         {
             GW_EnemyName_Label.Text = Game.Enemy.Name;
-            GW_EnemyHealthVal_Label.Text = Convert.ToString(Game.Enemy.Health);
+            GW_EnemyHealthVal_Label.Text = ($"{Convert.ToString(Game.Enemy.Health)} / {Convert.ToString(Game.Enemy.MaxHealth)}");
             GW_EnemyTypeVal_Label.Text = Game.Enemy.Type;
             GW_EnemyStrVal_Label.Text = Convert.ToString(Game.Enemy.Strength);
             GW_EnemyIntelVal_Label.Text = Convert.ToString(Game.Enemy.Intelligence);
@@ -193,6 +221,43 @@ namespace ProjectRPG
             GW_EnemyWeap_Label.Text = $"Weapon: {Game.EnemyWeapon.Name}";
 
             Game.EnemyWeapon.UpdateWeapon(Game.Enemy.Strength);
+        }
+
+        void BossEncounterDialogBox()
+        {
+            GW_Boss_Encounter_Panel.Show();
+            GW_Attack_Button.Enabled = false;
+            GW_Defend_Button.Enabled = false;
+            GW_Items_Button.Enabled = false;
+            GW_Retreat_Button.Enabled = false;
+            GW_Inventory_Panel.Hide();
+            GW_Weapon_Panel.Hide();
+        }
+        void GameOver()
+        {
+            GW_GameStatus_Panel.Show();
+
+            GW_Game_Status_Primary_Label.Text = "Game Over";
+            GW_Game_Status_Secondary_Label.Text = "Your soul is beyond repair, your existence slowly withers away...";
+            GW_Attack_Button.Enabled = false;
+            GW_Defend_Button.Enabled = false;
+            GW_Items_Button.Enabled = false;
+            GW_Retreat_Button.Enabled = false;
+            GW_Inventory_Panel.Hide();
+            GW_Weapon_Panel.Hide();
+        }
+        void GameWon()
+        {
+            GW_GameStatus_Panel.Show();
+
+            GW_Game_Status_Primary_Label.Text = "Victory!";
+            GW_Game_Status_Secondary_Label.Text = "You have defeated the Final Boss.";
+            GW_Attack_Button.Enabled = false;
+            GW_Defend_Button.Enabled = false;
+            GW_Items_Button.Enabled = false;
+            GW_Retreat_Button.Enabled = false;
+            GW_Inventory_Panel.Hide();
+            GW_Weapon_Panel.Hide();
         }
 
         void EnemyDropItems()
@@ -205,10 +270,10 @@ namespace ProjectRPG
             Game.PlayerHealthPotion.Quantity += value1;
             Game.PlayerManaPotion.Quantity += value2;
 
-            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} {value1} Health Potion(s) has been added to your Inventory!");
-            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} {value2} Mana Potion(s) has been added to your Inventory!");
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}        {value1} Health Potion(s) has been added to your Inventory!");
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}        {value2} Mana Potion(s) has been added to your Inventory!");
 
-            if (Game.Player.KillCount % 3 == 0) //Every 3 kills drop a Random Weapon
+            if (Game.Player.KillCount % 2 == 0) //Every 2 kills drop a Random Weapon
             {
                 //Randomly drop a weapon for the Player
                 Random rand = new Random();
@@ -235,12 +300,12 @@ namespace ProjectRPG
                 GW_WeapSel_Combo.Items.Add(Game.PlayerWeaponTemp.Name);
                 GW_WeapSel_Combo.Text = Game.PlayerWeaponTemp.Name;
 
-                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} {Game.PlayerWeaponTemp.Name} has been added to your Inventory!");
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}        [{Game.PlayerWeaponTemp.Name}] has been added to your Inventory!");
             }
 
-            if (Game.Player.KillCount % 5 == 0) //Every 5 kills drop a weapon restore potion
+            if (Game.Player.KillCount % 4 == 0) //Every 4 kills drop a weapon restore potion
             {
-                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} A Weapon Restore Potion has been added to your Inventory!");
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}        A Weapon Restore Potion has been added to your Inventory!");
                 Game.PlayerWeapRestorePotion.Quantity += 1;
             }
 
@@ -325,11 +390,11 @@ namespace ProjectRPG
 
             //Player Turn
             Game.Enemy.Health -= pDamage;
-            GW_EnemyHealthVal_Label.Text = Convert.ToString(Game.Enemy.Health);
+            GW_EnemyHealthVal_Label.Text = ($"{Convert.ToString(Game.Enemy.Health)} / {Convert.ToString(Game.Enemy.MaxHealth)}");
 
             //Enemy Killed
             if (Game.Enemy.Health <= 0)
-            {
+            {              
                 Game.Enemy.Health = 0;
                 GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} has been slained. You have absorbed {Game.Enemy.Name}'s power!");
                 GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
@@ -347,9 +412,20 @@ namespace ProjectRPG
                 Game.Player.KillCount += 1;
                 GW_PlayerKillCount_Label.Text = ($"Kills: {Game.Player.KillCount}");
 
+                if (Game.Enemy.IsBoss)
+                {
+                    GameWon();
+                    return;
+                }
+
                 EnemyDropItems();
 
                 Game.Enemy.GenerateEnemy();
+
+                if (Game.Player.KillCount % 10 == 0)
+                {
+                    BossEncounterDialogBox();                
+                }
 
                 PlayerUpdate();
                 EnemyUpdate();
@@ -358,7 +434,11 @@ namespace ProjectRPG
             //Enemy Turn
             eDamage = Game.Enemy.Attack();
             Game.Player.Health -= eDamage;
-            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} attacked {Game.Player.Name} for {eDamage} Damage!");
+            if(eDamage == 0)
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} missed their attack! ({eDamage} Damage Taken!)");
+            else
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} attacked {Game.Player.Name} for {eDamage} Damage!");
+
             GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
             GW_BattleAction_TextBox.ScrollToCaret();
 
@@ -388,9 +468,21 @@ namespace ProjectRPG
 
         private void GW_Defend_Button_Click(object sender, EventArgs e)
         {
-            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} goes into a defensive stance!");
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} goes into a defensive stance! (50% Damage Taken)");
             GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
             GW_BattleAction_TextBox.ScrollToCaret();
+           
+            int eDamage = Game.Enemy.Attack() / 2;
+            Game.Player.Health -= eDamage;
+            if (eDamage == 0)
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} missed their attack! ({eDamage} Damage Taken!)");
+            else
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} attacked {Game.Player.Name} for {eDamage} Damage!");
+
+            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+            GW_BattleAction_TextBox.ScrollToCaret();
+
+            PlayerUpdate();
         }
 
         private void GW_Retreat_Button_Click(object sender, EventArgs e)
@@ -453,6 +545,34 @@ namespace ProjectRPG
 
             PlayerWeaponUpdate();
             InventoryUpdate();
+        }
+
+        private void GW_Boss_Yes_Button_Click(object sender, EventArgs e)
+        {
+            Game.Enemy.SetToBoss();
+            GW_Attack_Button.Enabled = true;
+            GW_Defend_Button.Enabled = true;
+            GW_Items_Button.Enabled = true;
+            GW_Retreat_Button.Enabled = true;
+            GW_Boss_Encounter_Panel.Hide();
+
+            PlayerUpdate();
+            EnemyUpdate();
+        }
+
+        private void GW_Boss_No_Button_Click(object sender, EventArgs e)
+        {
+            GW_Attack_Button.Enabled = true;
+            GW_Defend_Button.Enabled = true;
+            GW_Items_Button.Enabled = true;
+            GW_Retreat_Button.Enabled = true;
+            GW_Boss_Encounter_Panel.Hide();
+        }
+
+        private void GW_GameStatus_Button_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
         }
     }
 }

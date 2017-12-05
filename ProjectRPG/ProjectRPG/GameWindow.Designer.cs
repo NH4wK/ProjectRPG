@@ -50,6 +50,7 @@
             this.GW_Str_Label = new System.Windows.Forms.Label();
             this.GW_ChName_Label = new System.Windows.Forms.Label();
             this.GW_Enemy_Panel = new System.Windows.Forms.Panel();
+            this.GW_EnemyWeap_Label = new System.Windows.Forms.Label();
             this.GW_EnemyVitVal_Label = new System.Windows.Forms.Label();
             this.GW_EnemyDexVal_Label = new System.Windows.Forms.Label();
             this.GW_EnemyIntelVal_Label = new System.Windows.Forms.Label();
@@ -103,7 +104,14 @@
             this.GW_BattleAction_Panel = new System.Windows.Forms.Panel();
             this.GW_BattleAction_TextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.GW_EnemyWeap_Label = new System.Windows.Forms.Label();
+            this.GW_GameStatus_Panel = new System.Windows.Forms.Panel();
+            this.GW_Game_Status_Secondary_Label = new System.Windows.Forms.Label();
+            this.GW_GameStatus_Button = new System.Windows.Forms.Button();
+            this.GW_Game_Status_Primary_Label = new System.Windows.Forms.Label();
+            this.GW_Boss_Encounter_Panel = new System.Windows.Forms.Panel();
+            this.GW_Boss_Encounter_Label = new System.Windows.Forms.Label();
+            this.GW_Boss_Yes_Button = new System.Windows.Forms.Button();
+            this.GW_Boss_No_Button = new System.Windows.Forms.Button();
             this.GW_PlayerPanel1.SuspendLayout();
             this.GW_Enemy_Panel.SuspendLayout();
             this.GW_Battle_Panel.SuspendLayout();
@@ -114,6 +122,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.GW_MP_Icon_PicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GW_HP_Icon_PicBox)).BeginInit();
             this.GW_BattleAction_Panel.SuspendLayout();
+            this.GW_GameStatus_Panel.SuspendLayout();
+            this.GW_Boss_Encounter_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // GW_PlayerPanel1
@@ -377,6 +387,17 @@
             this.GW_Enemy_Panel.Name = "GW_Enemy_Panel";
             this.GW_Enemy_Panel.Size = new System.Drawing.Size(393, 263);
             this.GW_Enemy_Panel.TabIndex = 1;
+            // 
+            // GW_EnemyWeap_Label
+            // 
+            this.GW_EnemyWeap_Label.AutoSize = true;
+            this.GW_EnemyWeap_Label.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GW_EnemyWeap_Label.Location = new System.Drawing.Point(13, 93);
+            this.GW_EnemyWeap_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.GW_EnemyWeap_Label.Name = "GW_EnemyWeap_Label";
+            this.GW_EnemyWeap_Label.Size = new System.Drawing.Size(136, 17);
+            this.GW_EnemyWeap_Label.TabIndex = 27;
+            this.GW_EnemyWeap_Label.Text = "Weapon: WeapVal";
             // 
             // GW_EnemyVitVal_Label
             // 
@@ -1010,22 +1031,101 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Battle Log";
             // 
-            // GW_EnemyWeap_Label
+            // GW_GameStatus_Panel
             // 
-            this.GW_EnemyWeap_Label.AutoSize = true;
-            this.GW_EnemyWeap_Label.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyWeap_Label.Location = new System.Drawing.Point(13, 93);
-            this.GW_EnemyWeap_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.GW_EnemyWeap_Label.Name = "GW_EnemyWeap_Label";
-            this.GW_EnemyWeap_Label.Size = new System.Drawing.Size(136, 17);
-            this.GW_EnemyWeap_Label.TabIndex = 27;
-            this.GW_EnemyWeap_Label.Text = "Weapon: WeapVal";
+            this.GW_GameStatus_Panel.BackColor = System.Drawing.SystemColors.Control;
+            this.GW_GameStatus_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GW_GameStatus_Panel.Controls.Add(this.GW_Game_Status_Secondary_Label);
+            this.GW_GameStatus_Panel.Controls.Add(this.GW_GameStatus_Button);
+            this.GW_GameStatus_Panel.Controls.Add(this.GW_Game_Status_Primary_Label);
+            this.GW_GameStatus_Panel.Location = new System.Drawing.Point(644, 366);
+            this.GW_GameStatus_Panel.Name = "GW_GameStatus_Panel";
+            this.GW_GameStatus_Panel.Size = new System.Drawing.Size(567, 192);
+            this.GW_GameStatus_Panel.TabIndex = 6;
+            // 
+            // GW_Game_Status_Secondary_Label
+            // 
+            this.GW_Game_Status_Secondary_Label.AutoSize = true;
+            this.GW_Game_Status_Secondary_Label.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GW_Game_Status_Secondary_Label.Location = new System.Drawing.Point(75, 75);
+            this.GW_Game_Status_Secondary_Label.Name = "GW_Game_Status_Secondary_Label";
+            this.GW_Game_Status_Secondary_Label.Size = new System.Drawing.Size(183, 19);
+            this.GW_Game_Status_Secondary_Label.TabIndex = 2;
+            this.GW_Game_Status_Secondary_Label.Text = "Game_Status_Secondary";
+            this.GW_Game_Status_Secondary_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // GW_GameStatus_Button
+            // 
+            this.GW_GameStatus_Button.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GW_GameStatus_Button.Location = new System.Drawing.Point(186, 115);
+            this.GW_GameStatus_Button.Name = "GW_GameStatus_Button";
+            this.GW_GameStatus_Button.Size = new System.Drawing.Size(174, 47);
+            this.GW_GameStatus_Button.TabIndex = 1;
+            this.GW_GameStatus_Button.Text = "Exit";
+            this.GW_GameStatus_Button.UseVisualStyleBackColor = true;
+            this.GW_GameStatus_Button.Click += new System.EventHandler(this.GW_GameStatus_Button_Click);
+            // 
+            // GW_Game_Status_Primary_Label
+            // 
+            this.GW_Game_Status_Primary_Label.AutoSize = true;
+            this.GW_Game_Status_Primary_Label.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GW_Game_Status_Primary_Label.Location = new System.Drawing.Point(128, 28);
+            this.GW_Game_Status_Primary_Label.Name = "GW_Game_Status_Primary_Label";
+            this.GW_Game_Status_Primary_Label.Size = new System.Drawing.Size(277, 47);
+            this.GW_Game_Status_Primary_Label.TabIndex = 0;
+            this.GW_Game_Status_Primary_Label.Text = "Game_Status";
+            this.GW_Game_Status_Primary_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // GW_Boss_Encounter_Panel
+            // 
+            this.GW_Boss_Encounter_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GW_Boss_Encounter_Panel.Controls.Add(this.GW_Boss_No_Button);
+            this.GW_Boss_Encounter_Panel.Controls.Add(this.GW_Boss_Yes_Button);
+            this.GW_Boss_Encounter_Panel.Controls.Add(this.GW_Boss_Encounter_Label);
+            this.GW_Boss_Encounter_Panel.Location = new System.Drawing.Point(644, 254);
+            this.GW_Boss_Encounter_Panel.Name = "GW_Boss_Encounter_Panel";
+            this.GW_Boss_Encounter_Panel.Size = new System.Drawing.Size(567, 100);
+            this.GW_Boss_Encounter_Panel.TabIndex = 7;
+            // 
+            // GW_Boss_Encounter_Label
+            // 
+            this.GW_Boss_Encounter_Label.AutoSize = true;
+            this.GW_Boss_Encounter_Label.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GW_Boss_Encounter_Label.Location = new System.Drawing.Point(58, 19);
+            this.GW_Boss_Encounter_Label.Name = "GW_Boss_Encounter_Label";
+            this.GW_Boss_Encounter_Label.Size = new System.Drawing.Size(374, 21);
+            this.GW_Boss_Encounter_Label.TabIndex = 0;
+            this.GW_Boss_Encounter_Label.Text = "A dark energy is present. Do you engage it?";
+            // 
+            // GW_Boss_Yes_Button
+            // 
+            this.GW_Boss_Yes_Button.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GW_Boss_Yes_Button.Location = new System.Drawing.Point(136, 54);
+            this.GW_Boss_Yes_Button.Name = "GW_Boss_Yes_Button";
+            this.GW_Boss_Yes_Button.Size = new System.Drawing.Size(95, 28);
+            this.GW_Boss_Yes_Button.TabIndex = 1;
+            this.GW_Boss_Yes_Button.Text = "Yes";
+            this.GW_Boss_Yes_Button.UseVisualStyleBackColor = true;
+            this.GW_Boss_Yes_Button.Click += new System.EventHandler(this.GW_Boss_Yes_Button_Click);
+            // 
+            // GW_Boss_No_Button
+            // 
+            this.GW_Boss_No_Button.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GW_Boss_No_Button.Location = new System.Drawing.Point(337, 54);
+            this.GW_Boss_No_Button.Name = "GW_Boss_No_Button";
+            this.GW_Boss_No_Button.Size = new System.Drawing.Size(95, 28);
+            this.GW_Boss_No_Button.TabIndex = 2;
+            this.GW_Boss_No_Button.Text = "No";
+            this.GW_Boss_No_Button.UseVisualStyleBackColor = true;
+            this.GW_Boss_No_Button.Click += new System.EventHandler(this.GW_Boss_No_Button_Click);
             // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1683, 828);
+            this.Controls.Add(this.GW_Boss_Encounter_Panel);
+            this.Controls.Add(this.GW_GameStatus_Panel);
             this.Controls.Add(this.GW_BattleAction_Panel);
             this.Controls.Add(this.GW_Inventory_Panel);
             this.Controls.Add(this.GW_Weapon_Panel);
@@ -1054,6 +1154,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.GW_HP_Icon_PicBox)).EndInit();
             this.GW_BattleAction_Panel.ResumeLayout(false);
             this.GW_BattleAction_Panel.PerformLayout();
+            this.GW_GameStatus_Panel.ResumeLayout(false);
+            this.GW_GameStatus_Panel.PerformLayout();
+            this.GW_Boss_Encounter_Panel.ResumeLayout(false);
+            this.GW_Boss_Encounter_Panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1135,5 +1239,13 @@
         private System.Windows.Forms.Label GW_WeapRestorPotion_Label;
         private System.Windows.Forms.PictureBox GW_WeapRestorePot_PicBox;
         private System.Windows.Forms.Label GW_EnemyWeap_Label;
+        private System.Windows.Forms.Panel GW_GameStatus_Panel;
+        private System.Windows.Forms.Button GW_GameStatus_Button;
+        private System.Windows.Forms.Label GW_Game_Status_Primary_Label;
+        private System.Windows.Forms.Label GW_Game_Status_Secondary_Label;
+        private System.Windows.Forms.Panel GW_Boss_Encounter_Panel;
+        private System.Windows.Forms.Button GW_Boss_No_Button;
+        private System.Windows.Forms.Button GW_Boss_Yes_Button;
+        private System.Windows.Forms.Label GW_Boss_Encounter_Label;
     }
 }

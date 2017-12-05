@@ -15,6 +15,8 @@ namespace ProjectRPG
         public int Dexterity { get; set; }
         public int Vitality { get; set; }
         public int Health { get; set; }
+        public int MaxHealth { get; set; }
+        public bool IsBoss = false;
 
         public Enemy()
         {
@@ -36,15 +38,16 @@ namespace ProjectRPG
             Dexterity = dex;
             Vitality = vit;
             Health = Strength * Vitality;
+            MaxHealth = Health;
         }
 
         public void GenerateEnemy()
         {
             Random RanVal = new Random();
-            int StatValue1 = RanVal.Next(Game.Player.Strength, Game.Player.Strength + 5);
-            int StatValue2 = RanVal.Next(Game.Player.Intelligence, Game.Player.Intelligence + 5);
-            int StatValue3 = RanVal.Next(Game.Player.Dexterity, Game.Player.Dexterity + 5);
-            int StatValue4 = RanVal.Next(Game.Player.Vitality, Game.Player.Vitality + 5);
+            int StatValue1 = RanVal.Next(Game.Player.Strength, ((Game.Player.Strength + (int)(Game.Player.Strength * 0.10))));
+            int StatValue2 = RanVal.Next(Game.Player.Intelligence, ((Game.Player.Intelligence + (int)(Game.Player.Intelligence * 0.10))));
+            int StatValue3 = RanVal.Next(Game.Player.Dexterity, ((Game.Player.Dexterity + (int)(Game.Player.Dexterity * 0.10))));
+            int StatValue4 = RanVal.Next(Game.Player.Vitality, ((Game.Player.Vitality + (int)(Game.Player.Vitality * 0.10))));
 
             Name = GenerateEnemyName();
             Type = GenerateEnemyType();
@@ -54,10 +57,12 @@ namespace ProjectRPG
             Dexterity = StatValue3;
             Vitality = StatValue4;
 
+            Health = Strength * Vitality;
+
             if (Game.Enemy.Health >= 2147483647 || Game.Enemy.Health < 0)
                 Health = 2147483647;
-            else
-                Health = Strength * Vitality;
+
+            MaxHealth = Health;
 
             //Randomly Choose a Weapon for the Player
             Random rand = new Random();
@@ -112,13 +117,26 @@ namespace ProjectRPG
             return type[value];
         }
 
+        public void SetToBoss()
+        {
+            Game.Enemy.Name = ($"{Game.Enemy.Name} (Boss)");
+            Game.Enemy.Strength = (int)(Game.Player.Strength * 2.5);
+            Game.Enemy.Intelligence = (int)(Game.Player.Intelligence * 2.5);
+            Game.Enemy.Dexterity = (int)(Game.Player.Dexterity * 2.5);
+            Game.Enemy.Vitality = (int)(Game.Player.Vitality * 2.5);
+
+            Game.EnemyWeapon = new WarHammer((int)(Game.Enemy.Strength * 1.5));
+            Game.EnemyWeapon.Name = "Deathhammer of Ra-Zakar (Legendary)";
+            Game.Enemy.IsBoss = true;
+        }
+
         public int Attack()
         {
             int AttackPoints;
 
             Random RanVal = new Random();
 
-            int value = RanVal.Next(1, 3);
+            int value = RanVal.Next(1, 6);
 
             if (value == 1)
                 AttackPoints = Game.EnemyWeapon.Move1Damage;
@@ -126,6 +144,8 @@ namespace ProjectRPG
                 AttackPoints = Game.EnemyWeapon.Move2Damage;
             else if (value == 3)
                 AttackPoints = Game.EnemyWeapon.Move3Damage;
+            else if (value == 4)
+                AttackPoints = Game.EnemyWeapon.Move4Damage;
             else
                 AttackPoints = 0;
 
