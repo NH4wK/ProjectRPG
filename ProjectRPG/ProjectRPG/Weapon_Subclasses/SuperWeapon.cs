@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ProjectRPG
 {
-    class Mace : Weapon
+    class SuperWeapon : Weapon
     {
-        public Mace()
+        public SuperWeapon()
         {
             Name = "";
-            ElementType = "Holy";
+            ElementType = "All";
             BaseAttack = 0;
 
             Move1Name = "";
@@ -30,75 +30,67 @@ namespace ProjectRPG
             Move4MaxAmmo = Move4Ammo;
         }
 
-        public Mace(int StrengthStat)
+        public SuperWeapon(int StrengthStat)
         {
-            Name = GenerateWeapName();
-            BaseAttack = StrengthStat * Game.Player.LevelNumber * 3;
+            Name = "Super Attacks (Special)";
+            BaseAttack = 999999;
 
-            ElementType = "Holy";
+            ElementType = "All";
 
-            Move1Name = "Blunt Smack";
-            Move1Ammo = 30;
+            Move1Name = "Spirit Bomb";
+            Move1Ammo = 999;
             Move1Damage = BaseAttack;
             Move1MaxAmmo = Move1Ammo;
 
             if (Move1Damage >= 999999 || Move1Damage < 0)
                 Move1Damage = 999999;
 
-            Move2Name = "Blinding Light";
-            Move2Ammo = 15;
-            Move2Damage = BaseAttack + (int)(BaseAttack * 2);
+            Move2Name = "Serious Punch";
+            Move2Ammo = 999;
+            Move2Damage = BaseAttack;
             Move2MaxAmmo = Move2Ammo;
 
             if (Move2Damage >= 999999 || Move2Damage < 0)
                 Move2Damage = 999999;
 
-            Move3Name = "Divine Blast";
-            Move3Ammo = 15;
+            Move3Name = "Rasengan";
+            Move3Ammo = 999;
             Move3MaxAmmo = Move3Ammo;
-            Move3Damage = BaseAttack + (int)(BaseAttack * 2);
+
+            Move3Damage = BaseAttack + (int)(BaseAttack * 2.5);
 
             if (Move3Damage >= 999999 || Move3Damage < 0)
                 Move3Damage = 999999;
 
-            Move4Name = "Heaven's Gate";
-            Move4Ammo = 3;
+            Move4Name = "Jajanken";
+            Move4Ammo = 999;
             Move4MaxAmmo = Move4Ammo;
-            Move4Damage = BaseAttack * 15;
+            Move4Damage = BaseAttack;
 
             if (Move4Damage >= 999999 || Move4Damage < 0)
                 Move4Damage = 999999;
         }
 
-        private string GenerateWeapName()
-        {
-            string[] name = { "From the Heavens", "The Divine", "Armageddon", "The Right Hand of the Almighty", "The Eliminator", "Mace of Yu" };
-
-            Random seed = new Random();
-            int seedRand = seed.Next(0, 100);
-            Random rand = new Random(seedRand);
-            int randVal = rand.Next(0, name.Count());
-
-            return ($"{name[randVal]} (Mace)");
-        }
-
         public override void UpdateWeapon(int StrengthStat)
         {
-            BaseAttack = StrengthStat * Game.Player.LevelNumber * 3;
-
+            BaseAttack = 999999;
             Move1Damage = BaseAttack;
+
             if (Move1Damage >= 999999 || Move1Damage < 0)
                 Move1Damage = 999999;
 
             Move2Damage = BaseAttack + (int)(BaseAttack * 2);
+
             if (Move2Damage >= 999999 || Move2Damage < 0)
                 Move2Damage = 999999;
 
-            Move3Damage = BaseAttack + (int)(BaseAttack * 2);
+            Move3Damage = BaseAttack + (int)(BaseAttack * 2.5);
+
             if (Move3Damage >= 999999 || Move3Damage < 0)
                 Move3Damage = 999999;
 
-            Move4Damage = BaseAttack * 15;
+            Move4Damage = BaseAttack * 8;
+
             if (Move4Damage >= 999999 || Move4Damage < 0)
                 Move4Damage = 999999;
         }

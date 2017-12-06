@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameWindow));
             this.GW_PlayerPanel1 = new System.Windows.Forms.Panel();
+            this.GW_BossEncounter_ProgBar = new System.Windows.Forms.ProgressBar();
+            this.GW_Player_Mana_ProgBar = new System.Windows.Forms.ProgressBar();
+            this.GW_Player_Health_ProgBar = new System.Windows.Forms.ProgressBar();
             this.GW_PlayerKillCount_Label = new System.Windows.Forms.Label();
             this.GW_XPVal_Label = new System.Windows.Forms.Label();
             this.GW_MPVal_Label = new System.Windows.Forms.Label();
@@ -50,6 +54,7 @@
             this.GW_Str_Label = new System.Windows.Forms.Label();
             this.GW_ChName_Label = new System.Windows.Forms.Label();
             this.GW_Enemy_Panel = new System.Windows.Forms.Panel();
+            this.GW_Enemy_Health_ProgBar = new System.Windows.Forms.ProgressBar();
             this.GW_EnemyWeap_Label = new System.Windows.Forms.Label();
             this.GW_EnemyVitVal_Label = new System.Windows.Forms.Label();
             this.GW_EnemyDexVal_Label = new System.Windows.Forms.Label();
@@ -109,9 +114,28 @@
             this.GW_GameStatus_Button = new System.Windows.Forms.Button();
             this.GW_Game_Status_Primary_Label = new System.Windows.Forms.Label();
             this.GW_Boss_Encounter_Panel = new System.Windows.Forms.Panel();
-            this.GW_Boss_Encounter_Label = new System.Windows.Forms.Label();
-            this.GW_Boss_Yes_Button = new System.Windows.Forms.Button();
             this.GW_Boss_No_Button = new System.Windows.Forms.Button();
+            this.GW_Boss_Yes_Button = new System.Windows.Forms.Button();
+            this.GW_Boss_Encounter_Label = new System.Windows.Forms.Label();
+            this.GW_Enemy_PicBox = new System.Windows.Forms.PictureBox();
+            this.GW_Player_PicBox = new System.Windows.Forms.PictureBox();
+            this.GW_Enemy_Damaged_PicBox = new System.Windows.Forms.PictureBox();
+            this.GW_Player_Damaged_PicBox = new System.Windows.Forms.PictureBox();
+            this.GW_Enemy_Boss_PicBox = new System.Windows.Forms.PictureBox();
+            this.GW_Enemy_Boss_Damage_PicBox = new System.Windows.Forms.PictureBox();
+            this.GW_menuStrip = new System.Windows.Forms.MenuStrip();
+            this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cheatModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maxStatsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.superWeaponToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generateBossToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GW_ToolTips = new System.Windows.Forms.ToolTip(this.components);
+            this.toAllItemQuantityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.randomWeaponDropToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.levelUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.GW_PlayerPanel1.SuspendLayout();
             this.GW_Enemy_Panel.SuspendLayout();
             this.GW_Battle_Panel.SuspendLayout();
@@ -124,12 +148,22 @@
             this.GW_BattleAction_Panel.SuspendLayout();
             this.GW_GameStatus_Panel.SuspendLayout();
             this.GW_Boss_Encounter_Panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_PicBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GW_Player_PicBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_Damaged_PicBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GW_Player_Damaged_PicBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_Boss_PicBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_Boss_Damage_PicBox)).BeginInit();
+            this.GW_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // GW_PlayerPanel1
             // 
             this.GW_PlayerPanel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.GW_PlayerPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GW_PlayerPanel1.Controls.Add(this.GW_BossEncounter_ProgBar);
+            this.GW_PlayerPanel1.Controls.Add(this.GW_Player_Mana_ProgBar);
+            this.GW_PlayerPanel1.Controls.Add(this.GW_Player_Health_ProgBar);
             this.GW_PlayerPanel1.Controls.Add(this.GW_PlayerKillCount_Label);
             this.GW_PlayerPanel1.Controls.Add(this.GW_XPVal_Label);
             this.GW_PlayerPanel1.Controls.Add(this.GW_MPVal_Label);
@@ -152,13 +186,49 @@
             this.GW_PlayerPanel1.Location = new System.Drawing.Point(12, 491);
             this.GW_PlayerPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.GW_PlayerPanel1.Name = "GW_PlayerPanel1";
-            this.GW_PlayerPanel1.Size = new System.Drawing.Size(277, 324);
+            this.GW_PlayerPanel1.Size = new System.Drawing.Size(375, 324);
             this.GW_PlayerPanel1.TabIndex = 0;
+            // 
+            // GW_BossEncounter_ProgBar
+            // 
+            this.GW_BossEncounter_ProgBar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.GW_BossEncounter_ProgBar.ForeColor = System.Drawing.Color.Indigo;
+            this.GW_BossEncounter_ProgBar.Location = new System.Drawing.Point(81, 288);
+            this.GW_BossEncounter_ProgBar.Maximum = 10;
+            this.GW_BossEncounter_ProgBar.Name = "GW_BossEncounter_ProgBar";
+            this.GW_BossEncounter_ProgBar.Size = new System.Drawing.Size(255, 23);
+            this.GW_BossEncounter_ProgBar.Step = 1;
+            this.GW_BossEncounter_ProgBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.GW_BossEncounter_ProgBar.TabIndex = 18;
+            // 
+            // GW_Player_Mana_ProgBar
+            // 
+            this.GW_Player_Mana_ProgBar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.GW_Player_Mana_ProgBar.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.GW_Player_Mana_ProgBar.Location = new System.Drawing.Point(27, 127);
+            this.GW_Player_Mana_ProgBar.Name = "GW_Player_Mana_ProgBar";
+            this.GW_Player_Mana_ProgBar.Size = new System.Drawing.Size(309, 17);
+            this.GW_Player_Mana_ProgBar.Step = 1;
+            this.GW_Player_Mana_ProgBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.GW_Player_Mana_ProgBar.TabIndex = 17;
+            this.GW_Player_Mana_ProgBar.Value = 100;
+            // 
+            // GW_Player_Health_ProgBar
+            // 
+            this.GW_Player_Health_ProgBar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.GW_Player_Health_ProgBar.ForeColor = System.Drawing.Color.LawnGreen;
+            this.GW_Player_Health_ProgBar.Location = new System.Drawing.Point(27, 83);
+            this.GW_Player_Health_ProgBar.Name = "GW_Player_Health_ProgBar";
+            this.GW_Player_Health_ProgBar.Size = new System.Drawing.Size(310, 17);
+            this.GW_Player_Health_ProgBar.Step = 1;
+            this.GW_Player_Health_ProgBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.GW_Player_Health_ProgBar.TabIndex = 16;
+            this.GW_Player_Health_ProgBar.Value = 100;
             // 
             // GW_PlayerKillCount_Label
             // 
             this.GW_PlayerKillCount_Label.AutoSize = true;
-            this.GW_PlayerKillCount_Label.Location = new System.Drawing.Point(12, 247);
+            this.GW_PlayerKillCount_Label.Location = new System.Drawing.Point(12, 289);
             this.GW_PlayerKillCount_Label.Name = "GW_PlayerKillCount_Label";
             this.GW_PlayerKillCount_Label.Size = new System.Drawing.Size(49, 17);
             this.GW_PlayerKillCount_Label.TabIndex = 15;
@@ -168,7 +238,7 @@
             // 
             this.GW_XPVal_Label.AutoSize = true;
             this.GW_XPVal_Label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_XPVal_Label.Location = new System.Drawing.Point(60, 103);
+            this.GW_XPVal_Label.Location = new System.Drawing.Point(60, 148);
             this.GW_XPVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_XPVal_Label.Name = "GW_XPVal_Label";
             this.GW_XPVal_Label.Size = new System.Drawing.Size(65, 23);
@@ -179,7 +249,7 @@
             // 
             this.GW_MPVal_Label.AutoSize = true;
             this.GW_MPVal_Label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_MPVal_Label.Location = new System.Drawing.Point(91, 80);
+            this.GW_MPVal_Label.Location = new System.Drawing.Point(91, 99);
             this.GW_MPVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_MPVal_Label.Name = "GW_MPVal_Label";
             this.GW_MPVal_Label.Size = new System.Drawing.Size(69, 23);
@@ -223,7 +293,7 @@
             // 
             this.GW_VitVal_Label.AutoSize = true;
             this.GW_VitVal_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_VitVal_Label.Location = new System.Drawing.Point(93, 214);
+            this.GW_VitVal_Label.Location = new System.Drawing.Point(93, 259);
             this.GW_VitVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_VitVal_Label.Name = "GW_VitVal_Label";
             this.GW_VitVal_Label.Size = new System.Drawing.Size(61, 21);
@@ -234,7 +304,7 @@
             // 
             this.GW_DexVal_Label.AutoSize = true;
             this.GW_DexVal_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_DexVal_Label.Location = new System.Drawing.Point(111, 194);
+            this.GW_DexVal_Label.Location = new System.Drawing.Point(111, 238);
             this.GW_DexVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_DexVal_Label.Name = "GW_DexVal_Label";
             this.GW_DexVal_Label.Size = new System.Drawing.Size(70, 21);
@@ -245,7 +315,7 @@
             // 
             this.GW_IntelVal_Label.AutoSize = true;
             this.GW_IntelVal_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_IntelVal_Label.Location = new System.Drawing.Point(137, 172);
+            this.GW_IntelVal_Label.Location = new System.Drawing.Point(137, 217);
             this.GW_IntelVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_IntelVal_Label.Name = "GW_IntelVal_Label";
             this.GW_IntelVal_Label.Size = new System.Drawing.Size(74, 21);
@@ -256,7 +326,7 @@
             // 
             this.GW_StrVal_Label.AutoSize = true;
             this.GW_StrVal_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_StrVal_Label.Location = new System.Drawing.Point(111, 151);
+            this.GW_StrVal_Label.Location = new System.Drawing.Point(111, 196);
             this.GW_StrVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_StrVal_Label.Name = "GW_StrVal_Label";
             this.GW_StrVal_Label.Size = new System.Drawing.Size(58, 21);
@@ -267,7 +337,7 @@
             // 
             this.GW_Stats_Label.AutoSize = true;
             this.GW_Stats_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_Stats_Label.Location = new System.Drawing.Point(12, 130);
+            this.GW_Stats_Label.Location = new System.Drawing.Point(12, 175);
             this.GW_Stats_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_Stats_Label.Name = "GW_Stats_Label";
             this.GW_Stats_Label.Size = new System.Drawing.Size(50, 19);
@@ -278,7 +348,7 @@
             // 
             this.GW_EXP_Label.AutoSize = true;
             this.GW_EXP_Label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EXP_Label.Location = new System.Drawing.Point(23, 103);
+            this.GW_EXP_Label.Location = new System.Drawing.Point(23, 148);
             this.GW_EXP_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EXP_Label.Name = "GW_EXP_Label";
             this.GW_EXP_Label.Size = new System.Drawing.Size(44, 23);
@@ -289,7 +359,7 @@
             // 
             this.GW_Vit_Label.AutoSize = true;
             this.GW_Vit_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_Vit_Label.Location = new System.Drawing.Point(25, 214);
+            this.GW_Vit_Label.Location = new System.Drawing.Point(25, 259);
             this.GW_Vit_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_Vit_Label.Name = "GW_Vit_Label";
             this.GW_Vit_Label.Size = new System.Drawing.Size(76, 21);
@@ -300,7 +370,7 @@
             // 
             this.GW_Mana_Label.AutoSize = true;
             this.GW_Mana_Label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_Mana_Label.Location = new System.Drawing.Point(23, 80);
+            this.GW_Mana_Label.Location = new System.Drawing.Point(23, 99);
             this.GW_Mana_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_Mana_Label.Name = "GW_Mana_Label";
             this.GW_Mana_Label.Size = new System.Drawing.Size(74, 23);
@@ -311,7 +381,7 @@
             // 
             this.GW_Dex_Label.AutoSize = true;
             this.GW_Dex_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_Dex_Label.Location = new System.Drawing.Point(25, 193);
+            this.GW_Dex_Label.Location = new System.Drawing.Point(25, 238);
             this.GW_Dex_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_Dex_Label.Name = "GW_Dex_Label";
             this.GW_Dex_Label.Size = new System.Drawing.Size(93, 21);
@@ -333,7 +403,7 @@
             // 
             this.GW_Intel_Label.AutoSize = true;
             this.GW_Intel_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_Intel_Label.Location = new System.Drawing.Point(25, 172);
+            this.GW_Intel_Label.Location = new System.Drawing.Point(25, 217);
             this.GW_Intel_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_Intel_Label.Name = "GW_Intel_Label";
             this.GW_Intel_Label.Size = new System.Drawing.Size(116, 21);
@@ -344,7 +414,7 @@
             // 
             this.GW_Str_Label.AutoSize = true;
             this.GW_Str_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_Str_Label.Location = new System.Drawing.Point(25, 151);
+            this.GW_Str_Label.Location = new System.Drawing.Point(25, 196);
             this.GW_Str_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_Str_Label.Name = "GW_Str_Label";
             this.GW_Str_Label.Size = new System.Drawing.Size(89, 21);
@@ -366,6 +436,7 @@
             // 
             this.GW_Enemy_Panel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.GW_Enemy_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GW_Enemy_Panel.Controls.Add(this.GW_Enemy_Health_ProgBar);
             this.GW_Enemy_Panel.Controls.Add(this.GW_EnemyWeap_Label);
             this.GW_Enemy_Panel.Controls.Add(this.GW_EnemyVitVal_Label);
             this.GW_Enemy_Panel.Controls.Add(this.GW_EnemyDexVal_Label);
@@ -388,11 +459,23 @@
             this.GW_Enemy_Panel.Size = new System.Drawing.Size(393, 263);
             this.GW_Enemy_Panel.TabIndex = 1;
             // 
+            // GW_Enemy_Health_ProgBar
+            // 
+            this.GW_Enemy_Health_ProgBar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.GW_Enemy_Health_ProgBar.ForeColor = System.Drawing.Color.Crimson;
+            this.GW_Enemy_Health_ProgBar.Location = new System.Drawing.Point(28, 91);
+            this.GW_Enemy_Health_ProgBar.Name = "GW_Enemy_Health_ProgBar";
+            this.GW_Enemy_Health_ProgBar.Size = new System.Drawing.Size(342, 17);
+            this.GW_Enemy_Health_ProgBar.Step = 1;
+            this.GW_Enemy_Health_ProgBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.GW_Enemy_Health_ProgBar.TabIndex = 28;
+            this.GW_Enemy_Health_ProgBar.Value = 100;
+            // 
             // GW_EnemyWeap_Label
             // 
             this.GW_EnemyWeap_Label.AutoSize = true;
             this.GW_EnemyWeap_Label.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyWeap_Label.Location = new System.Drawing.Point(13, 93);
+            this.GW_EnemyWeap_Label.Location = new System.Drawing.Point(13, 116);
             this.GW_EnemyWeap_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyWeap_Label.Name = "GW_EnemyWeap_Label";
             this.GW_EnemyWeap_Label.Size = new System.Drawing.Size(136, 17);
@@ -403,7 +486,7 @@
             // 
             this.GW_EnemyVitVal_Label.AutoSize = true;
             this.GW_EnemyVitVal_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyVitVal_Label.Location = new System.Drawing.Point(96, 204);
+            this.GW_EnemyVitVal_Label.Location = new System.Drawing.Point(96, 223);
             this.GW_EnemyVitVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyVitVal_Label.Name = "GW_EnemyVitVal_Label";
             this.GW_EnemyVitVal_Label.Size = new System.Drawing.Size(61, 21);
@@ -414,7 +497,7 @@
             // 
             this.GW_EnemyDexVal_Label.AutoSize = true;
             this.GW_EnemyDexVal_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyDexVal_Label.Location = new System.Drawing.Point(113, 183);
+            this.GW_EnemyDexVal_Label.Location = new System.Drawing.Point(113, 202);
             this.GW_EnemyDexVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyDexVal_Label.Name = "GW_EnemyDexVal_Label";
             this.GW_EnemyDexVal_Label.Size = new System.Drawing.Size(70, 21);
@@ -425,7 +508,7 @@
             // 
             this.GW_EnemyIntelVal_Label.AutoSize = true;
             this.GW_EnemyIntelVal_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyIntelVal_Label.Location = new System.Drawing.Point(139, 162);
+            this.GW_EnemyIntelVal_Label.Location = new System.Drawing.Point(139, 181);
             this.GW_EnemyIntelVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyIntelVal_Label.Name = "GW_EnemyIntelVal_Label";
             this.GW_EnemyIntelVal_Label.Size = new System.Drawing.Size(74, 21);
@@ -436,7 +519,7 @@
             // 
             this.GW_EnemyStrVal_Label.AutoSize = true;
             this.GW_EnemyStrVal_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyStrVal_Label.Location = new System.Drawing.Point(105, 141);
+            this.GW_EnemyStrVal_Label.Location = new System.Drawing.Point(105, 160);
             this.GW_EnemyStrVal_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyStrVal_Label.Name = "GW_EnemyStrVal_Label";
             this.GW_EnemyStrVal_Label.Size = new System.Drawing.Size(58, 21);
@@ -502,7 +585,7 @@
             // 
             this.GW_EnemyStats_Label.AutoSize = true;
             this.GW_EnemyStats_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyStats_Label.Location = new System.Drawing.Point(13, 120);
+            this.GW_EnemyStats_Label.Location = new System.Drawing.Point(13, 139);
             this.GW_EnemyStats_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyStats_Label.Name = "GW_EnemyStats_Label";
             this.GW_EnemyStats_Label.Size = new System.Drawing.Size(50, 19);
@@ -513,7 +596,7 @@
             // 
             this.GW_EnemyVit_Label.AutoSize = true;
             this.GW_EnemyVit_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyVit_Label.Location = new System.Drawing.Point(27, 204);
+            this.GW_EnemyVit_Label.Location = new System.Drawing.Point(27, 223);
             this.GW_EnemyVit_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyVit_Label.Name = "GW_EnemyVit_Label";
             this.GW_EnemyVit_Label.Size = new System.Drawing.Size(76, 21);
@@ -524,7 +607,7 @@
             // 
             this.GW_EnemyDex_Label.AutoSize = true;
             this.GW_EnemyDex_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyDex_Label.Location = new System.Drawing.Point(27, 183);
+            this.GW_EnemyDex_Label.Location = new System.Drawing.Point(27, 202);
             this.GW_EnemyDex_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyDex_Label.Name = "GW_EnemyDex_Label";
             this.GW_EnemyDex_Label.Size = new System.Drawing.Size(93, 21);
@@ -546,7 +629,7 @@
             // 
             this.GW_EnemyIntel_Label.AutoSize = true;
             this.GW_EnemyIntel_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyIntel_Label.Location = new System.Drawing.Point(27, 162);
+            this.GW_EnemyIntel_Label.Location = new System.Drawing.Point(27, 181);
             this.GW_EnemyIntel_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyIntel_Label.Name = "GW_EnemyIntel_Label";
             this.GW_EnemyIntel_Label.Size = new System.Drawing.Size(116, 21);
@@ -557,7 +640,7 @@
             // 
             this.GW_EnemyStr_Label.AutoSize = true;
             this.GW_EnemyStr_Label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_EnemyStr_Label.Location = new System.Drawing.Point(27, 141);
+            this.GW_EnemyStr_Label.Location = new System.Drawing.Point(27, 160);
             this.GW_EnemyStr_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GW_EnemyStr_Label.Name = "GW_EnemyStr_Label";
             this.GW_EnemyStr_Label.Size = new System.Drawing.Size(89, 21);
@@ -573,7 +656,7 @@
             this.GW_Battle_Panel.Controls.Add(this.GW_Defend_Button);
             this.GW_Battle_Panel.Controls.Add(this.GW_Battle_Menu_Label);
             this.GW_Battle_Panel.Controls.Add(this.GW_Attack_Button);
-            this.GW_Battle_Panel.Location = new System.Drawing.Point(297, 687);
+            this.GW_Battle_Panel.Location = new System.Drawing.Point(404, 687);
             this.GW_Battle_Panel.Margin = new System.Windows.Forms.Padding(4);
             this.GW_Battle_Panel.Name = "GW_Battle_Panel";
             this.GW_Battle_Panel.Size = new System.Drawing.Size(267, 128);
@@ -658,7 +741,7 @@
             this.GW_Weapon_Panel.Controls.Add(this.GW_WeapMove1_RadButton);
             this.GW_Weapon_Panel.Controls.Add(this.GW_WeaponName_Label);
             this.GW_Weapon_Panel.Controls.Add(this.GW_Weapon_Label);
-            this.GW_Weapon_Panel.Location = new System.Drawing.Point(296, 491);
+            this.GW_Weapon_Panel.Location = new System.Drawing.Point(403, 491);
             this.GW_Weapon_Panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GW_Weapon_Panel.Name = "GW_Weapon_Panel";
             this.GW_Weapon_Panel.Size = new System.Drawing.Size(402, 183);
@@ -1004,7 +1087,7 @@
             this.GW_BattleAction_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.GW_BattleAction_Panel.Controls.Add(this.GW_BattleAction_TextBox);
             this.GW_BattleAction_Panel.Controls.Add(this.label1);
-            this.GW_BattleAction_Panel.Location = new System.Drawing.Point(12, 12);
+            this.GW_BattleAction_Panel.Location = new System.Drawing.Point(1088, 11);
             this.GW_BattleAction_Panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GW_BattleAction_Panel.Name = "GW_BattleAction_Panel";
             this.GW_BattleAction_Panel.Size = new System.Drawing.Size(583, 182);
@@ -1033,12 +1116,12 @@
             // 
             // GW_GameStatus_Panel
             // 
-            this.GW_GameStatus_Panel.BackColor = System.Drawing.SystemColors.Control;
+            this.GW_GameStatus_Panel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.GW_GameStatus_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.GW_GameStatus_Panel.Controls.Add(this.GW_Game_Status_Secondary_Label);
             this.GW_GameStatus_Panel.Controls.Add(this.GW_GameStatus_Button);
             this.GW_GameStatus_Panel.Controls.Add(this.GW_Game_Status_Primary_Label);
-            this.GW_GameStatus_Panel.Location = new System.Drawing.Point(644, 366);
+            this.GW_GameStatus_Panel.Location = new System.Drawing.Point(652, 247);
             this.GW_GameStatus_Panel.Name = "GW_GameStatus_Panel";
             this.GW_GameStatus_Panel.Size = new System.Drawing.Size(567, 192);
             this.GW_GameStatus_Panel.TabIndex = 6;
@@ -1078,35 +1161,15 @@
             // 
             // GW_Boss_Encounter_Panel
             // 
+            this.GW_Boss_Encounter_Panel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.GW_Boss_Encounter_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.GW_Boss_Encounter_Panel.Controls.Add(this.GW_Boss_No_Button);
             this.GW_Boss_Encounter_Panel.Controls.Add(this.GW_Boss_Yes_Button);
             this.GW_Boss_Encounter_Panel.Controls.Add(this.GW_Boss_Encounter_Label);
-            this.GW_Boss_Encounter_Panel.Location = new System.Drawing.Point(644, 254);
+            this.GW_Boss_Encounter_Panel.Location = new System.Drawing.Point(652, 462);
             this.GW_Boss_Encounter_Panel.Name = "GW_Boss_Encounter_Panel";
             this.GW_Boss_Encounter_Panel.Size = new System.Drawing.Size(567, 100);
             this.GW_Boss_Encounter_Panel.TabIndex = 7;
-            // 
-            // GW_Boss_Encounter_Label
-            // 
-            this.GW_Boss_Encounter_Label.AutoSize = true;
-            this.GW_Boss_Encounter_Label.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_Boss_Encounter_Label.Location = new System.Drawing.Point(58, 19);
-            this.GW_Boss_Encounter_Label.Name = "GW_Boss_Encounter_Label";
-            this.GW_Boss_Encounter_Label.Size = new System.Drawing.Size(374, 21);
-            this.GW_Boss_Encounter_Label.TabIndex = 0;
-            this.GW_Boss_Encounter_Label.Text = "A dark energy is present. Do you engage it?";
-            // 
-            // GW_Boss_Yes_Button
-            // 
-            this.GW_Boss_Yes_Button.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_Boss_Yes_Button.Location = new System.Drawing.Point(136, 54);
-            this.GW_Boss_Yes_Button.Name = "GW_Boss_Yes_Button";
-            this.GW_Boss_Yes_Button.Size = new System.Drawing.Size(95, 28);
-            this.GW_Boss_Yes_Button.TabIndex = 1;
-            this.GW_Boss_Yes_Button.Text = "Yes";
-            this.GW_Boss_Yes_Button.UseVisualStyleBackColor = true;
-            this.GW_Boss_Yes_Button.Click += new System.EventHandler(this.GW_Boss_Yes_Button_Click);
             // 
             // GW_Boss_No_Button
             // 
@@ -1119,19 +1182,213 @@
             this.GW_Boss_No_Button.UseVisualStyleBackColor = true;
             this.GW_Boss_No_Button.Click += new System.EventHandler(this.GW_Boss_No_Button_Click);
             // 
+            // GW_Boss_Yes_Button
+            // 
+            this.GW_Boss_Yes_Button.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GW_Boss_Yes_Button.Location = new System.Drawing.Point(136, 54);
+            this.GW_Boss_Yes_Button.Name = "GW_Boss_Yes_Button";
+            this.GW_Boss_Yes_Button.Size = new System.Drawing.Size(95, 28);
+            this.GW_Boss_Yes_Button.TabIndex = 1;
+            this.GW_Boss_Yes_Button.Text = "Yes";
+            this.GW_Boss_Yes_Button.UseVisualStyleBackColor = true;
+            this.GW_Boss_Yes_Button.Click += new System.EventHandler(this.GW_Boss_Yes_Button_Click);
+            // 
+            // GW_Boss_Encounter_Label
+            // 
+            this.GW_Boss_Encounter_Label.AutoSize = true;
+            this.GW_Boss_Encounter_Label.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GW_Boss_Encounter_Label.Location = new System.Drawing.Point(58, 19);
+            this.GW_Boss_Encounter_Label.Name = "GW_Boss_Encounter_Label";
+            this.GW_Boss_Encounter_Label.Size = new System.Drawing.Size(374, 21);
+            this.GW_Boss_Encounter_Label.TabIndex = 0;
+            this.GW_Boss_Encounter_Label.Text = "A dark energy is present. Do you engage it?";
+            // 
+            // GW_Enemy_PicBox
+            // 
+            this.GW_Enemy_PicBox.BackColor = System.Drawing.Color.Transparent;
+            this.GW_Enemy_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("GW_Enemy_PicBox.Image")));
+            this.GW_Enemy_PicBox.Location = new System.Drawing.Point(917, 128);
+            this.GW_Enemy_PicBox.Name = "GW_Enemy_PicBox";
+            this.GW_Enemy_PicBox.Size = new System.Drawing.Size(229, 246);
+            this.GW_Enemy_PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.GW_Enemy_PicBox.TabIndex = 8;
+            this.GW_Enemy_PicBox.TabStop = false;
+            // 
+            // GW_Player_PicBox
+            // 
+            this.GW_Player_PicBox.BackColor = System.Drawing.Color.Transparent;
+            this.GW_Player_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("GW_Player_PicBox.Image")));
+            this.GW_Player_PicBox.Location = new System.Drawing.Point(616, 128);
+            this.GW_Player_PicBox.Name = "GW_Player_PicBox";
+            this.GW_Player_PicBox.Size = new System.Drawing.Size(241, 235);
+            this.GW_Player_PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.GW_Player_PicBox.TabIndex = 9;
+            this.GW_Player_PicBox.TabStop = false;
+            // 
+            // GW_Enemy_Damaged_PicBox
+            // 
+            this.GW_Enemy_Damaged_PicBox.BackColor = System.Drawing.Color.Transparent;
+            this.GW_Enemy_Damaged_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("GW_Enemy_Damaged_PicBox.Image")));
+            this.GW_Enemy_Damaged_PicBox.Location = new System.Drawing.Point(917, 128);
+            this.GW_Enemy_Damaged_PicBox.Name = "GW_Enemy_Damaged_PicBox";
+            this.GW_Enemy_Damaged_PicBox.Size = new System.Drawing.Size(229, 246);
+            this.GW_Enemy_Damaged_PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.GW_Enemy_Damaged_PicBox.TabIndex = 10;
+            this.GW_Enemy_Damaged_PicBox.TabStop = false;
+            // 
+            // GW_Player_Damaged_PicBox
+            // 
+            this.GW_Player_Damaged_PicBox.BackColor = System.Drawing.Color.Transparent;
+            this.GW_Player_Damaged_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("GW_Player_Damaged_PicBox.Image")));
+            this.GW_Player_Damaged_PicBox.Location = new System.Drawing.Point(616, 128);
+            this.GW_Player_Damaged_PicBox.Name = "GW_Player_Damaged_PicBox";
+            this.GW_Player_Damaged_PicBox.Size = new System.Drawing.Size(241, 235);
+            this.GW_Player_Damaged_PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.GW_Player_Damaged_PicBox.TabIndex = 11;
+            this.GW_Player_Damaged_PicBox.TabStop = false;
+            // 
+            // GW_Enemy_Boss_PicBox
+            // 
+            this.GW_Enemy_Boss_PicBox.BackColor = System.Drawing.Color.Transparent;
+            this.GW_Enemy_Boss_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("GW_Enemy_Boss_PicBox.Image")));
+            this.GW_Enemy_Boss_PicBox.Location = new System.Drawing.Point(994, 222);
+            this.GW_Enemy_Boss_PicBox.Name = "GW_Enemy_Boss_PicBox";
+            this.GW_Enemy_Boss_PicBox.Size = new System.Drawing.Size(277, 217);
+            this.GW_Enemy_Boss_PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.GW_Enemy_Boss_PicBox.TabIndex = 12;
+            this.GW_Enemy_Boss_PicBox.TabStop = false;
+            // 
+            // GW_Enemy_Boss_Damage_PicBox
+            // 
+            this.GW_Enemy_Boss_Damage_PicBox.BackColor = System.Drawing.Color.Transparent;
+            this.GW_Enemy_Boss_Damage_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("GW_Enemy_Boss_Damage_PicBox.Image")));
+            this.GW_Enemy_Boss_Damage_PicBox.Location = new System.Drawing.Point(994, 222);
+            this.GW_Enemy_Boss_Damage_PicBox.Name = "GW_Enemy_Boss_Damage_PicBox";
+            this.GW_Enemy_Boss_Damage_PicBox.Size = new System.Drawing.Size(277, 219);
+            this.GW_Enemy_Boss_Damage_PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.GW_Enemy_Boss_Damage_PicBox.TabIndex = 13;
+            this.GW_Enemy_Boss_Damage_PicBox.TabStop = false;
+            // 
+            // GW_menuStrip
+            // 
+            this.GW_menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.GW_menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gameToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.GW_menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.GW_menuStrip.Name = "GW_menuStrip";
+            this.GW_menuStrip.Size = new System.Drawing.Size(1683, 28);
+            this.GW_menuStrip.TabIndex = 14;
+            this.GW_menuStrip.Text = "GW_MenuStrip";
+            // 
+            // gameToolStripMenuItem
+            // 
+            this.gameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cheatModeToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.exitToolStripMenuItem});
+            this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
+            this.gameToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.gameToolStripMenuItem.Text = "Game";
+            // 
+            // cheatModeToolStripMenuItem
+            // 
+            this.cheatModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.maxStatsToolStripMenuItem,
+            this.superWeaponToolStripMenuItem,
+            this.generateBossToolStripMenuItem,
+            this.toAllItemQuantityToolStripMenuItem,
+            this.randomWeaponDropToolStripMenuItem,
+            this.levelUpToolStripMenuItem});
+            this.cheatModeToolStripMenuItem.Name = "cheatModeToolStripMenuItem";
+            this.cheatModeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.cheatModeToolStripMenuItem.Text = "Cheat Mode";
+            // 
+            // maxStatsToolStripMenuItem
+            // 
+            this.maxStatsToolStripMenuItem.Name = "maxStatsToolStripMenuItem";
+            this.maxStatsToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.maxStatsToolStripMenuItem.Text = "Max Stats / God Mode";
+            this.maxStatsToolStripMenuItem.ToolTipText = "Set Player Stats to Max and can\'t die.";
+            this.maxStatsToolStripMenuItem.Click += new System.EventHandler(this.maxStatsToolStripMenuItem_Click);
+            // 
+            // superWeaponToolStripMenuItem
+            // 
+            this.superWeaponToolStripMenuItem.Name = "superWeaponToolStripMenuItem";
+            this.superWeaponToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.superWeaponToolStripMenuItem.Text = "Super Weapon";
+            this.superWeaponToolStripMenuItem.ToolTipText = "Gives the user a powerful weapon.";
+            this.superWeaponToolStripMenuItem.Click += new System.EventHandler(this.superWeaponToolStripMenuItem_Click);
+            // 
+            // generateBossToolStripMenuItem
+            // 
+            this.generateBossToolStripMenuItem.Name = "generateBossToolStripMenuItem";
+            this.generateBossToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.generateBossToolStripMenuItem.Text = "Generate Boss";
+            this.generateBossToolStripMenuItem.ToolTipText = "Turn the current enemy to a Boss.";
+            this.generateBossToolStripMenuItem.Click += new System.EventHandler(this.generateBossToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // toAllItemQuantityToolStripMenuItem
+            // 
+            this.toAllItemQuantityToolStripMenuItem.Name = "toAllItemQuantityToolStripMenuItem";
+            this.toAllItemQuantityToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.toAllItemQuantityToolStripMenuItem.Text = "+999 to All Item Quantity";
+            this.toAllItemQuantityToolStripMenuItem.Click += new System.EventHandler(this.toAllItemQuantityToolStripMenuItem_Click);
+            // 
+            // randomWeaponDropToolStripMenuItem
+            // 
+            this.randomWeaponDropToolStripMenuItem.Name = "randomWeaponDropToolStripMenuItem";
+            this.randomWeaponDropToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
+            this.randomWeaponDropToolStripMenuItem.Text = "Random Weapon Drop";
+            this.randomWeaponDropToolStripMenuItem.Click += new System.EventHandler(this.randomWeaponDropToolStripMenuItem_Click);
+            // 
+            // levelUpToolStripMenuItem
+            // 
+            this.levelUpToolStripMenuItem.Name = "levelUpToolStripMenuItem";
+            this.levelUpToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.levelUpToolStripMenuItem.Text = "Level Up!";
+            this.levelUpToolStripMenuItem.Click += new System.EventHandler(this.levelUpToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1683, 828);
             this.Controls.Add(this.GW_Boss_Encounter_Panel);
             this.Controls.Add(this.GW_GameStatus_Panel);
             this.Controls.Add(this.GW_BattleAction_Panel);
+            this.Controls.Add(this.GW_Enemy_Boss_Damage_PicBox);
+            this.Controls.Add(this.GW_Enemy_Boss_PicBox);
+            this.Controls.Add(this.GW_Player_Damaged_PicBox);
+            this.Controls.Add(this.GW_Enemy_Damaged_PicBox);
+            this.Controls.Add(this.GW_Player_PicBox);
+            this.Controls.Add(this.GW_Enemy_PicBox);
             this.Controls.Add(this.GW_Inventory_Panel);
             this.Controls.Add(this.GW_Weapon_Panel);
             this.Controls.Add(this.GW_Battle_Panel);
             this.Controls.Add(this.GW_Enemy_Panel);
             this.Controls.Add(this.GW_PlayerPanel1);
+            this.Controls.Add(this.GW_menuStrip);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1701, 875);
             this.MinimumSize = new System.Drawing.Size(1701, 875);
@@ -1158,7 +1415,16 @@
             this.GW_GameStatus_Panel.PerformLayout();
             this.GW_Boss_Encounter_Panel.ResumeLayout(false);
             this.GW_Boss_Encounter_Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_PicBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GW_Player_PicBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_Damaged_PicBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GW_Player_Damaged_PicBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_Boss_PicBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_Boss_Damage_PicBox)).EndInit();
+            this.GW_menuStrip.ResumeLayout(false);
+            this.GW_menuStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1247,5 +1513,28 @@
         private System.Windows.Forms.Button GW_Boss_No_Button;
         private System.Windows.Forms.Button GW_Boss_Yes_Button;
         private System.Windows.Forms.Label GW_Boss_Encounter_Label;
+        private System.Windows.Forms.PictureBox GW_Enemy_PicBox;
+        private System.Windows.Forms.PictureBox GW_Player_PicBox;
+        private System.Windows.Forms.PictureBox GW_Enemy_Damaged_PicBox;
+        private System.Windows.Forms.PictureBox GW_Player_Damaged_PicBox;
+        private System.Windows.Forms.ProgressBar GW_Player_Mana_ProgBar;
+        private System.Windows.Forms.ProgressBar GW_Player_Health_ProgBar;
+        private System.Windows.Forms.ProgressBar GW_Enemy_Health_ProgBar;
+        private System.Windows.Forms.PictureBox GW_Enemy_Boss_PicBox;
+        private System.Windows.Forms.PictureBox GW_Enemy_Boss_Damage_PicBox;
+        private System.Windows.Forms.MenuStrip GW_menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cheatModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem maxStatsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem superWeaponToolStripMenuItem;
+        private System.Windows.Forms.ProgressBar GW_BossEncounter_ProgBar;
+        private System.Windows.Forms.ToolStripMenuItem generateBossToolStripMenuItem;
+        private System.Windows.Forms.ToolTip GW_ToolTips;
+        private System.Windows.Forms.ToolStripMenuItem toAllItemQuantityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem randomWeaponDropToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem levelUpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

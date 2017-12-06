@@ -14,7 +14,7 @@ namespace ProjectRPG
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
+            //Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(MainWindow = new ProjectRPG_MainForm());
         }

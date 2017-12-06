@@ -33,49 +33,51 @@ namespace ProjectRPG
         public Staff(int StrengthStat)
         {
             Name = GenerateWeapName();
-            BaseAttack = (StrengthStat) * Game.Player.LevelNumber * 4 * Game.Player.Intelligence;
+            BaseAttack = (StrengthStat / 4) * Game.Player.LevelNumber * Game.Player.Intelligence;
 
             ElementType = "Magic";
 
             Move1Name = "Fire Cone Blast";
             Move1Ammo = 8;
-            Move1Damage = BaseAttack + (Game.Player.Intelligence * 4);
+            Move1Damage = BaseAttack + (Game.Player.Intelligence * 2);
             Move1MaxAmmo = Move1Ammo;
 
-            if (Move1Damage >= 2147483647 || Move1Damage < 0)
-                Move1Damage = 2147483647;
+            if (Move1Damage >= 999999 || Move1Damage < 0)
+                Move1Damage = 999999;
 
             Move2Name = "Ice Cone Blast";
             Move2Ammo = 8;
-            Move2Damage = BaseAttack + (Game.Player.Intelligence * 4);
+            Move2Damage = BaseAttack + (Game.Player.Intelligence * 2);
             Move2MaxAmmo = Move2Ammo;
 
-            if (Move2Damage >= 2147483647 || Move2Damage < 0)
-                Move2Damage = 2147483647;
+            if (Move2Damage >= 999999 || Move2Damage < 0)
+                Move2Damage = 999999;
 
             Move3Name = "Lighting Cone Blast";
             Move3Ammo = 8;
             Move3MaxAmmo = Move3Ammo;
 
-            if (Move3Damage >= 2147483647 || Move3Damage < 0)
-                Move3Damage = 2147483647;
+            if (Move3Damage >= 999999 || Move3Damage < 0)
+                Move3Damage = 999999;
 
-            Move3Damage = BaseAttack + (Game.Player.Intelligence * 4);
+            Move3Damage = BaseAttack + (Game.Player.Intelligence * 2);
 
             Move4Name = "Magical Hell Gate";
             Move4Ammo = 2;
             Move4MaxAmmo = Move4Ammo;
             Move4Damage = BaseAttack * 50;
 
-            if (Move4Damage >= 2147483647 || Move4Damage < 0)
-                Move4Damage = 2147483647;
+            if (Move4Damage >= 999999 || Move4Damage < 0)
+                Move4Damage = 999999;
         }
 
         private string GenerateWeapName()
         {
-            string[] name = { "Forbidden Book", "Unknown Scripture", "Ender of Worlds", "Harry's Spells" };
+            string[] name = { "Forbidden Staff", "Unknown Staff", "Staff of Worlds", "Harry's Staff" };
 
-            Random rand = new Random();
+            Random seed = new Random();
+            int seedRand = seed.Next(0, 100);
+            Random rand = new Random(seedRand);
             int randVal = rand.Next(0, name.Count());
 
             return ($"{name[randVal]} (Spell Tome)");
@@ -83,23 +85,23 @@ namespace ProjectRPG
 
         public override void UpdateWeapon(int StrengthStat)
         {
-            BaseAttack = (StrengthStat) * Game.Player.LevelNumber * 4 * Game.Player.Intelligence;
+            BaseAttack = (StrengthStat) * Game.Player.LevelNumber * Game.Player.Intelligence;
 
-            Move1Damage = BaseAttack + (Game.Player.Intelligence * 4);
-            if (Move1Damage >= 2147483647 || Move1Damage < 0)
-                Move1Damage = 2147483647;
+            Move1Damage = BaseAttack + (Game.Player.Intelligence * 2);
+            if (Move1Damage >= 999999 || Move1Damage < 0)
+                Move1Damage = 999999;
 
-            Move2Damage = BaseAttack + (Game.Player.Intelligence * 4);
-            if (Move2Damage >= 2147483647 || Move2Damage < 0)
-                Move2Damage = 2147483647;
+            Move2Damage = BaseAttack + (Game.Player.Intelligence * 2);
+            if (Move2Damage >= 999999 || Move2Damage < 0)
+                Move2Damage = 999999;
 
-            Move3Damage = BaseAttack + (Game.Player.Intelligence * 4);
-            if (Move3Damage >= 2147483647 || Move3Damage < 0)
-                Move3Damage = 2147483647;
+            Move3Damage = BaseAttack + (Game.Player.Intelligence * 2);
+            if (Move3Damage >= 999999 || Move3Damage < 0)
+                Move3Damage = 999999;
 
             Move4Damage = BaseAttack * 50;
-            if (Move4Damage >= 2147483647 || Move4Damage < 0)
-                Move4Damage = 2147483647;
+            if (Move4Damage >= 999999 || Move4Damage < 0)
+                Move4Damage = 999999;
         }
     }
 }

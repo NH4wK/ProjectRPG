@@ -42,16 +42,16 @@ namespace ProjectRPG
             Move1Damage = BaseAttack;
             Move1MaxAmmo = Move1Ammo;
 
-            if (Move1Damage >= 2147483647 || Move1Damage < 0)
-                Move1Damage = 2147483647;
+            if (Move1Damage >= 999999 || Move1Damage < 0)
+                Move1Damage = 999999;
 
             Move2Name = "Hammer Throw";
             Move2Ammo = 10;
             Move2Damage = BaseAttack + (int)(BaseAttack * 2);
             Move2MaxAmmo = Move2Ammo;
 
-            if (Move2Damage >= 2147483647 || Move2Damage < 0)
-                Move2Damage = 2147483647;
+            if (Move2Damage >= 999999 || Move2Damage < 0)
+                Move2Damage = 999999;
 
             Move3Name = "Thundershock";
             Move3Ammo = 10;
@@ -59,23 +59,25 @@ namespace ProjectRPG
 
             Move3Damage = BaseAttack + (int)(BaseAttack * 2.5);
 
-            if (Move3Damage >= 2147483647 || Move3Damage < 0)
-                Move3Damage = 2147483647;
+            if (Move3Damage >= 999999 || Move3Damage < 0)
+                Move3Damage = 999999;
 
             Move4Name = "Power of Zeus";
             Move4Ammo = 5;
             Move4MaxAmmo = Move4Ammo;
             Move4Damage = BaseAttack * 10;
 
-            if (Move4Damage >= 2147483647 || Move4Damage < 0)
-                Move4Damage = 2147483647;
+            if (Move4Damage >= 999999 || Move4Damage < 0)
+                Move4Damage = 999999;
         }
 
         private string GenerateWeapName()
         {
             string[] name = { "The Banger", "Hammer Time!", "The Masher", "For Honor!", "Calm Thunder", "Raging Thunder" };
 
-            Random rand = new Random();
+            Random seed = new Random();
+            int seedRand = seed.Next(0, 100);
+            Random rand = new Random(seedRand);
             int randVal = rand.Next(0, name.Count());
 
             return ($"{name[randVal]} (WarHammer)");
@@ -86,23 +88,23 @@ namespace ProjectRPG
             BaseAttack = Game.Player.Strength * Game.Player.LevelNumber * 3;
             Move1Damage = BaseAttack;
 
-            if (Move1Damage >= 2147483647 || Move1Damage < 0)
-                Move1Damage = 2147483647;
+            if (Move1Damage >= 999999 || Move1Damage < 0)
+                Move1Damage = 999999;
 
             Move2Damage = BaseAttack + (int)(BaseAttack * 2);
 
-            if (Move2Damage >= 2147483647 || Move2Damage < 0)
-                Move2Damage = 2147483647;
+            if (Move2Damage >= 999999 || Move2Damage < 0)
+                Move2Damage = 999999;
 
             Move3Damage = BaseAttack + (int)(BaseAttack * 2.5);
 
-            if (Move3Damage >= 2147483647 || Move3Damage < 0)
-                Move3Damage = 2147483647;
+            if (Move3Damage >= 999999 || Move3Damage < 0)
+                Move3Damage = 999999;
 
             Move4Damage = BaseAttack * 8;
 
-            if (Move4Damage >= 2147483647 || Move4Damage < 0)
-                Move4Damage = 2147483647;
+            if (Move4Damage >= 999999 || Move4Damage < 0)
+                Move4Damage = 999999;
         }
     }
 }

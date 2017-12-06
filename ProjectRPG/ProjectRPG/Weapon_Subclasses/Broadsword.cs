@@ -42,39 +42,41 @@ namespace ProjectRPG
             Move1Damage = BaseAttack + (Game.Player.Dexterity * 2);
             Move1MaxAmmo = Move1Ammo;
 
-            if (Move1Damage >= 2147483647 || Move1Damage < 0)
-                Move1Damage = 2147483647;
+            if (Move1Damage >= 999999 || Move1Damage < 0)
+                Move1Damage = 999999;
 
             Move2Name = "Sword Dance Fury";
             Move2Ammo = 10;
             Move2Damage = BaseAttack + (int)(BaseAttack / 2) + (Game.Player.Dexterity * 2);
             Move2MaxAmmo = Move2Ammo;
 
-            if (Move2Damage >= 2147483647 || Move2Damage < 0)
-                Move2Damage = 2147483647;
+            if (Move2Damage >= 999999 || Move2Damage < 0)
+                Move2Damage = 999999;
 
             Move3Name = "Mountainous Swipe";
             Move3Ammo = 10;
             Move3MaxAmmo = Move3Ammo;
             Move3Damage = BaseAttack + (int)(BaseAttack / 1.5) + (Game.Player.Dexterity * 2);
 
-            if (Move3Damage >= 2147483647 || Move3Damage < 0)
-                Move3Damage = 2147483647;
+            if (Move3Damage >= 999999 || Move3Damage < 0)
+                Move3Damage = 999999;
 
             Move4Name = "Swordbreaker";
             Move4Ammo = 10;
             Move4MaxAmmo = Move4Ammo;
             Move4Damage = BaseAttack * 7;
 
-            if (Move4Damage >= 2147483647 || Move4Damage < 0)
-                Move4Damage = 2147483647;
+            if (Move4Damage >= 999999 || Move4Damage < 0)
+                Move4Damage = 999999;
         }
 
         private string GenerateWeapName()
         {
             string[] name = { "Sword of the Nine", "King Slayer", "Wise Old One", "Standard", "Useful Sword", "Gleaming Federation" };
 
-            Random rand = new Random();
+            Random seed = new Random();
+            int seedRand = seed.Next(0, 100);
+            Random rand = new Random(seedRand);
             int randVal = rand.Next(0, name.Count());
 
             return ($"{name[randVal]} (Broadsword)");
@@ -85,23 +87,23 @@ namespace ProjectRPG
             BaseAttack = Game.Player.Strength * Game.Player.LevelNumber * 4;
             Move1Damage = BaseAttack + (Game.Player.Dexterity * 2);
 
-            if (Move1Damage >= 2147483647 || Move1Damage < 0)
-                Move1Damage = 2147483647;
+            if (Move1Damage >= 999999 || Move1Damage < 0)
+                Move1Damage = 999999;
 
             Move2Damage = BaseAttack + (int)(BaseAttack / 2) + (Game.Player.Dexterity * 2);
 
-            if (Move2Damage >= 2147483647 || Move2Damage < 0)
-                Move2Damage = 2147483647;
+            if (Move2Damage >= 999999 || Move2Damage < 0)
+                Move2Damage = 999999;
 
             Move3Damage = BaseAttack + (int)(BaseAttack / 2.5) + (Game.Player.Dexterity * 2);
 
-            if (Move3Damage >= 2147483647 || Move3Damage < 0)
-                Move3Damage = 2147483647;
+            if (Move3Damage >= 999999 || Move3Damage < 0)
+                Move3Damage = 999999;
 
             Move4Damage = BaseAttack * 7;
 
-            if (Move4Damage >= 2147483647 || Move4Damage < 0)
-                Move4Damage = 2147483647;
+            if (Move4Damage >= 999999 || Move4Damage < 0)
+                Move4Damage = 999999;
         }
     }
 }
