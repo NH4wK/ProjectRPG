@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/// <summary>
+/// Name: Paul Jerrold Biglete
+/// RedID: 8115430506
+/// ProjectRPG - Player Class
+/// </summary>
 namespace ProjectRPG
 {
     public class Player
     {
+        //Member Variables
         public string Name { get; set; }
         public int Strength { get; set; }
         public int Intelligence { get; set; }
@@ -21,6 +26,7 @@ namespace ProjectRPG
         public int LevelNumber { get; set; }
         public int KillCount { get; set; }
 
+        //Default Constructor
         public Player()
         {
             Name = "";
@@ -32,6 +38,7 @@ namespace ProjectRPG
             LevelNumber = 1;
         }
 
+        //Explicit Value Constructor
         public Player(string name, int str, int intel, int dex, int vit)
         {
             Name = name;
@@ -48,6 +55,7 @@ namespace ProjectRPG
             KillCount = 0;
         }
 
+        //Sets the health pool of the player
         public void SetHealthPool()
         {
             Health = Strength * Vitality;
@@ -58,6 +66,8 @@ namespace ProjectRPG
             MaxHealth = Health;
         }
 
+
+        //Sets the mana pool of the player
         public void SetManaPool()
         {
             Mana = Intelligence * 8;
@@ -68,16 +78,13 @@ namespace ProjectRPG
             MaxMana = Mana;
         }
 
-        public void AddEXP(int xpGained)
-        {
-            Experience += xpGained;       
-        }
-
+        //Level Up, increases  player level and increases stats
         public void LevelUp()
         {
             if(Game.Player.LevelNumber < 999)
                 LevelNumber += 1;
 
+            //if  Stats are below 10 increase by 1, otherwise increase by 10%
             if (Strength < 10)
                 Strength += 1;
             else
@@ -98,16 +105,20 @@ namespace ProjectRPG
             else
                 Vitality += (int)(Game.Player.Vitality * 0.10);
 
-            if (Game.Player.Strength > 999)
+            //if Player Stats are above 999, keep it at 999
+            if (Game.Player.Strength >= 999)
                 Game.Player.Strength = 999;
-            if (Game.Player.Intelligence > 999)
+            if (Game.Player.Intelligence >= 999)
                 Game.Player.Intelligence = 999;
-            if (Game.Player.Dexterity > 999)
+            if (Game.Player.Dexterity >= 999)
                 Game.Player.Dexterity = 999;
-            if (Game.Player.Vitality > 999)
+            if (Game.Player.Vitality >= 999)
                 Game.Player.Vitality = 999;
         }
 
+        /// <summary>
+        /// Set all stats to 999 and Health / Mana to 999999
+        /// </summary>
         public void CheatGodMode()
         {
             LevelNumber = 999;

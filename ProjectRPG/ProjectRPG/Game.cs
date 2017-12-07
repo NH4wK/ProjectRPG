@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// <summary>
+/// Name: Paul Jerrold Biglete
+/// RedID: 8115430506
+/// ProjectRPG - Game Class
+/// </summary>
 namespace ProjectRPG
 {
     static public class Game
@@ -25,6 +29,9 @@ namespace ProjectRPG
             GameWindow.ShowDialog();
         }
 
+        /// <summary>
+        /// My Global Variables/Objects
+        /// </summary>
         public static Player Player = null;
         public static Weapon PlayerWeapon = null;
         public static Weapon PlayerWeaponTemp = null;

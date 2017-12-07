@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/// <summary>
+/// Name: Paul Jerrold Biglete
+/// RedID: 8115430506
+/// ProjectRPG - Broadsword - Weapon Sub Class
+/// </summary>
+/// 
 namespace ProjectRPG
 {
     class Broadsword : Weapon

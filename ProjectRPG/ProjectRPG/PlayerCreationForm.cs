@@ -7,7 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// <summary>
+/// Name: Paul Jerrold Biglete
+/// RedID: 8115430506
+/// ProjectRPG - Player Creation Form
+/// </summary>
 namespace ProjectRPG
 {
     public partial class PlayerCreationForm : Form
@@ -24,12 +28,14 @@ namespace ProjectRPG
 
         void MenuInit()
         {
+            //Disable Create Button and NumUpDown Buttons initially
             CC_Create_Button.Enabled = false;
             Str_NumUpDown.Enabled = false;
             Intel_NumUpDown.Enabled = false;
             Dex_NumUpDown.Enabled = false;
             Vit_NumUpDown.Enabled = false;
 
+            //Set up tooltips
             CC_ToolTips.SetToolTip(CharName_TextBox, "Enter a name for your character!");
             CC_ToolTips.SetToolTip(CC_Create_Button, "Create your character!");
             CC_ToolTips.SetToolTip(ReRoll_Button, "Roll random stats for your character!");
@@ -61,6 +67,7 @@ namespace ProjectRPG
         {
             ReRoll_Button.Text = "Re-Roll";
 
+            //Re-enable Button and NumUpDown Buttons
             CC_Create_Button.Enabled = true;
             Str_NumUpDown.Enabled = true;
             Intel_NumUpDown.Enabled = true;
@@ -80,6 +87,7 @@ namespace ProjectRPG
             Dex_NumUpDown.Value = StatValue3;
             Vit_NumUpDown.Value = StatValue4;
 
+            //Temporarily Store Values for NumUpDown ValueChange Conditions
             StrRollValInit = Str_NumUpDown.Value;
             IntelRollValInit = Intel_NumUpDown.Value;
             DexRollValInit = Dex_NumUpDown.Value;
@@ -88,6 +96,7 @@ namespace ProjectRPG
 
         private void Create_Button_Click(object sender, EventArgs e)
         {
+            //Create a new player object and assign values to the player object
             Game.Player = new Player();
             Game.Player.Name = CharName_TextBox.Text;
             Game.Player.Strength = Convert.ToInt32(Str_NumUpDown.Value);
@@ -95,9 +104,9 @@ namespace ProjectRPG
             Game.Player.Dexterity = Convert.ToInt32(Dex_NumUpDown.Value);
             Game.Player.Vitality = Convert.ToInt32(Vit_NumUpDown.Value);
 
-            this.Close();
-            this.Dispose();
-            Game.CreateGameWindow();
+            this.Close(); //Close Creation Window
+            this.Dispose(); //Dispose Creation Window
+            Game.CreateGameWindow(); // Open Up Game Window
         }
 
         private void Str_NumUpDown_ValueChanged(object sender, EventArgs e)

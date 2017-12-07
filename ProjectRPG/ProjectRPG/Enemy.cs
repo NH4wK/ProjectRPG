@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/// <summary>
+/// Name: Paul Jerrold Biglete
+/// RedID: 8115430506
+/// ProjectRPG - Enemy Class
+/// </summary>
+/// 
 namespace ProjectRPG
 {
     public class Enemy
     {
+        //Memeber Variables
         public string Name { get; set; }
         public string Type { get; set; }
         public int Strength { get; set; }
@@ -18,6 +24,7 @@ namespace ProjectRPG
         public int MaxHealth { get; set; }
         public bool IsBoss = false;
 
+        //Default Constructor
         public Enemy()
         {
             Name = "";
@@ -29,6 +36,7 @@ namespace ProjectRPG
             Health = 0;
         }
 
+        //Explicit Value Constructor
         public Enemy(string name, string type, int str, int intel, int dex, int vit)
         {
             Name = name;
@@ -41,6 +49,7 @@ namespace ProjectRPG
             MaxHealth = Health;
         }
 
+        //Generates an Enemy
         public void GenerateEnemy()
         {
             Random seed = new Random();
@@ -52,6 +61,7 @@ namespace ProjectRPG
             int StatValue3 = 0;
             int StatValue4 = 0;
 
+            //if All Players Stats are maxed, set everything to maxed on the Enemy
             if (Game.Player.Strength == 999 && Game.Player.Intelligence == 999 && Game.Player.Dexterity == 999 && Game.Player.Vitality == 999)
             {
                 Strength = 999;
@@ -62,6 +72,7 @@ namespace ProjectRPG
             }
             else
             { 
+                //if Player Stats is less than or equal to 10, set Roll Max Stats + 5, otherwise set Roll Max to Players Stats + 10% of Player Stat
                 if(Game.Player.Strength <= 10)
                     StatValue1 = RanVal.Next(Game.Player.Strength, ((Game.Player.Strength + (int)(Game.Player.Strength + 5))));
                 else
@@ -88,16 +99,17 @@ namespace ProjectRPG
                 Vitality = StatValue4;
                 Health = Strength * Vitality;
             }
+
             Name = GenerateEnemyName();
             Type = GenerateEnemyType();
 
-
+            //If Enemy Health is set to a negative numeber then set it to 999999
             if (Game.Enemy.Health < 0)
                 Health = 999999;
 
             MaxHealth = Health;
 
-            //Randomly Choose a Weapon for the Player
+            //Randomly Choose a Weapon for the Enemy
             Random rand = new Random();
             int randVal = rand.Next(0, 6);
 
@@ -119,6 +131,10 @@ namespace ProjectRPG
                 Game.EnemyWeapon = null;
         }
 
+        /// <summary>
+        /// Randomly Generate an Enemy Name
+        /// </summary>
+        /// <returns></returns>
         public string GenerateEnemyName()
         {
             Random RanVal = new Random();
@@ -140,6 +156,10 @@ namespace ProjectRPG
             return nameResult;
         }
 
+        /// <summary>
+        /// Generate A Random Type for the Enemy
+        /// </summary>
+        /// <returns></returns>
         public string GenerateEnemyType()
         {
             Random RanVal = new Random();
@@ -150,6 +170,9 @@ namespace ProjectRPG
             return type[value];
         }
 
+        /// <summary>
+        /// Set the Enemy to Boss Stats and give them the boss weapon
+        /// </summary>
         public void SetToBoss()
         {
             Name = ($"{Game.Enemy.Name} (Boss)");
@@ -170,11 +193,15 @@ namespace ProjectRPG
                 Vitality = (int)(Game.Player.Vitality * 2.5);
             }
 
-            Game.EnemyWeapon = new WarHammer((int)(Game.Enemy.Strength * 1.5));
+            Game.EnemyWeapon = new WarHammer((int)(Game.Enemy.Strength * 3));
             Game.EnemyWeapon.Name = "Deathhammer of Ra-Zakar (Legendary)";
-            IsBoss = true;
+            IsBoss = true; //Set Boss Flag to true
         }
 
+        /// <summary>
+        /// Calculate Enemy Damage
+        /// </summary>
+        /// <returns></returns>
         public int Attack()
         {
             int AttackPoints;
@@ -191,7 +218,7 @@ namespace ProjectRPG
                 AttackPoints = Game.EnemyWeapon.Move3Damage;
             else if (value == 4)
                 AttackPoints = Game.EnemyWeapon.Move4Damage;
-            else
+            else //Enemy Missed
                 AttackPoints = 0;
 
             return AttackPoints;

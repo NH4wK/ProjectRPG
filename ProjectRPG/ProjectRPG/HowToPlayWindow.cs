@@ -7,14 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// <summary>
+/// Name: Paul Jerrold Biglete
+/// RedID: 8115430506
+/// ProjectRPG - How To Play Window
+/// </summary>
 namespace ProjectRPG
 {
     public partial class HowToPlayWindow : Form
     {
-
-        public static int PageCount = 0;
-
         public HowToPlayWindow()
         {
             InitializeComponent();

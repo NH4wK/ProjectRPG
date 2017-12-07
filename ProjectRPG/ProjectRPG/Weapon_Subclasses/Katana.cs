@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/// <summary>
+/// /// <summary>
+/// Name: Paul Jerrold Biglete
+/// RedID: 8115430506
+/// ProjectRPG - Katana - Weapon Sub Class
+/// </summary>
+/// </summary>
 namespace ProjectRPG
 {
     class Katana : Weapon

@@ -7,7 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// <summary>
+/// Name: Paul Jerrold Biglete
+/// RedID: 8115430506
+/// ProjectRPG -  Main Window
+/// </summary>
 namespace ProjectRPG
 {
     public partial class ProjectRPG_MainForm : Form
