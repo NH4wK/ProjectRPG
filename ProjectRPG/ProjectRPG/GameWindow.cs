@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Media;
+
 /// <summary>
 /// Name: Paul Jerrold Biglete
 /// RedID: 8115430506
 /// ProjectRPG - Game Window
 /// </summary>
+/// 
 namespace ProjectRPG
 {
     public partial class GameWindow : Form
@@ -66,15 +67,15 @@ namespace ProjectRPG
             else if (randVal == 1)
                 Game.PlayerWeapon = new Mace(Game.Player.Strength);
             else if (randVal == 2)
-                Game.PlayerWeapon = new Broadsword(Game.Player.Strength);
+                Game.PlayerWeapon = new Broadsword(Game.Player.Strength, Game.Player.Dexterity);
             else if (randVal == 3)
-                Game.PlayerWeapon = new Greatsword(Game.Player.Strength);
+                Game.PlayerWeapon = new Greatsword(Game.Player.Strength, Game.Player.Dexterity);
             else if (randVal == 4)
-                Game.PlayerWeapon = new Katana(Game.Player.Strength);
+                Game.PlayerWeapon = new Katana(Game.Player.Strength, Game.Player.Dexterity);
             else if (randVal == 5)
-                Game.PlayerWeapon = new SpellTome(Game.Player.Strength);
+                Game.PlayerWeapon = new SpellTome(Game.Player.Strength, Game.Player.Intelligence);
             else if (randVal == 6)
-                Game.PlayerWeapon = new Staff(Game.Player.Strength);
+                Game.PlayerWeapon = new Staff(Game.Player.Strength, Game.Player.Intelligence);
             else
                 Game.PlayerWeapon = null;
 
@@ -210,7 +211,14 @@ namespace ProjectRPG
             GW_M4AmmoCount_Label.Text = $"{Convert.ToString(Game.PlayerWeapon.Move4Ammo)} / {Convert.ToString(Game.PlayerWeapon.Move4MaxAmmo)}";
 
             //Update Weapon Stats
-            Game.PlayerWeapon.UpdateWeapon(Game.Player.Strength);
+            if ((Game.PlayerWeapon is WarHammer) || (Game.PlayerWeapon is Mace))
+                Game.PlayerWeapon.UpdateWeapon(Game.Player.Strength);
+            else if ((Game.PlayerWeapon is Broadsword) || (Game.PlayerWeapon is Greatsword) || (Game.PlayerWeapon is Katana))
+                Game.PlayerWeapon.UpdateWeapon(Game.Player.Strength, 0, Game.Player.Dexterity);
+            else if ((Game.PlayerWeapon is SpellTome) || (Game.PlayerWeapon is Staff))
+                Game.PlayerWeapon.UpdateWeapon(Game.Player.Strength, Game.Player.Intelligence, 0);
+            else
+                Game.PlayerWeapon.UpdateWeapon(Game.Player.Strength, Game.Player.Intelligence, Game.Player.Dexterity);
         }
 
         /// <summary>
@@ -308,7 +316,7 @@ namespace ProjectRPG
             GW_Player_Mana_ProgBar.Value = Game.Player.Mana;
 
             //Update Player's weapon stats
-            Game.PlayerWeapon.UpdateWeapon(Game.Player.Strength);
+            PlayerWeaponUpdate();
 
             //Update Labels
             GW_HPVal_Label.Text = ($"{Convert.ToString(Game.Player.Health)} / {Convert.ToString(Game.Player.MaxHealth)}");
@@ -345,9 +353,15 @@ namespace ProjectRPG
             GW_EnemyVitVal_Label.Text = Convert.ToString(Game.Enemy.Vitality);
             GW_EnemyWeap_Label.Text = $"Weapon: {Game.EnemyWeapon.Name}";
 
-
             //Update Enemy's weapon stats
-            Game.EnemyWeapon.UpdateWeapon(Game.Enemy.Strength);
+            if ((Game.EnemyWeapon is WarHammer) || (Game.EnemyWeapon is Mace))
+                Game.EnemyWeapon.UpdateWeapon(Game.Enemy.Strength);
+            else if ((Game.EnemyWeapon is Broadsword) || (Game.EnemyWeapon is Greatsword) || (Game.EnemyWeapon is Katana))
+                Game.EnemyWeapon.UpdateWeapon(Game.Enemy.Strength, 0, Game.Enemy.Dexterity);
+            else if ((Game.EnemyWeapon is SpellTome) || (Game.EnemyWeapon is Staff))
+                Game.EnemyWeapon.UpdateWeapon(Game.Enemy.Strength, Game.Enemy.Intelligence, 0);
+            else
+                Game.EnemyWeapon.UpdateWeapon(Game.Enemy.Strength, Game.Enemy.Intelligence, Game.Enemy.Dexterity);
 
             //if Enemy / Boss is at half health, update there picture boxes, otherwise show regular picturebox 
             if ((Game.Enemy.Health <= (Game.Enemy.MaxHealth / 2)) && Game.Enemy.IsBoss)
@@ -694,15 +708,15 @@ namespace ProjectRPG
             else if (randVal == 1)
                 Game.PlayerWeaponTemp = new Mace(Game.Player.Strength);
             else if (randVal == 2)
-                Game.PlayerWeaponTemp = new Broadsword(Game.Player.Strength);
+                Game.PlayerWeaponTemp = new Broadsword(Game.Player.Strength, Game.Player.Dexterity);
             else if (randVal == 3)
-                Game.PlayerWeaponTemp = new Greatsword(Game.Player.Strength);
+                Game.PlayerWeaponTemp = new Greatsword(Game.Player.Strength, Game.Player.Dexterity);
             else if (randVal == 4)
-                Game.PlayerWeaponTemp = new Katana(Game.Player.Strength);
+                Game.PlayerWeaponTemp = new Katana(Game.Player.Strength, Game.Player.Dexterity);
             else if (randVal == 5)
-                Game.PlayerWeaponTemp = new SpellTome(Game.Player.Strength);
+                Game.PlayerWeaponTemp = new SpellTome(Game.Player.Strength, Game.Player.Intelligence);
             else if (randVal == 6)
-                Game.PlayerWeaponTemp = new Staff(Game.Player.Strength);
+                Game.PlayerWeaponTemp = new Staff(Game.Player.Strength, Game.Player.Intelligence);
             else
                 Game.PlayerWeaponTemp = null;
 
@@ -810,6 +824,7 @@ namespace ProjectRPG
                 GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} has successfully retreated!");
                 Game.Enemy.GenerateEnemy();
                 EnemyUpdate();
+
                 GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} has appeared!");
                 GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
                 GW_BattleAction_TextBox.ScrollToCaret();
@@ -853,9 +868,9 @@ namespace ProjectRPG
         {
             for (int i = 0; i < Game.WeaponBox.Count; i++)
             {
-                if ((GW_WeapSel_Combo.SelectedItem.ToString()) == Game.WeaponBox[i].Name)
+                if ((GW_WeapSel_Combo.SelectedItem.ToString()) == Game.WeaponBox[i].Name) //Selected Weapon == Weapon Name in Weapon Box
                 {
-                    Game.PlayerWeapon = Game.WeaponBox[i];
+                    Game.PlayerWeapon = Game.WeaponBox[i]; //equip the corresponding weapon
                     PlayerWeaponUpdate();
                 }
             }

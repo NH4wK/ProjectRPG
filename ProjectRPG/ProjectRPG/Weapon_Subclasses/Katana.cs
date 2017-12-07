@@ -36,16 +36,17 @@ namespace ProjectRPG
             Move4MaxAmmo = Move4Ammo;
         }
 
-        public Katana(int StrengthStat)
+        public Katana(int StrengthStat, int DexterityStat)
         {
+            SetBaseAttackMult();
             Name = GenerateWeapName();
-            BaseAttack = StrengthStat * Game.Player.LevelNumber * 2;
+            BaseAttack = StrengthStat * Game.Player.LevelNumber * BaseAttackMultiplier;
 
             ElementType = "Wind";
 
             Move1Name = "Clean Swipe";
             Move1Ammo = 15;
-            Move1Damage = (BaseAttack * 2) + (Game.Player.Dexterity * 4);
+            Move1Damage = (BaseAttack * 2) + (DexterityStat * 4);
             Move1MaxAmmo = Move1Ammo;
 
             if (Move1Damage >= 999999 || Move1Damage < 0)
@@ -53,7 +54,7 @@ namespace ProjectRPG
 
             Move2Name = "Tornado Slash";
             Move2Ammo = 12;
-            Move2Damage = (BaseAttack * 3) + (int)(BaseAttack) + (Game.Player.Dexterity * 4);
+            Move2Damage = (BaseAttack * 3) + (int)(BaseAttack) + (DexterityStat * 4);
             Move2MaxAmmo = Move2Ammo;
 
             if (Move2Damage >= 999999 || Move2Damage < 0)
@@ -62,7 +63,7 @@ namespace ProjectRPG
             Move3Name = "Peaceful Harmony Strike";
             Move3Ammo = 5;
             Move3MaxAmmo = Move3Ammo;
-            Move3Damage = (BaseAttack * 10) + (int)(BaseAttack) + (Game.Player.Dexterity * 5);
+            Move3Damage = (BaseAttack * 10) + (int)(BaseAttack) + (DexterityStat * 5);
 
             if (Move3Damage >= 999999 || Move3Damage < 0)
                 Move3Damage = 999999;
@@ -77,6 +78,16 @@ namespace ProjectRPG
 
         }
 
+        private void SetBaseAttackMult()
+        {
+            Random seed = new Random();
+            int seedRand = seed.Next(0, 100);
+            Random rand = new Random(seedRand);
+            int BaseMult = rand.Next(1, 4);
+
+            BaseAttackMultiplier = BaseMult;
+        }
+
         private string GenerateWeapName()
         {
             string[] name = { "Shining Dawn", "Quick Horizon", "Akagi's Weapon", "Windslasher", "Windbreaker"};
@@ -86,23 +97,32 @@ namespace ProjectRPG
             Random rand = new Random(seedRand);
             int randVal = rand.Next(0, name.Count());
 
-            return ($"{name[randVal]} (Katana)");
+            if (BaseAttackMultiplier == 4)
+                return ($"{name[randVal]} (Legendary Katana)");
+            else if (BaseAttackMultiplier == 3)
+                return ($"{name[randVal]} (Epic Katana)");
+            else if (BaseAttackMultiplier == 2)
+                return ($"{name[randVal]} (Rare Katana)");
+            else if (BaseAttackMultiplier == 1)
+                return ($"{name[randVal]} (Normal Katana)");
+            else
+                return ($"{name[randVal]} (Katana)");
         }
 
-        public override void UpdateWeapon(int StrengthStat)
+        public override void UpdateWeapon(int StrengthStat, int IntelligenceStat, int DexterityStat)
         {
-            BaseAttack = StrengthStat * Game.Player.LevelNumber;
-            Move1Damage = (BaseAttack * 2) + (Game.Player.Dexterity * 4);
+            BaseAttack = StrengthStat * Game.Player.LevelNumber * BaseAttackMultiplier;
+            Move1Damage = (BaseAttack * 2) + (DexterityStat * 4);
 
             if (Move1Damage >= 999999 || Move1Damage < 0)
                 Move4Damage = 999999;
 
-            Move2Damage = (BaseAttack * 3) + (int)(BaseAttack) + (Game.Player.Dexterity * 4);
+            Move2Damage = (BaseAttack * 3) + (int)(BaseAttack) + (DexterityStat * 4);
 
             if (Move2Damage >= 999999 || Move2Damage < 0)
                 Move2Damage = 999999;
 
-            Move3Damage = (BaseAttack * 10) + (int)(BaseAttack) + (Game.Player.Dexterity * 5);
+            Move3Damage = (BaseAttack * 10) + (int)(BaseAttack) + (DexterityStat * 5);
 
             if (Move3Damage >= 999999 || Move3Damage < 0)
                 Move3Damage = 999999;

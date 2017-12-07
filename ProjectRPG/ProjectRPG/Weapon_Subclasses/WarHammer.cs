@@ -17,6 +17,7 @@ namespace ProjectRPG
             Name = "";
             ElementType = "Thunder";
             BaseAttack = 0;
+            BaseAttackMultiplier = 0;
 
             Move1Name = "";
             Move2Name = "";
@@ -36,14 +37,17 @@ namespace ProjectRPG
 
         public WarHammer(int StrengthStat)
         {
+            SetBaseAttackMult();
+
             Name = GenerateWeapName();
-            BaseAttack = StrengthStat * Game.Player.LevelNumber;
+
+            BaseAttack = StrengthStat * Game.Player.LevelNumber * BaseAttackMultiplier;
 
             ElementType = "Thunder";
 
             Move1Name = "Hammer Smash";
             Move1Ammo = 30;
-            Move1Damage = BaseAttack;
+            Move1Damage = (int)(BaseAttack * 1.5);
             Move1MaxAmmo = Move1Ammo;
 
             if (Move1Damage >= 999999 || Move1Damage < 0)
@@ -75,6 +79,16 @@ namespace ProjectRPG
                 Move4Damage = 999999;
         }
 
+        private void SetBaseAttackMult()
+        {
+            Random seed = new Random();
+            int seedRand = seed.Next(0, 100);
+            Random rand = new Random(seedRand);
+            int BaseMult = rand.Next(1, 4);
+
+            BaseAttackMultiplier = BaseMult;
+        }
+
         private string GenerateWeapName()
         {
             string[] name = { "The Banger", "Hammer Time!", "The Masher", "For Honor!", "Calm Thunder", "Raging Thunder" };
@@ -84,13 +98,22 @@ namespace ProjectRPG
             Random rand = new Random(seedRand);
             int randVal = rand.Next(0, name.Count());
 
-            return ($"{name[randVal]} (WarHammer)");
+           if(BaseAttackMultiplier == 4)
+                return ($"{name[randVal]} (Legendary WarHammer)");
+           else if(BaseAttackMultiplier == 3)
+                return ($"{name[randVal]} (Epic WarHammer)");
+           else if (BaseAttackMultiplier == 2)
+                return ($"{name[randVal]} (Rare WarHammer)");
+           else if (BaseAttackMultiplier == 1)
+                return ($"{name[randVal]} (Normal WarHammer)");
+           else
+                return ($"{name[randVal]} (WarHammer)");
         }
 
-        public override void UpdateWeapon(int StrengthStat)
+        public override void UpdateWeapon(int Strength, int Intel, int Dex)
         {
-            BaseAttack = Game.Player.Strength * Game.Player.LevelNumber;
-            Move1Damage = BaseAttack;
+            BaseAttack = Strength * Game.Player.LevelNumber * BaseAttackMultiplier;
+            Move1Damage = (int)(BaseAttack * 1.5);
 
             if (Move1Damage >= 999999 || Move1Damage < 0)
                 Move1Damage = 999999;

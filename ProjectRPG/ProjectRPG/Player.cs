@@ -48,7 +48,7 @@ namespace ProjectRPG
             Vitality = vit;
             Experience = 0;
             LevelNumber = 1;
-            Health = Strength * Vitality;
+            Health = Strength * Vitality * 2;
             Mana = Intelligence * 8;
             MaxHealth = Health;
             MaxMana = Mana;
@@ -58,7 +58,7 @@ namespace ProjectRPG
         //Sets the health pool of the player
         public void SetHealthPool()
         {
-            Health = Strength * Vitality;
+            Health = Strength * Vitality * 2;
 
             if (Game.Player.Health > 999999 || Game.Player.Health < 0)
                 Health = 999999;

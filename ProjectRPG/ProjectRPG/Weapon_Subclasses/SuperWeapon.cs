@@ -17,6 +17,7 @@ namespace ProjectRPG
             Name = "";
             ElementType = "All";
             BaseAttack = 0;
+            BaseAttackMultiplier = 0;
 
             Move1Name = "";
             Move2Name = "";
@@ -75,7 +76,7 @@ namespace ProjectRPG
                 Move4Damage = 999999;
         }
 
-        public override void UpdateWeapon(int StrengthStat)
+        public override void UpdateWeapon(int StrengthStat, int Intelligence, int Dexterity)
         {
             BaseAttack = 999999;
             Move1Damage = BaseAttack;

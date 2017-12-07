@@ -17,6 +17,7 @@ namespace ProjectRPG
             Name = "";
             ElementType = "Holy";
             BaseAttack = 0;
+            BaseAttackMultiplier = 0;
 
             Move1Name = "";
             Move2Name = "";
@@ -36,14 +37,15 @@ namespace ProjectRPG
 
         public Mace(int StrengthStat)
         {
+            SetBaseAttackMult();
             Name = GenerateWeapName();
-            BaseAttack = StrengthStat * Game.Player.LevelNumber;
+            BaseAttack = StrengthStat * Game.Player.LevelNumber * BaseAttackMultiplier;
 
             ElementType = "Holy";
 
             Move1Name = "Blunt Smack";
             Move1Ammo = 30;
-            Move1Damage = BaseAttack;
+            Move1Damage = (int)(BaseAttack * 1.5);
             Move1MaxAmmo = Move1Ammo;
 
             if (Move1Damage >= 999999 || Move1Damage < 0)
@@ -74,6 +76,17 @@ namespace ProjectRPG
                 Move4Damage = 999999;
         }
 
+        private void SetBaseAttackMult()
+        {
+            Random seed = new Random();
+            int seedRand = seed.Next(0, 100);
+            Random rand = new Random(seedRand);
+
+            int BaseMult = rand.Next(1, 4);
+
+            BaseAttackMultiplier = BaseMult;
+        }
+
         private string GenerateWeapName()
         {
             string[] name = { "From the Heavens", "The Divine", "Armageddon", "The Right Hand of the Almighty", "The Eliminator", "Mace of Yu" };
@@ -83,14 +96,23 @@ namespace ProjectRPG
             Random rand = new Random(seedRand);
             int randVal = rand.Next(0, name.Count());
 
-            return ($"{name[randVal]} (Mace)");
+            if (BaseAttackMultiplier == 4)
+                return ($"{name[randVal]} (Legendary Mace)");
+            else if (BaseAttackMultiplier == 3)
+                return ($"{name[randVal]} (Epic Mace)");
+            else if (BaseAttackMultiplier == 2)
+                return ($"{name[randVal]} (Rare Mace)");
+            else if (BaseAttackMultiplier == 1)
+                return ($"{name[randVal]} (Normal Mace)");
+            else
+                return ($"{name[randVal]} (Mace)");
         }
 
-        public override void UpdateWeapon(int StrengthStat)
+        public override void UpdateWeapon(int StrengthStat, int IntelligenceStat, int DexterityStat)
         {
-            BaseAttack = StrengthStat * Game.Player.LevelNumber;
+            BaseAttack = StrengthStat * Game.Player.LevelNumber * BaseAttackMultiplier;
 
-            Move1Damage = BaseAttack;
+            Move1Damage = (int)(BaseAttack * 1.5);
             if (Move1Damage >= 999999 || Move1Damage < 0)
                 Move1Damage = 999999;
 

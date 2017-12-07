@@ -45,7 +45,7 @@ namespace ProjectRPG
             Intelligence = intel;
             Dexterity = dex;
             Vitality = vit;
-            Health = Strength * Vitality;
+            Health = Strength * Vitality * 2;
             MaxHealth = Health;
         }
 
@@ -97,7 +97,7 @@ namespace ProjectRPG
                 Intelligence = StatValue2;
                 Dexterity = StatValue3;
                 Vitality = StatValue4;
-                Health = Strength * Vitality;
+                Health = (int)(Strength * Vitality * 1.5);
             }
 
             Name = GenerateEnemyName();
@@ -118,15 +118,15 @@ namespace ProjectRPG
             else if (randVal == 1)
                 Game.EnemyWeapon = new Mace(Game.Enemy.Strength);
             else if (randVal == 2)
-                Game.EnemyWeapon = new Broadsword(Game.Enemy.Strength);
+                Game.EnemyWeapon = new Broadsword(Game.Enemy.Strength, Game.Enemy.Dexterity);
             else if (randVal == 3)
-                Game.EnemyWeapon = new Greatsword(Game.Enemy.Strength);
+                Game.EnemyWeapon = new Greatsword(Game.Enemy.Strength, Game.Enemy.Dexterity);
             else if (randVal == 4)
-                Game.EnemyWeapon = new Katana(Game.Enemy.Strength);
+                Game.EnemyWeapon = new Katana(Game.Enemy.Strength, Game.Enemy.Dexterity);
             else if (randVal == 5)
-                Game.EnemyWeapon = new SpellTome(Game.Enemy.Strength);
+                Game.EnemyWeapon = new SpellTome(Game.Enemy.Strength, Game.Enemy.Intelligence);
             else if (randVal == 6)
-                Game.EnemyWeapon = new Staff(Game.Enemy.Strength);
+                Game.EnemyWeapon = new Staff(Game.Enemy.Strength, Game.Enemy.Intelligence);
             else
                 Game.EnemyWeapon = null;
         }
@@ -164,7 +164,7 @@ namespace ProjectRPG
         {
             Random RanVal = new Random();
 
-            string[] type = { "Fire", "Normal", "Ice", "Undead" };
+            string[] type = { "Fire", "Normal", "Ice", "Undead", "Demon", "Raging Demon" };
             int value = RanVal.Next(0, type.Count());
 
             return type[value];
@@ -190,10 +190,10 @@ namespace ProjectRPG
                 Strength = (int)(Game.Player.Strength * 2.5);
                 Intelligence = (int)(Game.Player.Intelligence * 2.5);
                 Dexterity = (int)(Game.Player.Dexterity * 2.5);
-                Vitality = (int)(Game.Player.Vitality * 2.5);
+                Vitality = (int)(Game.Player.Vitality * 4);
             }
 
-            Game.EnemyWeapon = new WarHammer((int)(Game.Enemy.Strength * 3));
+            Game.EnemyWeapon = new WarHammer((int)(Game.Enemy.Strength * 2));
             Game.EnemyWeapon.Name = "Deathhammer of Ra-Zakar (Legendary)";
             IsBoss = true; //Set Boss Flag to true
         }

@@ -34,16 +34,19 @@ namespace ProjectRPG
             Move4MaxAmmo = Move4Ammo;
         }
 
-        public Staff(int StrengthStat)
+        public Staff(int StrengthStat, int IntelligenceStat)
         {
             Name = GenerateWeapName();
-            BaseAttack = (StrengthStat / 4) * Game.Player.LevelNumber * Game.Player.Intelligence;
+            
+
+
+            BaseAttack = (StrengthStat / 4) * Game.Player.LevelNumber * IntelligenceStat;
 
             ElementType = "Magic";
 
             Move1Name = "Fire Cone Blast";
             Move1Ammo = 8;
-            Move1Damage = BaseAttack + (Game.Player.Intelligence * 2);
+            Move1Damage = BaseAttack + (IntelligenceStat * 2);
             Move1MaxAmmo = Move1Ammo;
 
             if (Move1Damage >= 999999 || Move1Damage < 0)
@@ -51,7 +54,7 @@ namespace ProjectRPG
 
             Move2Name = "Ice Cone Blast";
             Move2Ammo = 8;
-            Move2Damage = BaseAttack + (Game.Player.Intelligence * 2);
+            Move2Damage = BaseAttack + (IntelligenceStat * 2);
             Move2MaxAmmo = Move2Ammo;
 
             if (Move2Damage >= 999999 || Move2Damage < 0)
@@ -64,7 +67,7 @@ namespace ProjectRPG
             if (Move3Damage >= 999999 || Move3Damage < 0)
                 Move3Damage = 999999;
 
-            Move3Damage = BaseAttack + (Game.Player.Intelligence * 2);
+            Move3Damage = BaseAttack + (IntelligenceStat * 2);
 
             Move4Name = "Magical Hell Gate";
             Move4Ammo = 2;
@@ -84,22 +87,22 @@ namespace ProjectRPG
             Random rand = new Random(seedRand);
             int randVal = rand.Next(0, name.Count());
 
-            return ($"{name[randVal]} (Spell Tome)");
+            return ($"{name[randVal]} (Legendary Staff)");
         }
 
-        public override void UpdateWeapon(int StrengthStat)
+        public override void UpdateWeapon(int StrengthStat, int IntelligenceStat, int DexterityStat)
         {
-            BaseAttack = (StrengthStat / 4) * Game.Player.LevelNumber * Game.Player.Intelligence;
+            BaseAttack = (StrengthStat / 4) * Game.Player.LevelNumber * IntelligenceStat;
 
-            Move1Damage = BaseAttack + (Game.Player.Intelligence * 2);
+            Move1Damage = BaseAttack + (IntelligenceStat * 2);
             if (Move1Damage >= 999999 || Move1Damage < 0)
                 Move1Damage = 999999;
 
-            Move2Damage = BaseAttack + (Game.Player.Intelligence * 2);
+            Move2Damage = BaseAttack + (IntelligenceStat * 2);
             if (Move2Damage >= 999999 || Move2Damage < 0)
                 Move2Damage = 999999;
 
-            Move3Damage = BaseAttack + (Game.Player.Intelligence * 2);
+            Move3Damage = BaseAttack + (IntelligenceStat * 2);
             if (Move3Damage >= 999999 || Move3Damage < 0)
                 Move3Damage = 999999;
 

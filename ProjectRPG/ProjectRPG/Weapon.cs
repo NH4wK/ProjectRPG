@@ -17,6 +17,7 @@ namespace ProjectRPG
         public string ElementType { get; set; }
 
         public int BaseAttack { get; set; }
+        public int BaseAttackMultiplier { get; set; }
 
         public string Move1Name { get; set; }
         public string Move2Name { get; set; }
@@ -43,6 +44,6 @@ namespace ProjectRPG
         public int Move3Damage { get; set; } //Medium-High Damage
         public int Move4Damage { get; set; } //High Damage
 
-        public abstract void UpdateWeapon(int StrengthStat);
+        public abstract void UpdateWeapon(int Str = 0, int Intel = 0, int Dex = 0);
     }
 }

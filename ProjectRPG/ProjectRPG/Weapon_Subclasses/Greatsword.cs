@@ -34,16 +34,17 @@ namespace ProjectRPG
             Move4MaxAmmo = Move4Ammo;
         }
 
-        public Greatsword(int StrengthStat)
+        public Greatsword(int StrengthStat, int DexterityStat)
         {
+            SetBaseAttackMult();
             Name = GenerateWeapName();
-            BaseAttack = StrengthStat * Game.Player.LevelNumber;
+            BaseAttack = StrengthStat * Game.Player.LevelNumber * BaseAttackMultiplier;
 
             ElementType = "Fire";
 
             Move1Name = "Heavy Slash";
             Move1Ammo = 20;
-            Move1Damage = (BaseAttack * 2) + (Game.Player.Dexterity * 2);
+            Move1Damage = (BaseAttack * 2) + (DexterityStat * 2);
             Move1MaxAmmo = Move1Ammo;
 
             if (Move1Damage >= 999999 || Move1Damage < 0)
@@ -51,7 +52,7 @@ namespace ProjectRPG
 
             Move2Name = "Burning Slash";
             Move2Ammo = 10;
-            Move2Damage = (BaseAttack * 2) + (int)(BaseAttack / 2) + (Game.Player.Dexterity * 2);
+            Move2Damage = (BaseAttack * 2) + (int)(BaseAttack / 2) + (DexterityStat * 2);
             Move2MaxAmmo = Move2Ammo;
 
             if (Move2Damage >= 999999 || Move2Damage < 0)
@@ -60,7 +61,7 @@ namespace ProjectRPG
             Move3Name = "Fiery Winter Blast";
             Move3Ammo = 8;
             Move3MaxAmmo = Move3Ammo;
-            Move3Damage = (BaseAttack * 3) + (int)(BaseAttack) + (Game.Player.Dexterity * 3);
+            Move3Damage = (BaseAttack * 3) + (int)(BaseAttack) + (DexterityStat * 3);
 
             if (Move3Damage >= 999999 || Move3Damage < 0)
                 Move3Damage = 999999;
@@ -74,6 +75,16 @@ namespace ProjectRPG
                 Move4Damage = 999999;
         }
 
+        private void SetBaseAttackMult()
+        {
+            Random seed = new Random();
+            int seedRand = seed.Next(0, 100);
+            Random rand = new Random(seedRand);
+            int BaseMult = rand.Next(1, 4);
+
+            BaseAttackMultiplier = BaseMult;
+        }
+
         private string GenerateWeapName()
         {
             string[] name = { "Killer of Nogeo, the Great", "Coldfire", "Firebringer", "Destroyer of Ice", "Useful Sword", "Gleaming Federation" };
@@ -83,24 +94,33 @@ namespace ProjectRPG
             Random rand = new Random(seedRand);
             int randVal = rand.Next(0, name.Count());
 
-            return ($"{name[randVal]} (Greatsword)");
+            if (BaseAttackMultiplier == 4)
+                return ($"{name[randVal]} (Legendary Greatsword)");
+            else if (BaseAttackMultiplier == 3)
+                return ($"{name[randVal]} (Epic Greatsword)");
+            else if (BaseAttackMultiplier == 2)
+                return ($"{name[randVal]} (Rare Greatsword)");
+            else if (BaseAttackMultiplier == 1)
+                return ($"{name[randVal]} (Normal Greatsword)");
+            else
+                return ($"{name[randVal]} (Greatsword)");
         }
 
-        public override void UpdateWeapon(int StrengthStat)
+        public override void UpdateWeapon(int StrengthStat, int IntelligenceStat, int DexterityStat)
         {
-            BaseAttack = Game.Player.Strength * Game.Player.LevelNumber;
+            BaseAttack = StrengthStat * Game.Player.LevelNumber * BaseAttackMultiplier;
 
-            Move1Damage = (BaseAttack * 2) + (Game.Player.Dexterity * 2);
+            Move1Damage = (BaseAttack * 2) + (DexterityStat * 2);
 
             if (Move1Damage >= 999999 || Move1Damage < 0)
                 Move1Damage = 999999;
 
-            Move2Damage = (BaseAttack * 2) + (int)(BaseAttack / 2) + (Game.Player.Dexterity * 2);
+            Move2Damage = (BaseAttack * 2) + (int)(BaseAttack / 2) + (DexterityStat * 2);
 
             if (Move2Damage >= 999999 || Move2Damage < 0)
                 Move2Damage = 999999;
 
-            Move3Damage = (BaseAttack * 3) + (int)(BaseAttack) + (Game.Player.Dexterity * 3);
+            Move3Damage = (BaseAttack * 3) + (int)(BaseAttack) + (DexterityStat * 3);
 
             if (Move3Damage >= 999999 || Move3Damage < 0)
                 Move3Damage = 999999;
