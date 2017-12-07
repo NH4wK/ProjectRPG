@@ -19,6 +19,11 @@ namespace ProjectRPG
         public string Move3Name { get; set; }
         public string Move4Name { get; set; }
 
+        public string Move1Description = "Low Damage Attack";
+        public string Move2Description = "Medium Damage Attack";
+        public string Move3Description = "High Damage Attack";
+        public string Move4Description = "Very High Damage Attack";
+
         public int Move1Ammo { get; set; }
         public int Move2Ammo { get; set; }
         public int Move3Ammo { get; set; }

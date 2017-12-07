@@ -52,6 +52,12 @@
     <Compile Include="GameWindow.Designer.cs">
       <DependentUpon>GameWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="HowToPlayWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HowToPlayWindow.Designer.cs">
+      <DependentUpon>HowToPlayWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Item_Subclasses\HealthPotion.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Weapon_Subclasses\SuperWeapon.cs" />
@@ -83,6 +89,9 @@
     <EmbeddedResource Include="GameWindow.resx">
       <DependentUpon>GameWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HowToPlayWindow.resx">
+      <DependentUpon>HowToPlayWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,9 +121,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\Assets\Enemy_Sprites\Player_Model.gif" />
+    <Folder Include="Resources\Assets\Enemy_Sprites\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

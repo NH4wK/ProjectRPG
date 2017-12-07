@@ -33,7 +33,7 @@ namespace ProjectRPG
         public Greatsword(int StrengthStat)
         {
             Name = GenerateWeapName();
-            BaseAttack = StrengthStat * Game.Player.LevelNumber * 5;
+            BaseAttack = StrengthStat * Game.Player.LevelNumber;
 
             ElementType = "Fire";
 
@@ -84,7 +84,7 @@ namespace ProjectRPG
 
         public override void UpdateWeapon(int StrengthStat)
         {
-            BaseAttack = Game.Player.Strength * Game.Player.LevelNumber * 5;
+            BaseAttack = Game.Player.Strength * Game.Player.LevelNumber;
 
             Move1Damage = (BaseAttack * 2) + (Game.Player.Dexterity * 2);
 

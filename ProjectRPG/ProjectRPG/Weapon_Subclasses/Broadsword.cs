@@ -33,7 +33,7 @@ namespace ProjectRPG
         public Broadsword(int StrengthStat)
         {
             Name = GenerateWeapName();
-            BaseAttack = (StrengthStat) * Game.Player.LevelNumber * 4;
+            BaseAttack = (StrengthStat) * Game.Player.LevelNumber;
 
             ElementType = "Normal";
 
@@ -84,7 +84,7 @@ namespace ProjectRPG
 
         public override void UpdateWeapon(int StrengthStat)
         {
-            BaseAttack = Game.Player.Strength * Game.Player.LevelNumber * 4;
+            BaseAttack = Game.Player.Strength * Game.Player.LevelNumber;
             Move1Damage = BaseAttack + (Game.Player.Dexterity * 2);
 
             if (Move1Damage >= 999999 || Move1Damage < 0)

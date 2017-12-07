@@ -85,7 +85,7 @@ namespace ProjectRPG
 
         public override void UpdateWeapon(int StrengthStat)
         {
-            BaseAttack = (StrengthStat) * Game.Player.LevelNumber * 2 * Game.Player.Intelligence;
+            BaseAttack = (StrengthStat / 4) * Game.Player.LevelNumber * Game.Player.Intelligence;
 
             Move1Damage = BaseAttack + (Game.Player.Intelligence * 4);
 

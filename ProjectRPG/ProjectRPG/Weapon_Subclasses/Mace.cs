@@ -33,7 +33,7 @@ namespace ProjectRPG
         public Mace(int StrengthStat)
         {
             Name = GenerateWeapName();
-            BaseAttack = StrengthStat * Game.Player.LevelNumber * 3;
+            BaseAttack = StrengthStat * Game.Player.LevelNumber;
 
             ElementType = "Holy";
 
@@ -84,7 +84,7 @@ namespace ProjectRPG
 
         public override void UpdateWeapon(int StrengthStat)
         {
-            BaseAttack = StrengthStat * Game.Player.LevelNumber * 3;
+            BaseAttack = StrengthStat * Game.Player.LevelNumber;
 
             Move1Damage = BaseAttack;
             if (Move1Damage >= 999999 || Move1Damage < 0)

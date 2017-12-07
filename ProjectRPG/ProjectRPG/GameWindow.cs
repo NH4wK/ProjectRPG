@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 
-
 namespace ProjectRPG
 {
     public partial class GameWindow : Form
@@ -17,11 +16,16 @@ namespace ProjectRPG
         public GameWindow()
         {
             InitializeComponent();
+        }
+
+        private void GameWindow_Load(object sender, EventArgs e)
+        {
             EnemyInit();
             CharacterInit();
             InventoryInit();
             MenuInit();
         }
+
         void CharacterInit()
         {
             Game.Player.SetHealthPool();
@@ -76,22 +80,29 @@ namespace ProjectRPG
 
             GW_Player_Damaged_PicBox.Hide();
             PlayerWeaponUpdate();
-
-
         }
         void MenuInit()
         {
+            //Hide Panels for Initial State of Game
             GW_Weapon_Panel.Hide();
             GW_Inventory_Panel.Hide();
             GW_GameStatus_Panel.Hide();
             GW_Boss_Encounter_Panel.Hide();
 
+            //ToolTip Init
             GW_ToolTips.SetToolTip(GW_ExecMove_Button, "Attack the Enemy!");
             GW_ToolTips.SetToolTip(GW_Attack_Button, "Choose an attack!");
             GW_ToolTips.SetToolTip(GW_Defend_Button, "Take a defensive stance! (Take 50% Enemy Damage)");
             GW_ToolTips.SetToolTip(GW_Retreat_Button, "Run away and fight a different foe!");
             GW_ToolTips.SetToolTip(GW_Items_Button, "Open Inventory");
-
+            GW_ToolTips.SetToolTip(GW_HPPotUse_Button, $"{Game.PlayerHealthPotion.EffectDescription}");
+            GW_ToolTips.SetToolTip(GW_MPPotUse_Button, $"{Game.PlayerManaPotion.EffectDescription}");
+            GW_ToolTips.SetToolTip(GW_WRPotUse_Button, $"{Game.PlayerWeapRestorePotion.EffectDescription}");
+            GW_ToolTips.SetToolTip(GW_WeapEquip_Button, "Equip the selected weapon!");
+            GW_ToolTips.SetToolTip(GW_WeapMove1_RadButton, $"{Game.PlayerWeapon.Move1Description}");
+            GW_ToolTips.SetToolTip(GW_WeapMove2_RadButton, $"{Game.PlayerWeapon.Move2Description}");
+            GW_ToolTips.SetToolTip(GW_WeapMove3_RadButton, $"{Game.PlayerWeapon.Move3Description}");
+            GW_ToolTips.SetToolTip(GW_WeapMove4_RadButton, $"{Game.PlayerWeapon.Move4Description}");
 
 
         }
@@ -310,6 +321,10 @@ namespace ProjectRPG
 
         void BossEncounterDialogBox()
         {
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} A dark energy is present!");
+            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+            GW_BattleAction_TextBox.ScrollToCaret();
+
             GW_Boss_Encounter_Panel.Show();
             GW_Attack_Button.Enabled = false;
             GW_Defend_Button.Enabled = false;
@@ -320,8 +335,10 @@ namespace ProjectRPG
         }
         void GameOver()
         {
-            GW_GameStatus_Panel.Show();
+            GW_Player_PicBox.Hide();
+            GW_Player_Damaged_PicBox.Hide();
 
+            GW_GameStatus_Panel.Show();
             GW_Game_Status_Primary_Label.Text = "Game Over";
             GW_Game_Status_Secondary_Label.Text = "Your soul is beyond repair, your existence slowly withers away...";
             GW_Attack_Button.Enabled = false;
@@ -333,8 +350,10 @@ namespace ProjectRPG
         }
         void GameWon()
         {
-            GW_GameStatus_Panel.Show();
+            GW_Enemy_Boss_Damage_PicBox.Hide();
+            GW_Enemy_Boss_PicBox.Hide();
 
+            GW_GameStatus_Panel.Show();
             GW_Game_Status_Primary_Label.Text = "Victory!";
             GW_Game_Status_Secondary_Label.Text = "You have defeated the Final Boss.";
             GW_Attack_Button.Enabled = false;
@@ -345,6 +364,194 @@ namespace ProjectRPG
             GW_Weapon_Panel.Hide();
         }
 
+        void PlayerAttack()
+        {
+            int pDamage = 0;
+
+            if (GW_WeapMove1_RadButton.Checked)
+            {
+                if (Game.PlayerWeapon.Move1Ammo > 0)
+                {
+                    if (Game.PlayerWeapon.ElementType == "Magic")
+                    {
+                        pDamage = Game.PlayerWeapon.Move1Damage;
+                        Game.Player.Mana -= (int)(Game.Player.MaxMana * 0.20);
+                        Game.PlayerWeapon.Move1Ammo -= 1;
+
+                    }
+                    else
+                    {
+                        pDamage = Game.PlayerWeapon.Move1Damage;
+                        Game.PlayerWeapon.Move1Ammo -= 1;
+                    }
+                }
+            }
+            else if (GW_WeapMove2_RadButton.Checked)
+            {
+                if (Game.PlayerWeapon.Move2Ammo > 0)
+                {
+                    if (Game.PlayerWeapon.ElementType == "Magic")
+                    {
+                        pDamage = Game.PlayerWeapon.Move2Damage;
+                        Game.Player.Mana -= (int)(Game.Player.MaxMana * 0.20);
+                        Game.PlayerWeapon.Move2Ammo -= 1;
+                    }
+                    else
+                    {
+                        pDamage = Game.PlayerWeapon.Move2Damage;
+                        Game.PlayerWeapon.Move2Ammo -= 1;
+                    }
+                }
+            }
+            else if (GW_WeapMove3_RadButton.Checked)
+            {
+                if (Game.PlayerWeapon.Move3Ammo > 0)
+                {
+                    if (Game.PlayerWeapon.ElementType == "Magic")
+                    {
+                        pDamage = Game.PlayerWeapon.Move3Damage;
+                        Game.Player.Mana -= (int)(Game.Player.MaxMana * 0.20);
+                        Game.PlayerWeapon.Move3Ammo -= 1;
+
+                    }
+                    else
+                    {
+                        pDamage = Game.PlayerWeapon.Move1Damage;
+                        Game.PlayerWeapon.Move3Ammo -= 1;
+                    }
+                }
+            }
+            else if (GW_WeapMove4_RadButton.Checked)
+            {
+                if (Game.PlayerWeapon.Move4Ammo > 0)
+                {
+                    if (Game.PlayerWeapon.ElementType == "Magic")
+                    {
+                        pDamage = Game.PlayerWeapon.Move4Damage;
+                        Game.Player.Mana -= (int)(Game.Player.MaxMana * 0.50);
+                        Game.PlayerWeapon.Move4Ammo -= 1;
+                    }
+                    else
+                    {
+                        pDamage = Game.PlayerWeapon.Move4Damage;
+                        Game.PlayerWeapon.Move4Ammo -= 1;
+                    }
+                }
+            }
+            else
+            {
+                pDamage = 0;
+            }
+
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} attacked {Game.Enemy.Name} for {pDamage} Damage!");
+            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+            GW_BattleAction_TextBox.ScrollToCaret();
+
+            if (pDamage < 0 || Game.Player.LevelNumber == 999)
+                pDamage = Game.Enemy.Health;
+
+            if (Game.Enemy.IsBoss)
+                pDamage = pDamage / 2;
+
+            Game.Enemy.Health -= pDamage;
+            GW_EnemyHealthVal_Label.Text = ($"{Convert.ToString(Game.Enemy.Health)} / {Convert.ToString(Game.Enemy.MaxHealth)}");
+        }
+        void EnemyAttack()
+        {
+            int eDamage = Game.Enemy.Attack();
+            if (Game.Player.LevelNumber == 999)
+                eDamage = 0;
+
+            Game.Player.Health -= eDamage;
+            if (eDamage == 0)
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} missed their attack! ({eDamage} Damage Taken!)");
+            else
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} attacked {Game.Player.Name} for {eDamage} Damage!");
+
+            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+            GW_BattleAction_TextBox.ScrollToCaret();
+        }
+        void IsEnemyKilled()
+        {
+            //Enemy Killed
+            if (Game.Enemy.Health <= 0)
+            {
+                Game.Enemy.Health = 0;
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} has been slained. You have absorbed {Game.Enemy.Name}'s power!");
+                GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+                GW_BattleAction_TextBox.ScrollToCaret();
+
+                if (Game.Player.LevelNumber < 999)
+                {
+                    //if Enemy Stats are below 10, increase player stats by 3, otherwise increase there stats by 25% of the Defeated Enemy Stats
+                    if (Game.Enemy.Strength < 10)
+                        Game.Player.Strength += 3;
+                    else
+                        Game.Player.Strength += (int)(Game.Enemy.Strength * 0.25);
+
+                    if (Game.Enemy.Intelligence < 10)
+                        Game.Player.Intelligence += 3;
+                    else               
+                        Game.Player.Intelligence += (int)(Game.Enemy.Intelligence * 0.25);
+
+                    if (Game.Enemy.Dexterity < 10)
+                        Game.Player.Dexterity += 3;
+                    else
+                        Game.Player.Dexterity += (int)(Game.Enemy.Dexterity * 0.25);
+
+                    if (Game.Enemy.Vitality < 10)
+                        Game.Player.Vitality += 3;
+                    else
+                        Game.Player.Vitality += (int)(Game.Enemy.Vitality * 0.25);
+
+                    //If Player stats exceed the 999 max, keep it at that max.
+                    if (Game.Player.Strength > 999)
+                        Game.Player.Strength = 999;
+                    if (Game.Player.Intelligence > 999)
+                        Game.Player.Intelligence = 999;
+                    if (Game.Player.Dexterity > 999)
+                        Game.Player.Dexterity = 999;
+                    if (Game.Player.Vitality > 999)
+                        Game.Player.Vitality = 999;
+
+                    Random ranVal = new Random();
+                    int valXP = ranVal.Next(50, 75);
+                    Game.Player.Experience += valXP;
+
+                    Game.Player.SetHealthPool();
+                    Game.Player.SetManaPool();
+                }
+
+                Game.Player.KillCount += 1;
+                GW_PlayerKillCount_Label.Text = ($"Kills: {Game.Player.KillCount}");
+
+                GW_BossEncounter_ProgBar.Value += 1;
+
+                if (GW_BossEncounter_ProgBar.Value == 10)
+                    GW_BossEncounter_ProgBar.Value = 0;
+
+                if (Game.Enemy.IsBoss)
+                {
+
+                    PlayerUpdate();
+                    EnemyUpdate();
+                    GameWon();
+                    return;
+                }
+
+                EnemyDropItems();
+
+                Game.Enemy.GenerateEnemy();
+
+                if (Game.Player.KillCount % 10 == 0)
+                {
+                    BossEncounterDialogBox();
+                }
+
+                PlayerUpdate();
+                EnemyUpdate();
+            }
+        }
         void EnemyDropItems()
         {
             Random seed = new Random();
@@ -434,171 +641,16 @@ namespace ProjectRPG
         }
         private void GW_ExecMove_Button_Click(object sender, EventArgs e)
         {
-            int pDamage = 0, eDamage;
+            //Player Attack Turn
+            PlayerAttack();
 
-            if (GW_WeapMove1_RadButton.Checked)
-            {
-                if (Game.PlayerWeapon.Move1Ammo > 0)
-                {
-                    if (Game.PlayerWeapon.ElementType == "Magic")
-                    {
-                        pDamage = Game.PlayerWeapon.Move1Damage;
-                        Game.Player.Mana -= (int)(Game.Player.MaxMana * 0.20);
-                        Game.PlayerWeapon.Move1Ammo -= 1;
-                        
-                    }
-                    else
-                    {
-                        pDamage = Game.PlayerWeapon.Move1Damage;
-                        Game.PlayerWeapon.Move1Ammo -= 1;
-                    }
-                }
-            }
-            else if (GW_WeapMove2_RadButton.Checked)
-            {
-                if (Game.PlayerWeapon.Move2Ammo > 0)
-                {
-                    if (Game.PlayerWeapon.ElementType == "Magic")
-                    {
-                        pDamage = Game.PlayerWeapon.Move2Damage;
-                        Game.Player.Mana -= (int)(Game.Player.MaxMana * 0.20);
-                        Game.PlayerWeapon.Move2Ammo -= 1;
+            //Check to see if Enemy is dead
+            IsEnemyKilled();
 
-                    }
-                    else
-                    {
-                        pDamage = Game.PlayerWeapon.Move2Damage;
-                        Game.PlayerWeapon.Move2Ammo -= 1;
-                    }
-                }
-            }
-            else if (GW_WeapMove3_RadButton.Checked)
-            {
-                if (Game.PlayerWeapon.Move3Ammo > 0)
-                {
-                    if (Game.PlayerWeapon.ElementType == "Magic")
-                    {
-                        pDamage = Game.PlayerWeapon.Move3Damage;
-                        Game.Player.Mana -= (int)(Game.Player.MaxMana * 0.20);
-                        Game.PlayerWeapon.Move3Ammo -= 1;
+            //Enemy Attack Turn
+            EnemyAttack();
 
-                    }
-                    else
-                    {
-                        pDamage = Game.PlayerWeapon.Move1Damage;
-                        Game.PlayerWeapon.Move3Ammo -= 1;
-                    }
-                }
-            }
-            else if (GW_WeapMove4_RadButton.Checked)
-            {
-                if (Game.PlayerWeapon.Move4Ammo > 0)
-                {
-                    if (Game.PlayerWeapon.ElementType == "Magic")
-                    {
-                        pDamage = Game.PlayerWeapon.Move4Damage;
-                        Game.Player.Mana -= (int)(Game.Player.MaxMana * 0.50);
-                        Game.PlayerWeapon.Move4Ammo -= 1;
-                    }
-                    else
-                    {
-                        pDamage = Game.PlayerWeapon.Move4Damage;
-                        Game.PlayerWeapon.Move4Ammo -= 1;
-                    }
-                }
-            }
-            else
-            {
-                pDamage = 0;
-            }
-
-            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} attacked {Game.Enemy.Name} for {pDamage} Damage!");
-            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
-            GW_BattleAction_TextBox.ScrollToCaret();
-
-            //Player Turn
-            if (pDamage < 0 || Game.Player.LevelNumber == 999)
-                pDamage = Game.Enemy.Health;
-
-            Game.Enemy.Health -= pDamage;
-            GW_EnemyHealthVal_Label.Text = ($"{Convert.ToString(Game.Enemy.Health)} / {Convert.ToString(Game.Enemy.MaxHealth)}");
-
-            //Enemy Killed
-            if (Game.Enemy.Health <= 0)
-            {              
-                Game.Enemy.Health = 0;
-                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} has been slained. You have absorbed {Game.Enemy.Name}'s power!");
-                GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
-                GW_BattleAction_TextBox.ScrollToCaret();
-
-                if (Game.Player.LevelNumber < 999)
-                {
-                    Game.Player.Strength += Game.Enemy.Strength;
-                    Game.Player.Intelligence += Game.Enemy.Intelligence;
-                    Game.Player.Dexterity += Game.Enemy.Dexterity;
-                    Game.Player.Vitality += Game.Enemy.Vitality;
-
-                    if(Game.Player.Strength > 999)
-                        Game.Player.Strength = 999;
-                    if (Game.Player.Intelligence > 999)
-                        Game.Player.Intelligence = 999;
-                    if (Game.Player.Dexterity > 999)
-                        Game.Player.Dexterity = 999;
-                    if (Game.Player.Vitality > 999)
-                        Game.Player.Vitality = 999;
-
-                    Game.Player.Experience += 75;
-
-                    Game.Player.SetHealthPool();
-                    Game.Player.SetManaPool();
-                }
-
-                Game.Player.KillCount += 1;
-                GW_PlayerKillCount_Label.Text = ($"Kills: {Game.Player.KillCount}");
-
-                GW_BossEncounter_ProgBar.Value += 1;
-
-                if (GW_BossEncounter_ProgBar.Value == 10)
-                    GW_BossEncounter_ProgBar.Value = 0;
-
-                if (Game.Enemy.IsBoss)
-                {
-
-                    PlayerUpdate();
-                    EnemyUpdate();
-                    GW_Enemy_Boss_Damage_PicBox.Hide();
-                    GW_Enemy_Boss_PicBox.Hide();
-                    GameWon();
-                    return;
-                }
-
-                EnemyDropItems();
-
-                Game.Enemy.GenerateEnemy();
-
-                if (Game.Player.KillCount % 10 == 0)
-                {
-                    BossEncounterDialogBox();                
-                }
-
-                PlayerUpdate();
-                EnemyUpdate();
-            }
-
-            //Enemy Turn
-            eDamage = Game.Enemy.Attack();
-            if (Game.Player.LevelNumber == 999)
-                eDamage = 0;
-
-            Game.Player.Health -= eDamage;
-            if(eDamage == 0)
-                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} missed their attack! ({eDamage} Damage Taken!)");
-            else
-                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} attacked {Game.Player.Name} for {eDamage} Damage!");
-
-            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
-            GW_BattleAction_TextBox.ScrollToCaret();
-
+            //Update Enemy and Player
             EnemyUpdate();
             PlayerUpdate();
             PlayerWeaponUpdate();
@@ -647,12 +699,26 @@ namespace ProjectRPG
 
         private void GW_Retreat_Button_Click(object sender, EventArgs e)
         {
-            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} has retreated!");
-            Game.Enemy.GenerateEnemy();
-            EnemyUpdate();
-            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} has appeared!");
-            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
-            GW_BattleAction_TextBox.ScrollToCaret();
+            Random rand = new Random();
+            int randVal = rand.Next(1, 4);
+            if (randVal > 1)
+            {
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} has successfully retreated!");
+                Game.Enemy.GenerateEnemy();
+                EnemyUpdate();
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} has appeared!");
+                GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+                GW_BattleAction_TextBox.ScrollToCaret();
+            }
+            else
+            {
+                GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} has failed to flee away!");
+                GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+                GW_BattleAction_TextBox.ScrollToCaret();
+
+                EnemyAttack();
+            }
+
         }
 
         private void GW_HPPotUse_Button_Click(object sender, EventArgs e)
@@ -709,6 +775,10 @@ namespace ProjectRPG
 
         private void GW_Boss_Yes_Button_Click(object sender, EventArgs e)
         {
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} The dark energy has consumed {Game.Enemy.Name}! A powerful enemy has spawned!");
+            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+            GW_BattleAction_TextBox.ScrollToCaret();
+
             Game.Enemy.SetToBoss();
             GW_Attack_Button.Enabled = true;
             GW_Defend_Button.Enabled = true;
@@ -735,25 +805,25 @@ namespace ProjectRPG
             this.Dispose();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
             this.Dispose();
         }
 
-        private void maxStatsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MaxStatsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.Player.CheatGodMode();
             PlayerUpdate();
         }
 
-        private void superWeaponToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SuperWeaponToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.PlayerWeapon = new SuperWeapon(Game.Player.Strength);
             PlayerWeaponUpdate();
         }
 
-        private void generateBossToolStripMenuItem_Click(object sender, EventArgs e)
+        private void GenerateBossToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.Enemy.SetToBoss();
             GW_Attack_Button.Enabled = true;
@@ -766,7 +836,7 @@ namespace ProjectRPG
             EnemyUpdate();
         }
 
-        private void toAllItemQuantityToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ToAllItemQuantityToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.PlayerHealthPotion.Quantity += 999;
             Game.PlayerManaPotion.Quantity += 999;
@@ -778,15 +848,21 @@ namespace ProjectRPG
             InventoryUpdate();
         }
 
-        private void randomWeaponDropToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RandomWeaponDropToolStripMenuItem_Click(object sender, EventArgs e)
         {
             WeaponDrop();
         }
 
-        private void levelUpToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LevelUpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.Player.LevelUp();
             PlayerUpdate();
+        }
+
+        private void HelpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HowToPlayWindow HTPForm = new HowToPlayWindow();
+            HTPForm.Show();
         }
     }
 }

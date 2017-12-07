@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectRPG_MainForm));
             this.MainMenu_StartButton = new System.Windows.Forms.Button();
-            this.MainMenu_SettingsButton = new System.Windows.Forms.Button();
+            this.MainMenu_HowToPlay_Button = new System.Windows.Forms.Button();
             this.MainMenu_ExitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -50,20 +50,21 @@
             this.MainMenu_StartButton.UseVisualStyleBackColor = false;
             this.MainMenu_StartButton.Click += new System.EventHandler(this.MainMenu_StartButton_Click);
             // 
-            // MainMenu_SettingsButton
+            // MainMenu_HowToPlay_Button
             // 
-            this.MainMenu_SettingsButton.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.MainMenu_SettingsButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MainMenu_SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MainMenu_SettingsButton.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainMenu_SettingsButton.ForeColor = System.Drawing.Color.Transparent;
-            this.MainMenu_SettingsButton.Location = new System.Drawing.Point(800, 561);
-            this.MainMenu_SettingsButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MainMenu_SettingsButton.Name = "MainMenu_SettingsButton";
-            this.MainMenu_SettingsButton.Size = new System.Drawing.Size(195, 66);
-            this.MainMenu_SettingsButton.TabIndex = 1;
-            this.MainMenu_SettingsButton.Text = "SETTINGS";
-            this.MainMenu_SettingsButton.UseVisualStyleBackColor = false;
+            this.MainMenu_HowToPlay_Button.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.MainMenu_HowToPlay_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MainMenu_HowToPlay_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MainMenu_HowToPlay_Button.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainMenu_HowToPlay_Button.ForeColor = System.Drawing.Color.Transparent;
+            this.MainMenu_HowToPlay_Button.Location = new System.Drawing.Point(800, 561);
+            this.MainMenu_HowToPlay_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MainMenu_HowToPlay_Button.Name = "MainMenu_HowToPlay_Button";
+            this.MainMenu_HowToPlay_Button.Size = new System.Drawing.Size(195, 66);
+            this.MainMenu_HowToPlay_Button.TabIndex = 1;
+            this.MainMenu_HowToPlay_Button.Text = "HOW TO PLAY";
+            this.MainMenu_HowToPlay_Button.UseVisualStyleBackColor = false;
+            this.MainMenu_HowToPlay_Button.Click += new System.EventHandler(this.MainMenu_HowToPlay_Button_Click);
             // 
             // MainMenu_ExitButton
             // 
@@ -89,7 +90,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 718);
             this.Controls.Add(this.MainMenu_ExitButton);
-            this.Controls.Add(this.MainMenu_SettingsButton);
+            this.Controls.Add(this.MainMenu_HowToPlay_Button);
             this.Controls.Add(this.MainMenu_StartButton);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -104,7 +105,7 @@
         #endregion
 
         private System.Windows.Forms.Button MainMenu_StartButton;
-        private System.Windows.Forms.Button MainMenu_SettingsButton;
+        private System.Windows.Forms.Button MainMenu_HowToPlay_Button;
         private System.Windows.Forms.Button MainMenu_ExitButton;
     }
 }

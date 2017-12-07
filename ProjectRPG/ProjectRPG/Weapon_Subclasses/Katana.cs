@@ -33,7 +33,7 @@ namespace ProjectRPG
         public Katana(int StrengthStat)
         {
             Name = GenerateWeapName();
-            BaseAttack = StrengthStat * Game.Player.LevelNumber * 4;
+            BaseAttack = StrengthStat * Game.Player.LevelNumber * 2;
 
             ElementType = "Wind";
 
@@ -85,7 +85,7 @@ namespace ProjectRPG
 
         public override void UpdateWeapon(int StrengthStat)
         {
-            BaseAttack = StrengthStat * Game.Player.LevelNumber * 4;
+            BaseAttack = StrengthStat * Game.Player.LevelNumber;
             Move1Damage = (BaseAttack * 2) + (Game.Player.Dexterity * 4);
 
             if (Move1Damage >= 999999 || Move1Damage < 0)

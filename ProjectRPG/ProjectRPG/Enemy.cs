@@ -43,7 +43,9 @@ namespace ProjectRPG
 
         public void GenerateEnemy()
         {
-            Random RanVal = new Random();
+            Random seed = new Random();
+            int seedRand = seed.Next(0, 100);
+            Random RanVal = new Random(seedRand);
 
             int StatValue1 = 0;
             int StatValue2 = 0;
@@ -60,10 +62,25 @@ namespace ProjectRPG
             }
             else
             { 
-                StatValue1 = RanVal.Next(Game.Player.Strength, ((Game.Player.Strength + (int)(Game.Player.Strength * 0.10))));
-                StatValue2 = RanVal.Next(Game.Player.Intelligence, ((Game.Player.Intelligence + (int)(Game.Player.Intelligence * 0.10))));
-                StatValue3 = RanVal.Next(Game.Player.Dexterity, ((Game.Player.Dexterity + (int)(Game.Player.Dexterity * 0.10))));
-                StatValue4 = RanVal.Next(Game.Player.Vitality, ((Game.Player.Vitality + (int)(Game.Player.Vitality * 0.10))));
+                if(Game.Player.Strength <= 10)
+                    StatValue1 = RanVal.Next(Game.Player.Strength, ((Game.Player.Strength + (int)(Game.Player.Strength + 5))));
+                else
+                    StatValue1 = RanVal.Next(Game.Player.Strength, ((Game.Player.Strength + (int)(Game.Player.Strength * 0.10))));
+
+                if(Game.Player.Intelligence <= 10)
+                    StatValue2 = RanVal.Next(Game.Player.Intelligence, ((Game.Player.Intelligence + (int)(Game.Player.Intelligence + 5))));
+                else
+                    StatValue2 = RanVal.Next(Game.Player.Intelligence, ((Game.Player.Intelligence + (int)(Game.Player.Intelligence * 0.10))));
+
+                if(Game.Player.Dexterity <= 10)
+                    StatValue3 = RanVal.Next(Game.Player.Dexterity, ((Game.Player.Dexterity + (int)(Game.Player.Dexterity + 5))));
+                else
+                    StatValue3 = RanVal.Next(Game.Player.Dexterity, ((Game.Player.Dexterity + (int)(Game.Player.Dexterity * 0.10))));
+
+                if(Game.Player.Vitality <= 10)
+                    StatValue4 = RanVal.Next(Game.Player.Vitality, ((Game.Player.Vitality + (int)(Game.Player.Vitality + 5))));
+                else
+                    StatValue4 = RanVal.Next(Game.Player.Vitality, ((Game.Player.Vitality + (int)(Game.Player.Vitality * 0.10))));
 
                 Strength = StatValue1;
                 Intelligence = StatValue2;

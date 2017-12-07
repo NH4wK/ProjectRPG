@@ -33,7 +33,7 @@ namespace ProjectRPG
         public WarHammer(int StrengthStat)
         {
             Name = GenerateWeapName();
-            BaseAttack = StrengthStat * Game.Player.LevelNumber * 3;
+            BaseAttack = StrengthStat * Game.Player.LevelNumber;
 
             ElementType = "Thunder";
 
@@ -85,7 +85,7 @@ namespace ProjectRPG
 
         public override void UpdateWeapon(int StrengthStat)
         {
-            BaseAttack = Game.Player.Strength * Game.Player.LevelNumber * 3;
+            BaseAttack = Game.Player.Strength * Game.Player.LevelNumber;
             Move1Damage = BaseAttack;
 
             if (Move1Damage >= 999999 || Move1Damage < 0)
