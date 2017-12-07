@@ -60,7 +60,7 @@ namespace ProjectRPG
             int seedRand = seed.Next(0, 100);
             Random rand = new Random(seedRand);
 
-            int randVal = rand.Next(0, 6);
+            int randVal = rand.Next(0, 7);
 
             if (randVal == 0)
                 Game.PlayerWeapon = new WarHammer(Game.Player.Strength);
@@ -620,7 +620,7 @@ namespace ProjectRPG
                         Game.Player.Vitality = 999;
 
                     Random ranVal = new Random();
-                    int valXP = ranVal.Next(50, 75);
+                    int valXP = ranVal.Next(50, 76);
                     Game.Player.Experience += valXP;
 
                     Game.Player.SetHealthPool();
@@ -672,8 +672,8 @@ namespace ProjectRPG
             int seedRand = seed.Next(0, 100);
             Random ranVal = new Random(seedRand);
 
-            int value1 = ranVal.Next(1, 3);
-            int value2 = ranVal.Next(1, 3);
+            int value1 = ranVal.Next(1, 4);
+            int value2 = ranVal.Next(1, 4);
 
             //Add a random number of potion to the player's inventory
             Game.PlayerHealthPotion.Quantity += value1;
@@ -701,7 +701,7 @@ namespace ProjectRPG
         {
             //Randomly drop a weapon for the Player
             Random rand = new Random();
-            int randVal = rand.Next(0, 6);
+            int randVal = rand.Next(0, 7);
 
             if (randVal == 0)
                 Game.PlayerWeaponTemp = new WarHammer(Game.Player.Strength);
@@ -818,7 +818,7 @@ namespace ProjectRPG
         private void GW_Retreat_Button_Click(object sender, EventArgs e)
         {
             Random rand = new Random();
-            int randVal = rand.Next(1, 4);
+            int randVal = rand.Next(1, 5);
             if (randVal > 1)
             {
                 GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} has successfully retreated!");

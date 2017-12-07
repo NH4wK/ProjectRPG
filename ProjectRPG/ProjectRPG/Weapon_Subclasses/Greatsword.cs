@@ -80,7 +80,7 @@ namespace ProjectRPG
             Random seed = new Random();
             int seedRand = seed.Next(0, 100);
             Random rand = new Random(seedRand);
-            int BaseMult = rand.Next(1, 4);
+            int BaseMult = rand.Next(1, 5);
 
             BaseAttackMultiplier = BaseMult;
         }

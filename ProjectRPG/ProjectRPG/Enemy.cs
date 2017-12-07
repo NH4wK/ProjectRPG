@@ -111,7 +111,7 @@ namespace ProjectRPG
 
             //Randomly Choose a Weapon for the Enemy
             Random rand = new Random();
-            int randVal = rand.Next(0, 6);
+            int randVal = rand.Next(0, 7);
 
             if (randVal == 0)
                 Game.EnemyWeapon = new WarHammer(Game.Enemy.Strength);
