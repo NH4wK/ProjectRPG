@@ -45,7 +45,7 @@ namespace ProjectRPG
 
             Move1Name = "Blunt Smack";
             Move1Ammo = 30;
-            Move1Damage = (int)(BaseAttack * 1.5);
+            Move1Damage = (int)(BaseAttack * 2.5);
             Move1MaxAmmo = Move1Ammo;
 
             if (Move1Damage >= 999999 || Move1Damage < 0)
@@ -53,7 +53,7 @@ namespace ProjectRPG
 
             Move2Name = "Blinding Light";
             Move2Ammo = 15;
-            Move2Damage = BaseAttack + (int)(BaseAttack * 2);
+            Move2Damage = BaseAttack + (int)(BaseAttack * 3.5);
             Move2MaxAmmo = Move2Ammo;
 
             if (Move2Damage >= 999999 || Move2Damage < 0)
@@ -62,7 +62,7 @@ namespace ProjectRPG
             Move3Name = "Divine Blast";
             Move3Ammo = 15;
             Move3MaxAmmo = Move3Ammo;
-            Move3Damage = BaseAttack + (int)(BaseAttack * 2);
+            Move3Damage = BaseAttack + (int)(BaseAttack * 4.5);
 
             if (Move3Damage >= 999999 || Move3Damage < 0)
                 Move3Damage = 999999;
@@ -112,15 +112,15 @@ namespace ProjectRPG
         {
             BaseAttack = StrengthStat * Game.Player.LevelNumber * BaseAttackMultiplier;
 
-            Move1Damage = (int)(BaseAttack * 1.5);
+            Move1Damage = (int)(BaseAttack * 2.5);
             if (Move1Damage >= 999999 || Move1Damage < 0)
                 Move1Damage = 999999;
 
-            Move2Damage = BaseAttack + (int)(BaseAttack * 2);
+            Move2Damage = BaseAttack + (int)(BaseAttack * 3.5);
             if (Move2Damage >= 999999 || Move2Damage < 0)
                 Move2Damage = 999999;
 
-            Move3Damage = BaseAttack + (int)(BaseAttack * 2);
+            Move3Damage = BaseAttack + (int)(BaseAttack * 4.5);
             if (Move3Damage >= 999999 || Move3Damage < 0)
                 Move3Damage = 999999;
 

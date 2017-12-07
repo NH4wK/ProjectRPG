@@ -542,10 +542,6 @@ namespace ProjectRPG
             if (pDamage < 0 || Game.Player.LevelNumber == 999)
                 pDamage = Game.Enemy.Health;
 
-            //if Enemy is Boss take half damage from player
-            if (Game.Enemy.IsBoss)
-                pDamage = pDamage / 2;
-
             Game.Enemy.Health -= pDamage; //Subtract pDamage from Enemy Health
             //Update Label
             GW_EnemyHealthVal_Label.Text = ($"{Convert.ToString(Game.Enemy.Health)} / {Convert.ToString(Game.Enemy.MaxHealth)}");
@@ -982,6 +978,46 @@ namespace ProjectRPG
         {
             HowToPlayWindow HTPForm = new HowToPlayWindow();
             HTPForm.Show();
+        }
+
+        private void SetPlayerHealthTo50ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Game.Player.Health = (Game.Player.MaxHealth / 2);
+            PlayerUpdate();
+        }
+
+        private void SetEnemyHealthTo50ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Game.Enemy.Health = (Game.Enemy.MaxHealth / 2);
+            EnemyUpdate();
+        }
+
+        private void SetPlayerWeaponMoveAmmoTo999ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Game.PlayerWeapon.Move1MaxAmmo = 999;
+            Game.PlayerWeapon.Move2MaxAmmo = 999;
+            Game.PlayerWeapon.Move3MaxAmmo = 999;
+            Game.PlayerWeapon.Move4MaxAmmo = 999;
+
+            Game.PlayerWeapon.Move1Ammo = 999;
+            Game.PlayerWeapon.Move2Ammo = 999;
+            Game.PlayerWeapon.Move3Ammo = 999;
+            Game.PlayerWeapon.Move4Ammo = 999;
+
+            PlayerWeaponUpdate();
+
+        }
+
+        private void HealthTo25ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Game.Player.Health = (Game.Player.MaxHealth / 2) / 2;
+            PlayerUpdate();
+        }
+
+        private void sToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Game.Enemy.Health = (Game.Enemy.MaxHealth / 2) / 2;
+            EnemyUpdate();
         }
     }
 }

@@ -105,7 +105,7 @@ namespace ProjectRPG
 
             //If Enemy Health is set to a negative numeber then set it to 999999
             if (Game.Enemy.Health < 0)
-                Health = 999999;
+                Health = 0;
 
             MaxHealth = Health;
 
@@ -184,16 +184,19 @@ namespace ProjectRPG
                 Dexterity = 999;
                 Vitality = 999;
                 Health = 999999;
+                MaxHealth = 999999;
             }
             else
             {
                 Strength = (int)(Game.Player.Strength * 2.5);
                 Intelligence = (int)(Game.Player.Intelligence * 2.5);
                 Dexterity = (int)(Game.Player.Dexterity * 2.5);
-                Vitality = (int)(Game.Player.Vitality * 4);
+                Vitality = (int)(Game.Player.Vitality * 2);
+                Health = Strength * Vitality * 2;
+                MaxHealth = Health;
             }
 
-            Game.EnemyWeapon = new WarHammer((int)(Game.Enemy.Strength * 2));
+            Game.EnemyWeapon = new WarHammer((int)(Game.Enemy.Strength * 2.5));
             Game.EnemyWeapon.Name = "Deathhammer of Ra-Zakar (Legendary)";
             IsBoss = true; //Set Boss Flag to true
         }

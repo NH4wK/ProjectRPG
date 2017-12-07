@@ -47,7 +47,7 @@ namespace ProjectRPG
 
             Move1Name = "Hammer Smash";
             Move1Ammo = 30;
-            Move1Damage = (int)(BaseAttack * 1.5);
+            Move1Damage = (int)(BaseAttack * 2.5);
             Move1MaxAmmo = Move1Ammo;
 
             if (Move1Damage >= 999999 || Move1Damage < 0)
@@ -55,7 +55,7 @@ namespace ProjectRPG
 
             Move2Name = "Hammer Throw";
             Move2Ammo = 10;
-            Move2Damage = BaseAttack + (int)(BaseAttack * 2);
+            Move2Damage = BaseAttack + (int)(BaseAttack * 3);
             Move2MaxAmmo = Move2Ammo;
 
             if (Move2Damage >= 999999 || Move2Damage < 0)
@@ -65,7 +65,7 @@ namespace ProjectRPG
             Move3Ammo = 10;
             Move3MaxAmmo = Move3Ammo;
 
-            Move3Damage = BaseAttack + (int)(BaseAttack * 2.5);
+            Move3Damage = BaseAttack + (int)(BaseAttack * 4);
 
             if (Move3Damage >= 999999 || Move3Damage < 0)
                 Move3Damage = 999999;
@@ -73,7 +73,7 @@ namespace ProjectRPG
             Move4Name = "Power of Zeus";
             Move4Ammo = 5;
             Move4MaxAmmo = Move4Ammo;
-            Move4Damage = BaseAttack * 10;
+            Move4Damage = BaseAttack * 15;
 
             if (Move4Damage >= 999999 || Move4Damage < 0)
                 Move4Damage = 999999;
@@ -113,17 +113,17 @@ namespace ProjectRPG
         public override void UpdateWeapon(int Strength, int Intel, int Dex)
         {
             BaseAttack = Strength * Game.Player.LevelNumber * BaseAttackMultiplier;
-            Move1Damage = (int)(BaseAttack * 1.5);
+            Move1Damage = (int)(BaseAttack * 2.5);
 
             if (Move1Damage >= 999999 || Move1Damage < 0)
                 Move1Damage = 999999;
 
-            Move2Damage = BaseAttack + (int)(BaseAttack * 2);
+            Move2Damage = BaseAttack + (int)(BaseAttack * 3);
 
             if (Move2Damage >= 999999 || Move2Damage < 0)
                 Move2Damage = 999999;
 
-            Move3Damage = BaseAttack + (int)(BaseAttack * 2.5);
+            Move3Damage = BaseAttack + (int)(BaseAttack * 4);
 
             if (Move3Damage >= 999999 || Move3Damage < 0)
                 Move3Damage = 999999;

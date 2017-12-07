@@ -132,6 +132,11 @@
             this.toAllItemQuantityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.randomWeaponDropToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.levelUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setPlayerHealthTo50ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.healthTo25ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setEnemyHealthTo50ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setPlayerWeaponMoveAmmoTo999ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1299,15 +1304,18 @@
             this.generateBossToolStripMenuItem,
             this.toAllItemQuantityToolStripMenuItem,
             this.randomWeaponDropToolStripMenuItem,
-            this.levelUpToolStripMenuItem});
+            this.levelUpToolStripMenuItem,
+            this.setPlayerHealthTo50ToolStripMenuItem,
+            this.setEnemyHealthTo50ToolStripMenuItem,
+            this.setPlayerWeaponMoveAmmoTo999ToolStripMenuItem});
             this.cheatModeToolStripMenuItem.Name = "cheatModeToolStripMenuItem";
-            this.cheatModeToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.cheatModeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.cheatModeToolStripMenuItem.Text = "Cheat Mode";
             // 
             // maxStatsToolStripMenuItem
             // 
             this.maxStatsToolStripMenuItem.Name = "maxStatsToolStripMenuItem";
-            this.maxStatsToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.maxStatsToolStripMenuItem.Size = new System.Drawing.Size(344, 26);
             this.maxStatsToolStripMenuItem.Text = "Max Stats / God Mode";
             this.maxStatsToolStripMenuItem.ToolTipText = "Set Player Stats to Max and can\'t die.";
             this.maxStatsToolStripMenuItem.Click += new System.EventHandler(this.MaxStatsToolStripMenuItem_Click);
@@ -1315,7 +1323,7 @@
             // superWeaponToolStripMenuItem
             // 
             this.superWeaponToolStripMenuItem.Name = "superWeaponToolStripMenuItem";
-            this.superWeaponToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.superWeaponToolStripMenuItem.Size = new System.Drawing.Size(344, 26);
             this.superWeaponToolStripMenuItem.Text = "Super Weapon";
             this.superWeaponToolStripMenuItem.ToolTipText = "Gives the user a powerful weapon.";
             this.superWeaponToolStripMenuItem.Click += new System.EventHandler(this.SuperWeaponToolStripMenuItem_Click);
@@ -1323,7 +1331,7 @@
             // generateBossToolStripMenuItem
             // 
             this.generateBossToolStripMenuItem.Name = "generateBossToolStripMenuItem";
-            this.generateBossToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.generateBossToolStripMenuItem.Size = new System.Drawing.Size(344, 26);
             this.generateBossToolStripMenuItem.Text = "Generate Boss";
             this.generateBossToolStripMenuItem.ToolTipText = "Turn the current enemy to a Boss.";
             this.generateBossToolStripMenuItem.Click += new System.EventHandler(this.GenerateBossToolStripMenuItem_Click);
@@ -1331,33 +1339,72 @@
             // toAllItemQuantityToolStripMenuItem
             // 
             this.toAllItemQuantityToolStripMenuItem.Name = "toAllItemQuantityToolStripMenuItem";
-            this.toAllItemQuantityToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.toAllItemQuantityToolStripMenuItem.Size = new System.Drawing.Size(344, 26);
             this.toAllItemQuantityToolStripMenuItem.Text = "+999 to All Item Quantity";
             this.toAllItemQuantityToolStripMenuItem.Click += new System.EventHandler(this.ToAllItemQuantityToolStripMenuItem_Click);
             // 
             // randomWeaponDropToolStripMenuItem
             // 
             this.randomWeaponDropToolStripMenuItem.Name = "randomWeaponDropToolStripMenuItem";
-            this.randomWeaponDropToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.randomWeaponDropToolStripMenuItem.Size = new System.Drawing.Size(344, 26);
             this.randomWeaponDropToolStripMenuItem.Text = "Random Weapon Drop";
             this.randomWeaponDropToolStripMenuItem.Click += new System.EventHandler(this.RandomWeaponDropToolStripMenuItem_Click);
             // 
             // levelUpToolStripMenuItem
             // 
             this.levelUpToolStripMenuItem.Name = "levelUpToolStripMenuItem";
-            this.levelUpToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.levelUpToolStripMenuItem.Size = new System.Drawing.Size(344, 26);
             this.levelUpToolStripMenuItem.Text = "Level Up!";
             this.levelUpToolStripMenuItem.Click += new System.EventHandler(this.LevelUpToolStripMenuItem_Click);
+            // 
+            // setPlayerHealthTo50ToolStripMenuItem
+            // 
+            this.setPlayerHealthTo50ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.healthTo25ToolStripMenuItem});
+            this.setPlayerHealthTo50ToolStripMenuItem.Name = "setPlayerHealthTo50ToolStripMenuItem";
+            this.setPlayerHealthTo50ToolStripMenuItem.Size = new System.Drawing.Size(344, 26);
+            this.setPlayerHealthTo50ToolStripMenuItem.Text = "Set Player Health to 50%";
+            this.setPlayerHealthTo50ToolStripMenuItem.Click += new System.EventHandler(this.SetPlayerHealthTo50ToolStripMenuItem_Click);
+            // 
+            // healthTo25ToolStripMenuItem
+            // 
+            this.healthTo25ToolStripMenuItem.Name = "healthTo25ToolStripMenuItem";
+            this.healthTo25ToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.healthTo25ToolStripMenuItem.Text = "Health to 25%";
+            this.healthTo25ToolStripMenuItem.Click += new System.EventHandler(this.HealthTo25ToolStripMenuItem_Click);
+            // 
+            // setEnemyHealthTo50ToolStripMenuItem
+            // 
+            this.setEnemyHealthTo50ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sToolStripMenuItem});
+            this.setEnemyHealthTo50ToolStripMenuItem.Name = "setEnemyHealthTo50ToolStripMenuItem";
+            this.setEnemyHealthTo50ToolStripMenuItem.Size = new System.Drawing.Size(344, 26);
+            this.setEnemyHealthTo50ToolStripMenuItem.Text = "Set Enemy Health to 50%";
+            this.setEnemyHealthTo50ToolStripMenuItem.Click += new System.EventHandler(this.SetEnemyHealthTo50ToolStripMenuItem_Click);
+            // 
+            // sToolStripMenuItem
+            // 
+            this.sToolStripMenuItem.Name = "sToolStripMenuItem";
+            this.sToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.sToolStripMenuItem.Text = "Health to 25%";
+            this.sToolStripMenuItem.Click += new System.EventHandler(this.sToolStripMenuItem_Click);
+            // 
+            // setPlayerWeaponMoveAmmoTo999ToolStripMenuItem
+            // 
+            this.setPlayerWeaponMoveAmmoTo999ToolStripMenuItem.Name = "setPlayerWeaponMoveAmmoTo999ToolStripMenuItem";
+            this.setPlayerWeaponMoveAmmoTo999ToolStripMenuItem.Size = new System.Drawing.Size(344, 26);
+            this.setPlayerWeaponMoveAmmoTo999ToolStripMenuItem.Text = "Set Player Weapon Move Ammo to 999";
+            this.setPlayerWeaponMoveAmmoTo999ToolStripMenuItem.Click += new System.EventHandler(this.SetPlayerWeaponMoveAmmoTo999ToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(162, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -1539,5 +1586,10 @@
         private System.Windows.Forms.ToolStripMenuItem randomWeaponDropToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem levelUpToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem setPlayerHealthTo50ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setEnemyHealthTo50ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setPlayerWeaponMoveAmmoTo999ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem healthTo25ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sToolStripMenuItem;
     }
 }
