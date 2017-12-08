@@ -308,12 +308,18 @@ namespace ProjectRPG
             //Update Progress Bar to Represent Health
             GW_Player_Health_ProgBar.Maximum = Game.Player.MaxHealth;
             GW_Player_Health_ProgBar.Minimum = 0;
-            GW_Player_Health_ProgBar.Value = Game.Player.Health;
+            if (Game.Player.Health <= 0)
+                GW_Player_Health_ProgBar.Value = 0;
+            else
+                GW_Player_Health_ProgBar.Value = Game.Player.Health;
 
             //Update Progress Bar to Represent Mana
             GW_Player_Mana_ProgBar.Maximum = Game.Player.MaxMana;
             GW_Player_Mana_ProgBar.Minimum = 0;
-            GW_Player_Mana_ProgBar.Value = Game.Player.Mana;
+            if(Game.Player.Mana <= 0)
+                GW_Player_Mana_ProgBar.Value = 0;
+            else
+                GW_Player_Mana_ProgBar.Value = Game.Player.Mana;
 
             //Update Player's weapon stats
             PlayerWeaponUpdate();
@@ -331,7 +337,6 @@ namespace ProjectRPG
 
         /// <summary>
         /// Enemy Update
-        /// Updates Labels, 
         /// </summary>
         void EnemyUpdate()
         {
@@ -391,7 +396,10 @@ namespace ProjectRPG
             //Update Enemy Health Bar
             GW_Enemy_Health_ProgBar.Maximum = Game.Enemy.MaxHealth;
             GW_Enemy_Health_ProgBar.Minimum = 0;
-            GW_Enemy_Health_ProgBar.Value = Game.Enemy.Health;
+            if (Game.Enemy.Health <= 0)
+                GW_Enemy_Health_ProgBar.Value = 0;
+            else
+                GW_Enemy_Health_ProgBar.Value = Game.Enemy.Health;
         }
 
         /// <summary>
@@ -543,6 +551,7 @@ namespace ProjectRPG
                 pDamage = Game.Enemy.Health;
 
             Game.Enemy.Health -= pDamage; //Subtract pDamage from Enemy Health
+
             //Update Label
             GW_EnemyHealthVal_Label.Text = ($"{Convert.ToString(Game.Enemy.Health)} / {Convert.ToString(Game.Enemy.MaxHealth)}");
         }
@@ -1014,7 +1023,7 @@ namespace ProjectRPG
             PlayerUpdate();
         }
 
-        private void sToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.Enemy.Health = (Game.Enemy.MaxHealth / 2) / 2;
             EnemyUpdate();

@@ -97,6 +97,7 @@
             this.MaximumSize = new System.Drawing.Size(1298, 765);
             this.MinimumSize = new System.Drawing.Size(1298, 765);
             this.Name = "ProjectRPG_MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProjectRPG - Main Menu";
             this.ResumeLayout(false);
 

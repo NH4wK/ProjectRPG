@@ -191,7 +191,7 @@ namespace ProjectRPG
                 Strength = (int)(Game.Player.Strength * 2.5);
                 Intelligence = (int)(Game.Player.Intelligence * 2.5);
                 Dexterity = (int)(Game.Player.Dexterity * 2.5);
-                Vitality = (int)(Game.Player.Vitality * 2);
+                Vitality = (int)(Game.Player.Vitality * 2.5);
                 Health = Strength * Vitality * 2;
                 MaxHealth = Health;
             }

@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HowToPlayWindow));
             this.HTP_HowToPlay_Panel = new System.Windows.Forms.Panel();
-            this.HTP_HowToPlay_PicBox = new System.Windows.Forms.PictureBox();
             this.HTP_Exit_Button = new System.Windows.Forms.Button();
+            this.HTP_HowToPlay_PicBox = new System.Windows.Forms.PictureBox();
             this.HTP_HowToPlay_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HTP_HowToPlay_PicBox)).BeginInit();
             this.SuspendLayout();
@@ -46,17 +46,6 @@
             this.HTP_HowToPlay_Panel.Size = new System.Drawing.Size(1277, 720);
             this.HTP_HowToPlay_Panel.TabIndex = 0;
             // 
-            // HTP_HowToPlay_PicBox
-            // 
-            this.HTP_HowToPlay_PicBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HTP_HowToPlay_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("HTP_HowToPlay_PicBox.Image")));
-            this.HTP_HowToPlay_PicBox.Location = new System.Drawing.Point(0, 0);
-            this.HTP_HowToPlay_PicBox.Name = "HTP_HowToPlay_PicBox";
-            this.HTP_HowToPlay_PicBox.Size = new System.Drawing.Size(1277, 720);
-            this.HTP_HowToPlay_PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.HTP_HowToPlay_PicBox.TabIndex = 0;
-            this.HTP_HowToPlay_PicBox.TabStop = false;
-            // 
             // HTP_Exit_Button
             // 
             this.HTP_Exit_Button.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -68,6 +57,17 @@
             this.HTP_Exit_Button.UseVisualStyleBackColor = true;
             this.HTP_Exit_Button.Click += new System.EventHandler(this.HTP_Exit_Button_Click);
             // 
+            // HTP_HowToPlay_PicBox
+            // 
+            this.HTP_HowToPlay_PicBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HTP_HowToPlay_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("HTP_HowToPlay_PicBox.Image")));
+            this.HTP_HowToPlay_PicBox.Location = new System.Drawing.Point(0, 0);
+            this.HTP_HowToPlay_PicBox.Name = "HTP_HowToPlay_PicBox";
+            this.HTP_HowToPlay_PicBox.Size = new System.Drawing.Size(1277, 720);
+            this.HTP_HowToPlay_PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.HTP_HowToPlay_PicBox.TabIndex = 0;
+            this.HTP_HowToPlay_PicBox.TabStop = false;
+            // 
             // HowToPlayWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -78,6 +78,7 @@
             this.MaximumSize = new System.Drawing.Size(1299, 771);
             this.MinimumSize = new System.Drawing.Size(1299, 771);
             this.Name = "HowToPlayWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProjectRPG - How To Play";
             this.HTP_HowToPlay_Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.HTP_HowToPlay_PicBox)).EndInit();

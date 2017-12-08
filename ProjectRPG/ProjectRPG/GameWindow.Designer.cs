@@ -1385,9 +1385,9 @@
             // sToolStripMenuItem
             // 
             this.sToolStripMenuItem.Name = "sToolStripMenuItem";
-            this.sToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.sToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.sToolStripMenuItem.Text = "Health to 25%";
-            this.sToolStripMenuItem.Click += new System.EventHandler(this.sToolStripMenuItem_Click);
+            this.sToolStripMenuItem.Click += new System.EventHandler(this.SToolStripMenuItem_Click);
             // 
             // setPlayerWeaponMoveAmmoTo999ToolStripMenuItem
             // 
@@ -1442,6 +1442,7 @@
             this.MaximumSize = new System.Drawing.Size(1701, 875);
             this.MinimumSize = new System.Drawing.Size(1701, 875);
             this.Name = "GameWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProjectRPG - Game";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.GameWindow_Load);
