@@ -94,7 +94,7 @@ namespace ProjectRPG
             Game.PlayerManaPotion.Quantity = 5;
             Game.PlayerWeapRestorePotion.Quantity = 1;
 
-            GW_Player_Damaged_PicBox.Hide();
+            GW_Player_PicBox.Image = ProjectRPG.Properties.Resources.Player_Idle;
             PlayerWeaponUpdate();
         }
 
@@ -147,9 +147,7 @@ namespace ProjectRPG
             Game.Enemy.GenerateEnemy();
 
             //Hide Enemy Damaged and Boss Picture Boxes
-            GW_Enemy_Damaged_PicBox.Hide();
-            GW_Enemy_Boss_PicBox.Hide();
-            GW_Enemy_Boss_Damage_PicBox.Hide();
+            GW_Enemy_PicBox.Image = ProjectRPG.Properties.Resources.Enemy_Idle;
 
             GW_EnemyName_Label.Text = Game.Enemy.Name;
             GW_EnemyHealthVal_Label.Text = ($"{Convert.ToString(Game.Enemy.Health)} / {Convert.ToString(Game.Enemy.MaxHealth)}");
@@ -203,6 +201,31 @@ namespace ProjectRPG
         /// </summary>
         void PlayerWeaponUpdate()
         {
+            if ((Game.Player.Mana < (int)(Game.Player.MaxMana * 0.20)) && Game.PlayerWeapon.ElementType == "Magic")
+            {
+                GW_WeapMove1_RadButton.Enabled = false;
+                GW_WeapMove2_RadButton.Enabled = false;
+                GW_WeapMove3_RadButton.Enabled = false;
+            }
+            else
+            {
+                GW_WeapMove1_RadButton.Enabled = true;
+                GW_WeapMove2_RadButton.Enabled = true;
+                GW_WeapMove3_RadButton.Enabled = true;
+            }
+
+            if ((Game.Player.Mana < (int)(Game.Player.MaxMana * 0.50)) && Game.PlayerWeapon.ElementType == "Magic")
+            {
+                GW_WeapMove4_RadButton.Enabled = false;
+            }
+            else
+            {
+                GW_WeapMove4_RadButton.Enabled = true;
+            }
+
+
+
+
             //Update Labels
             GW_WeaponName_Label.Text = Game.PlayerWeapon.Name;
             GW_WeapMove1_RadButton.Text = Game.PlayerWeapon.Move1Name;
@@ -301,13 +324,11 @@ namespace ProjectRPG
             //Player is under 50% health, flash red. Otherwise use normal idle.
             if (Game.Player.Health <= (Game.Player.MaxHealth / 2))
             {
-                GW_Player_Damaged_PicBox.Show();
-                GW_Player_PicBox.Hide();
+                GW_Player_PicBox.Image = ProjectRPG.Properties.Resources.Player_Damaged;
             }
             else
             {
-                GW_Player_PicBox.Show();
-                GW_Player_Damaged_PicBox.Hide();
+                GW_Player_PicBox.Image = ProjectRPG.Properties.Resources.Player_Idle;
             }
 
             //Update Progress Bar to Represent Health
@@ -348,9 +369,7 @@ namespace ProjectRPG
             //Check if to see if Enemy is a Boss, update Enemy Picture Box
             if (Game.Enemy.IsBoss)
             {
-                GW_Enemy_Boss_PicBox.Show();
-                GW_Enemy_PicBox.Hide();
-                GW_Enemy_Damaged_PicBox.Hide();
+                GW_Enemy_PicBox.Image = ProjectRPG.Properties.Resources.Enemy_Boss_Idle;
             }
 
             //Update Enemy Labels
@@ -376,25 +395,21 @@ namespace ProjectRPG
             //if Enemy / Boss is at half health, update there picture boxes, otherwise show regular picturebox 
             if ((Game.Enemy.Health <= (Game.Enemy.MaxHealth / 2)) && Game.Enemy.IsBoss)
             {
-                GW_Enemy_Boss_Damage_PicBox.Show();
-                GW_Enemy_Boss_PicBox.Hide();
+                GW_Enemy_PicBox.Image = ProjectRPG.Properties.Resources.Enemy_Boss_Damage;
             }
             else if (Game.Enemy.Health <= (Game.Enemy.MaxHealth / 2))
             {
-                GW_Enemy_Damaged_PicBox.Show();
-                GW_Enemy_PicBox.Hide();
+                GW_Enemy_PicBox.Image = ProjectRPG.Properties.Resources.Enemy_Damage;
             }
             else
             {
                 if (Game.Enemy.IsBoss)
                 {
-                    GW_Enemy_Boss_PicBox.Show();
-                    GW_Enemy_Boss_Damage_PicBox.Hide();
+                    GW_Enemy_PicBox.Image = ProjectRPG.Properties.Resources.Enemy_Boss_Idle;
                 }
                 else
-                {   
-                    GW_Enemy_PicBox.Show();
-                    GW_Enemy_Damaged_PicBox.Hide();
+                {
+                    GW_Enemy_PicBox.Image = ProjectRPG.Properties.Resources.Enemy_Idle;
                 }
             }
 
@@ -432,7 +447,6 @@ namespace ProjectRPG
         void GameOver()
         {
             GW_Player_PicBox.Hide();
-            GW_Player_Damaged_PicBox.Hide();
 
             GW_GameStatus_Panel.Show();
             GW_Game_Status_Primary_Label.Text = "Game Over";
@@ -450,8 +464,7 @@ namespace ProjectRPG
         /// </summary>
         void GameWon()
         {
-            GW_Enemy_Boss_Damage_PicBox.Hide();
-            GW_Enemy_Boss_PicBox.Hide();
+            GW_Enemy_PicBox.Hide();
 
             GW_GameStatus_Panel.Show();
             GW_Game_Status_Primary_Label.Text = "Victory!";
@@ -1037,7 +1050,7 @@ namespace ProjectRPG
             EnemyUpdate();
         }
 
-        private void musicPlayStopToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MusicPlayStopToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Game.IsMusicPlaying)
             {
@@ -1049,6 +1062,30 @@ namespace ProjectRPG
                 Game.IsMusicPlaying = true;
                 Game.SPlayer.PlayLooping();
             }
+        }
+
+        private void ToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Game.Player.Mana = (int)(Game.Player.MaxMana * 0.75);
+            PlayerUpdate();
+        }
+
+        private void ToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Game.Player.Mana = (int)(Game.Player.MaxMana * 0.50);
+            PlayerUpdate();
+        }
+
+        private void ToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Game.Player.Mana = (int)(Game.Player.MaxMana * 0.25);
+            PlayerUpdate();
+        }
+
+        private void ToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            Game.Player.Mana = (int)(Game.Player.MaxMana * 0.15);
+            PlayerUpdate();
         }
     }
 }

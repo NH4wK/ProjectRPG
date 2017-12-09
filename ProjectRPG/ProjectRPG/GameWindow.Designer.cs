@@ -119,10 +119,6 @@
             this.GW_Boss_Encounter_Label = new System.Windows.Forms.Label();
             this.GW_Enemy_PicBox = new System.Windows.Forms.PictureBox();
             this.GW_Player_PicBox = new System.Windows.Forms.PictureBox();
-            this.GW_Enemy_Damaged_PicBox = new System.Windows.Forms.PictureBox();
-            this.GW_Player_Damaged_PicBox = new System.Windows.Forms.PictureBox();
-            this.GW_Enemy_Boss_PicBox = new System.Windows.Forms.PictureBox();
-            this.GW_Enemy_Boss_Damage_PicBox = new System.Windows.Forms.PictureBox();
             this.GW_menuStrip = new System.Windows.Forms.MenuStrip();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cheatModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -139,10 +135,15 @@
             this.setPlayerWeaponMoveAmmoTo999ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.GW_ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.soundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.musicPlayStopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GW_ToolTips = new System.Windows.Forms.ToolTip(this.components);
+            this.setPlayerManaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.GW_PlayerPanel1.SuspendLayout();
             this.GW_Enemy_Panel.SuspendLayout();
             this.GW_Battle_Panel.SuspendLayout();
@@ -157,10 +158,6 @@
             this.GW_Boss_Encounter_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_PicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GW_Player_PicBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_Damaged_PicBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GW_Player_Damaged_PicBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_Boss_PicBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_Boss_Damage_PicBox)).BeginInit();
             this.GW_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1128,7 +1125,7 @@
             this.GW_GameStatus_Panel.Controls.Add(this.GW_Game_Status_Secondary_Label);
             this.GW_GameStatus_Panel.Controls.Add(this.GW_GameStatus_Button);
             this.GW_GameStatus_Panel.Controls.Add(this.GW_Game_Status_Primary_Label);
-            this.GW_GameStatus_Panel.Location = new System.Drawing.Point(652, 247);
+            this.GW_GameStatus_Panel.Location = new System.Drawing.Point(652, 254);
             this.GW_GameStatus_Panel.Name = "GW_GameStatus_Panel";
             this.GW_GameStatus_Panel.Size = new System.Drawing.Size(567, 192);
             this.GW_GameStatus_Panel.TabIndex = 6;
@@ -1214,9 +1211,9 @@
             // 
             this.GW_Enemy_PicBox.BackColor = System.Drawing.Color.Transparent;
             this.GW_Enemy_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("GW_Enemy_PicBox.Image")));
-            this.GW_Enemy_PicBox.Location = new System.Drawing.Point(917, 128);
+            this.GW_Enemy_PicBox.Location = new System.Drawing.Point(901, 181);
             this.GW_Enemy_PicBox.Name = "GW_Enemy_PicBox";
-            this.GW_Enemy_PicBox.Size = new System.Drawing.Size(229, 246);
+            this.GW_Enemy_PicBox.Size = new System.Drawing.Size(358, 253);
             this.GW_Enemy_PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.GW_Enemy_PicBox.TabIndex = 8;
             this.GW_Enemy_PicBox.TabStop = false;
@@ -1231,50 +1228,6 @@
             this.GW_Player_PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.GW_Player_PicBox.TabIndex = 9;
             this.GW_Player_PicBox.TabStop = false;
-            // 
-            // GW_Enemy_Damaged_PicBox
-            // 
-            this.GW_Enemy_Damaged_PicBox.BackColor = System.Drawing.Color.Transparent;
-            this.GW_Enemy_Damaged_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("GW_Enemy_Damaged_PicBox.Image")));
-            this.GW_Enemy_Damaged_PicBox.Location = new System.Drawing.Point(917, 128);
-            this.GW_Enemy_Damaged_PicBox.Name = "GW_Enemy_Damaged_PicBox";
-            this.GW_Enemy_Damaged_PicBox.Size = new System.Drawing.Size(229, 246);
-            this.GW_Enemy_Damaged_PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.GW_Enemy_Damaged_PicBox.TabIndex = 10;
-            this.GW_Enemy_Damaged_PicBox.TabStop = false;
-            // 
-            // GW_Player_Damaged_PicBox
-            // 
-            this.GW_Player_Damaged_PicBox.BackColor = System.Drawing.Color.Transparent;
-            this.GW_Player_Damaged_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("GW_Player_Damaged_PicBox.Image")));
-            this.GW_Player_Damaged_PicBox.Location = new System.Drawing.Point(616, 128);
-            this.GW_Player_Damaged_PicBox.Name = "GW_Player_Damaged_PicBox";
-            this.GW_Player_Damaged_PicBox.Size = new System.Drawing.Size(241, 235);
-            this.GW_Player_Damaged_PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.GW_Player_Damaged_PicBox.TabIndex = 11;
-            this.GW_Player_Damaged_PicBox.TabStop = false;
-            // 
-            // GW_Enemy_Boss_PicBox
-            // 
-            this.GW_Enemy_Boss_PicBox.BackColor = System.Drawing.Color.Transparent;
-            this.GW_Enemy_Boss_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("GW_Enemy_Boss_PicBox.Image")));
-            this.GW_Enemy_Boss_PicBox.Location = new System.Drawing.Point(994, 222);
-            this.GW_Enemy_Boss_PicBox.Name = "GW_Enemy_Boss_PicBox";
-            this.GW_Enemy_Boss_PicBox.Size = new System.Drawing.Size(277, 217);
-            this.GW_Enemy_Boss_PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.GW_Enemy_Boss_PicBox.TabIndex = 12;
-            this.GW_Enemy_Boss_PicBox.TabStop = false;
-            // 
-            // GW_Enemy_Boss_Damage_PicBox
-            // 
-            this.GW_Enemy_Boss_Damage_PicBox.BackColor = System.Drawing.Color.Transparent;
-            this.GW_Enemy_Boss_Damage_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("GW_Enemy_Boss_Damage_PicBox.Image")));
-            this.GW_Enemy_Boss_Damage_PicBox.Location = new System.Drawing.Point(994, 222);
-            this.GW_Enemy_Boss_Damage_PicBox.Name = "GW_Enemy_Boss_Damage_PicBox";
-            this.GW_Enemy_Boss_Damage_PicBox.Size = new System.Drawing.Size(277, 219);
-            this.GW_Enemy_Boss_Damage_PicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.GW_Enemy_Boss_Damage_PicBox.TabIndex = 13;
-            this.GW_Enemy_Boss_Damage_PicBox.TabStop = false;
             // 
             // GW_menuStrip
             // 
@@ -1310,7 +1263,8 @@
             this.levelUpToolStripMenuItem,
             this.setPlayerHealthTo50ToolStripMenuItem,
             this.setEnemyHealthTo50ToolStripMenuItem,
-            this.setPlayerWeaponMoveAmmoTo999ToolStripMenuItem});
+            this.setPlayerWeaponMoveAmmoTo999ToolStripMenuItem,
+            this.setPlayerManaToolStripMenuItem});
             this.cheatModeToolStripMenuItem.Name = "cheatModeToolStripMenuItem";
             this.cheatModeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.cheatModeToolStripMenuItem.Text = "Cheat Mode";
@@ -1402,21 +1356,14 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(162, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
-            this.helpToolStripMenuItem.Text = "Help";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.HelpToolStripMenuItem_Click);
             // 
             // soundToolStripMenuItem
             // 
@@ -1431,7 +1378,53 @@
             this.musicPlayStopToolStripMenuItem.Name = "musicPlayStopToolStripMenuItem";
             this.musicPlayStopToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.musicPlayStopToolStripMenuItem.Text = "Music - Play/Stop";
-            this.musicPlayStopToolStripMenuItem.Click += new System.EventHandler(this.musicPlayStopToolStripMenuItem_Click);
+            this.musicPlayStopToolStripMenuItem.Click += new System.EventHandler(this.MusicPlayStopToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.HelpToolStripMenuItem_Click);
+            // 
+            // setPlayerManaToolStripMenuItem
+            // 
+            this.setPlayerManaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5});
+            this.setPlayerManaToolStripMenuItem.Name = "setPlayerManaToolStripMenuItem";
+            this.setPlayerManaToolStripMenuItem.Size = new System.Drawing.Size(344, 26);
+            this.setPlayerManaToolStripMenuItem.Text = "Set Player Mana";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
+            this.toolStripMenuItem2.Text = "75%";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.ToolStripMenuItem2_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(181, 26);
+            this.toolStripMenuItem3.Text = "50%";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.ToolStripMenuItem3_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(181, 26);
+            this.toolStripMenuItem4.Text = "25%";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.ToolStripMenuItem4_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(181, 26);
+            this.toolStripMenuItem5.Text = "15%";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.ToolStripMenuItem5_Click);
             // 
             // GameWindow
             // 
@@ -1443,10 +1436,6 @@
             this.Controls.Add(this.GW_Boss_Encounter_Panel);
             this.Controls.Add(this.GW_GameStatus_Panel);
             this.Controls.Add(this.GW_BattleAction_Panel);
-            this.Controls.Add(this.GW_Enemy_Boss_Damage_PicBox);
-            this.Controls.Add(this.GW_Enemy_Boss_PicBox);
-            this.Controls.Add(this.GW_Player_Damaged_PicBox);
-            this.Controls.Add(this.GW_Enemy_Damaged_PicBox);
             this.Controls.Add(this.GW_Player_PicBox);
             this.Controls.Add(this.GW_Enemy_PicBox);
             this.Controls.Add(this.GW_Inventory_Panel);
@@ -1486,10 +1475,6 @@
             this.GW_Boss_Encounter_Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_PicBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GW_Player_PicBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_Damaged_PicBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GW_Player_Damaged_PicBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_Boss_PicBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GW_Enemy_Boss_Damage_PicBox)).EndInit();
             this.GW_menuStrip.ResumeLayout(false);
             this.GW_menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -1584,13 +1569,9 @@
         private System.Windows.Forms.Label GW_Boss_Encounter_Label;
         private System.Windows.Forms.PictureBox GW_Enemy_PicBox;
         private System.Windows.Forms.PictureBox GW_Player_PicBox;
-        private System.Windows.Forms.PictureBox GW_Enemy_Damaged_PicBox;
-        private System.Windows.Forms.PictureBox GW_Player_Damaged_PicBox;
         private System.Windows.Forms.ProgressBar GW_Player_Mana_ProgBar;
         private System.Windows.Forms.ProgressBar GW_Player_Health_ProgBar;
         private System.Windows.Forms.ProgressBar GW_Enemy_Health_ProgBar;
-        private System.Windows.Forms.PictureBox GW_Enemy_Boss_PicBox;
-        private System.Windows.Forms.PictureBox GW_Enemy_Boss_Damage_PicBox;
         private System.Windows.Forms.MenuStrip GW_menuStrip;
         private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cheatModeToolStripMenuItem;
@@ -1612,5 +1593,10 @@
         private System.Windows.Forms.ToolStripMenuItem sToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem soundToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem musicPlayStopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setPlayerManaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
     }
 }

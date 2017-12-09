@@ -61,11 +61,71 @@ namespace ProjectRPG.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Enemy_Boss_Damage {
+            get {
+                object obj = ResourceManager.GetObject("Enemy_Boss_Damage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Enemy_Boss_Idle {
+            get {
+                object obj = ResourceManager.GetObject("Enemy_Boss_Idle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Enemy_Damage {
+            get {
+                object obj = ResourceManager.GetObject("Enemy_Damage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Enemy_Idle {
+            get {
+                object obj = ResourceManager.GetObject("Enemy_Idle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream MenuClick {
             get {
                 return ResourceManager.GetStream("MenuClick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Player_Damaged {
+            get {
+                object obj = ResourceManager.GetObject("Player_Damaged", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Player_Idle {
+            get {
+                object obj = ResourceManager.GetObject("Player_Idle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
