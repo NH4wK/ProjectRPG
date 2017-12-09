@@ -743,6 +743,7 @@ namespace ProjectRPG
 
         private void GW_Attack_Button_Click(object sender, EventArgs e)
         {
+
             GW_ExecMove_Button.Enabled = false;
             GW_WeapMove1_RadButton.Checked = false;
             GW_WeapMove2_RadButton.Checked = false;

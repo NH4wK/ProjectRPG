@@ -63,9 +63,27 @@ namespace ProjectRPG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream MenuClick {
+            get {
+                return ResourceManager.GetStream("MenuClick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream sawsquarenoise___03___Field_Force {
             get {
                 return ResourceManager.GetStream("sawsquarenoise___03___Field_Force", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream sawsquarenoise___03___Field_Force_neg25dB {
+            get {
+                return ResourceManager.GetStream("sawsquarenoise___03___Field_Force_neg25dB", resourceCulture);
             }
         }
     }

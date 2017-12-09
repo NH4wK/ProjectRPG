@@ -128,5 +128,11 @@
   <ItemGroup>
     <None Include="Resources\Assets\Music\sawsquarenoise_-_03_-_Field_Force.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\Music\sawsquarenoise_-_03_-_Field_Force_neg25dB.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\MenuClick.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
