@@ -133,17 +133,17 @@
             this.setEnemyHealthTo50ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setPlayerWeaponMoveAmmoTo999ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setPlayerManaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.soundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.musicPlayStopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GW_ToolTips = new System.Windows.Forms.ToolTip(this.components);
-            this.setPlayerManaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.GW_PlayerPanel1.SuspendLayout();
             this.GW_Enemy_Panel.SuspendLayout();
             this.GW_Battle_Panel.SuspendLayout();
@@ -668,6 +668,7 @@
             // 
             // GW_Retreat_Button
             // 
+            this.GW_Retreat_Button.BackColor = System.Drawing.SystemColors.Control;
             this.GW_Retreat_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GW_Retreat_Button.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GW_Retreat_Button.Location = new System.Drawing.Point(144, 80);
@@ -676,11 +677,12 @@
             this.GW_Retreat_Button.Size = new System.Drawing.Size(100, 31);
             this.GW_Retreat_Button.TabIndex = 4;
             this.GW_Retreat_Button.Text = "Retreat";
-            this.GW_Retreat_Button.UseVisualStyleBackColor = true;
+            this.GW_Retreat_Button.UseVisualStyleBackColor = false;
             this.GW_Retreat_Button.Click += new System.EventHandler(this.GW_Retreat_Button_Click);
             // 
             // GW_Items_Button
             // 
+            this.GW_Items_Button.BackColor = System.Drawing.Color.LightGreen;
             this.GW_Items_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GW_Items_Button.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GW_Items_Button.Location = new System.Drawing.Point(23, 80);
@@ -689,12 +691,12 @@
             this.GW_Items_Button.Size = new System.Drawing.Size(100, 31);
             this.GW_Items_Button.TabIndex = 3;
             this.GW_Items_Button.Text = "Items";
-            this.GW_Items_Button.UseVisualStyleBackColor = true;
+            this.GW_Items_Button.UseVisualStyleBackColor = false;
             this.GW_Items_Button.Click += new System.EventHandler(this.GW_Items_Button_Click);
             // 
             // GW_Defend_Button
             // 
-            this.GW_Defend_Button.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.GW_Defend_Button.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.GW_Defend_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GW_Defend_Button.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GW_Defend_Button.Location = new System.Drawing.Point(144, 38);
@@ -719,6 +721,7 @@
             // 
             // GW_Attack_Button
             // 
+            this.GW_Attack_Button.BackColor = System.Drawing.Color.IndianRed;
             this.GW_Attack_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GW_Attack_Button.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GW_Attack_Button.Location = new System.Drawing.Point(23, 38);
@@ -727,7 +730,7 @@
             this.GW_Attack_Button.Size = new System.Drawing.Size(100, 31);
             this.GW_Attack_Button.TabIndex = 0;
             this.GW_Attack_Button.Text = "Attack";
-            this.GW_Attack_Button.UseVisualStyleBackColor = true;
+            this.GW_Attack_Button.UseVisualStyleBackColor = false;
             this.GW_Attack_Button.Click += new System.EventHandler(this.GW_Attack_Button_Click);
             // 
             // GW_Weapon_Panel
@@ -789,6 +792,7 @@
             // 
             // GW_ExecMove_Button
             // 
+            this.GW_ExecMove_Button.BackColor = System.Drawing.Color.Crimson;
             this.GW_ExecMove_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GW_ExecMove_Button.Enabled = false;
             this.GW_ExecMove_Button.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -798,7 +802,7 @@
             this.GW_ExecMove_Button.Size = new System.Drawing.Size(123, 31);
             this.GW_ExecMove_Button.TabIndex = 6;
             this.GW_ExecMove_Button.Text = "Attack!";
-            this.GW_ExecMove_Button.UseVisualStyleBackColor = true;
+            this.GW_ExecMove_Button.UseVisualStyleBackColor = false;
             this.GW_ExecMove_Button.Click += new System.EventHandler(this.GW_ExecMove_Button_Click);
             // 
             // GW_WeapMove4_RadButton
@@ -901,13 +905,14 @@
             // 
             // GW_WRPotUse_Button
             // 
+            this.GW_WRPotUse_Button.BackColor = System.Drawing.SystemColors.ControlDark;
             this.GW_WRPotUse_Button.Location = new System.Drawing.Point(271, 141);
             this.GW_WRPotUse_Button.Margin = new System.Windows.Forms.Padding(4);
             this.GW_WRPotUse_Button.Name = "GW_WRPotUse_Button";
             this.GW_WRPotUse_Button.Size = new System.Drawing.Size(65, 28);
             this.GW_WRPotUse_Button.TabIndex = 15;
             this.GW_WRPotUse_Button.Text = "Use";
-            this.GW_WRPotUse_Button.UseVisualStyleBackColor = true;
+            this.GW_WRPotUse_Button.UseVisualStyleBackColor = false;
             this.GW_WRPotUse_Button.Click += new System.EventHandler(this.GW_WRPotUse_Button_Click);
             // 
             // GW_QuantWRPot_Label
@@ -948,35 +953,38 @@
             // 
             // GW_WeapEquip_Button
             // 
+            this.GW_WeapEquip_Button.BackColor = System.Drawing.Color.Gold;
             this.GW_WeapEquip_Button.Location = new System.Drawing.Point(60, 218);
             this.GW_WeapEquip_Button.Margin = new System.Windows.Forms.Padding(4);
             this.GW_WeapEquip_Button.Name = "GW_WeapEquip_Button";
             this.GW_WeapEquip_Button.Size = new System.Drawing.Size(85, 28);
             this.GW_WeapEquip_Button.TabIndex = 11;
             this.GW_WeapEquip_Button.Text = "Equip";
-            this.GW_WeapEquip_Button.UseVisualStyleBackColor = true;
+            this.GW_WeapEquip_Button.UseVisualStyleBackColor = false;
             this.GW_WeapEquip_Button.Click += new System.EventHandler(this.GW_WeapEquip_Button_Click);
             // 
             // GW_MPPotUse_Button
             // 
+            this.GW_MPPotUse_Button.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.GW_MPPotUse_Button.Location = new System.Drawing.Point(272, 97);
             this.GW_MPPotUse_Button.Margin = new System.Windows.Forms.Padding(4);
             this.GW_MPPotUse_Button.Name = "GW_MPPotUse_Button";
             this.GW_MPPotUse_Button.Size = new System.Drawing.Size(65, 28);
             this.GW_MPPotUse_Button.TabIndex = 10;
             this.GW_MPPotUse_Button.Text = "Use";
-            this.GW_MPPotUse_Button.UseVisualStyleBackColor = true;
+            this.GW_MPPotUse_Button.UseVisualStyleBackColor = false;
             this.GW_MPPotUse_Button.Click += new System.EventHandler(this.GW_MPPotUse_Button_Click);
             // 
             // GW_HPPotUse_Button
             // 
+            this.GW_HPPotUse_Button.BackColor = System.Drawing.Color.IndianRed;
             this.GW_HPPotUse_Button.Location = new System.Drawing.Point(272, 52);
             this.GW_HPPotUse_Button.Margin = new System.Windows.Forms.Padding(4);
             this.GW_HPPotUse_Button.Name = "GW_HPPotUse_Button";
             this.GW_HPPotUse_Button.Size = new System.Drawing.Size(65, 28);
             this.GW_HPPotUse_Button.TabIndex = 9;
             this.GW_HPPotUse_Button.Text = "Use";
-            this.GW_HPPotUse_Button.UseVisualStyleBackColor = true;
+            this.GW_HPPotUse_Button.UseVisualStyleBackColor = false;
             this.GW_HPPotUse_Button.Click += new System.EventHandler(this.GW_HPPotUse_Button_Click);
             // 
             // GW_QuantMPot_Label
@@ -1177,24 +1185,26 @@
             // 
             // GW_Boss_No_Button
             // 
+            this.GW_Boss_No_Button.BackColor = System.Drawing.Color.Pink;
             this.GW_Boss_No_Button.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GW_Boss_No_Button.Location = new System.Drawing.Point(337, 54);
             this.GW_Boss_No_Button.Name = "GW_Boss_No_Button";
             this.GW_Boss_No_Button.Size = new System.Drawing.Size(95, 28);
             this.GW_Boss_No_Button.TabIndex = 2;
             this.GW_Boss_No_Button.Text = "No";
-            this.GW_Boss_No_Button.UseVisualStyleBackColor = true;
+            this.GW_Boss_No_Button.UseVisualStyleBackColor = false;
             this.GW_Boss_No_Button.Click += new System.EventHandler(this.GW_Boss_No_Button_Click);
             // 
             // GW_Boss_Yes_Button
             // 
+            this.GW_Boss_Yes_Button.BackColor = System.Drawing.Color.Plum;
             this.GW_Boss_Yes_Button.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GW_Boss_Yes_Button.Location = new System.Drawing.Point(136, 54);
             this.GW_Boss_Yes_Button.Name = "GW_Boss_Yes_Button";
             this.GW_Boss_Yes_Button.Size = new System.Drawing.Size(95, 28);
             this.GW_Boss_Yes_Button.TabIndex = 1;
             this.GW_Boss_Yes_Button.Text = "Yes";
-            this.GW_Boss_Yes_Button.UseVisualStyleBackColor = true;
+            this.GW_Boss_Yes_Button.UseVisualStyleBackColor = false;
             this.GW_Boss_Yes_Button.Click += new System.EventHandler(this.GW_Boss_Yes_Button_Click);
             // 
             // GW_Boss_Encounter_Label
@@ -1266,7 +1276,7 @@
             this.setPlayerWeaponMoveAmmoTo999ToolStripMenuItem,
             this.setPlayerManaToolStripMenuItem});
             this.cheatModeToolStripMenuItem.Name = "cheatModeToolStripMenuItem";
-            this.cheatModeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.cheatModeToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.cheatModeToolStripMenuItem.Text = "Cheat Mode";
             // 
             // maxStatsToolStripMenuItem
@@ -1353,6 +1363,45 @@
             this.setPlayerWeaponMoveAmmoTo999ToolStripMenuItem.Text = "Set Player Weapon Move Ammo to 999";
             this.setPlayerWeaponMoveAmmoTo999ToolStripMenuItem.Click += new System.EventHandler(this.SetPlayerWeaponMoveAmmoTo999ToolStripMenuItem_Click);
             // 
+            // setPlayerManaToolStripMenuItem
+            // 
+            this.setPlayerManaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5});
+            this.setPlayerManaToolStripMenuItem.Name = "setPlayerManaToolStripMenuItem";
+            this.setPlayerManaToolStripMenuItem.Size = new System.Drawing.Size(344, 26);
+            this.setPlayerManaToolStripMenuItem.Text = "Set Player Mana";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(112, 26);
+            this.toolStripMenuItem2.Text = "75%";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.ToolStripMenuItem2_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(112, 26);
+            this.toolStripMenuItem3.Text = "50%";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.ToolStripMenuItem3_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(112, 26);
+            this.toolStripMenuItem4.Text = "25%";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.ToolStripMenuItem4_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(112, 26);
+            this.toolStripMenuItem5.Text = "15%";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.ToolStripMenuItem5_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
@@ -1386,45 +1435,6 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.HelpToolStripMenuItem_Click);
-            // 
-            // setPlayerManaToolStripMenuItem
-            // 
-            this.setPlayerManaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5});
-            this.setPlayerManaToolStripMenuItem.Name = "setPlayerManaToolStripMenuItem";
-            this.setPlayerManaToolStripMenuItem.Size = new System.Drawing.Size(344, 26);
-            this.setPlayerManaToolStripMenuItem.Text = "Set Player Mana";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
-            this.toolStripMenuItem2.Text = "75%";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.ToolStripMenuItem2_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(181, 26);
-            this.toolStripMenuItem3.Text = "50%";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.ToolStripMenuItem3_Click);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(181, 26);
-            this.toolStripMenuItem4.Text = "25%";
-            this.toolStripMenuItem4.Click += new System.EventHandler(this.ToolStripMenuItem4_Click);
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(181, 26);
-            this.toolStripMenuItem5.Text = "15%";
-            this.toolStripMenuItem5.Click += new System.EventHandler(this.ToolStripMenuItem5_Click);
             // 
             // GameWindow
             // 

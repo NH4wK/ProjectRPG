@@ -113,7 +113,7 @@ namespace ProjectRPG
             //ToolTip Init
             GW_ToolTips.SetToolTip(GW_ExecMove_Button, "Attack the Enemy!");
             GW_ToolTips.SetToolTip(GW_Attack_Button, "Choose an attack!");
-            GW_ToolTips.SetToolTip(GW_Defend_Button, "Take a defensive stance! (Take 50% Enemy Damage)");
+            GW_ToolTips.SetToolTip(GW_Defend_Button, "Take a defensive stance! (Take 50% less damage)");
             GW_ToolTips.SetToolTip(GW_Retreat_Button, "Run away and fight a different foe!");
             GW_ToolTips.SetToolTip(GW_Items_Button, "Open Inventory");
             GW_ToolTips.SetToolTip(GW_HPPotUse_Button, $"{Game.PlayerHealthPotion.EffectDescription}");
@@ -124,6 +124,11 @@ namespace ProjectRPG
             GW_ToolTips.SetToolTip(GW_WeapMove2_RadButton, $"{Game.PlayerWeapon.Move2Description}");
             GW_ToolTips.SetToolTip(GW_WeapMove3_RadButton, $"{Game.PlayerWeapon.Move3Description}");
             GW_ToolTips.SetToolTip(GW_WeapMove4_RadButton, $"{Game.PlayerWeapon.Move4Description}");
+
+            //Beginning Message in Battle Log
+            GW_BattleAction_TextBox.Text += ($"ProjectRPG - {Game.Player.Name} {Environment.NewLine} - Attack the Enemy!");
+            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+            GW_BattleAction_TextBox.ScrollToCaret();
         }
 
         /// <summary>
@@ -860,6 +865,7 @@ namespace ProjectRPG
                 GW_BattleAction_TextBox.ScrollToCaret();
 
                 EnemyAttack();
+                PlayerUpdate();
             }
 
         }
@@ -990,6 +996,9 @@ namespace ProjectRPG
             GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}        999 Mana Potion(s) has been added to your Inventory!");
             GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}        999 Weapon Restore Potion has been added to your Inventory!");
 
+            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+            GW_BattleAction_TextBox.ScrollToCaret();
+
             InventoryUpdate();
         }
 
@@ -1087,5 +1096,6 @@ namespace ProjectRPG
             Game.Player.Mana = (int)(Game.Player.MaxMana * 0.15);
             PlayerUpdate();
         }
+
     }
 }

@@ -169,24 +169,26 @@
             // 
             // ReRoll_Button
             // 
+            this.ReRoll_Button.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ReRoll_Button.Location = new System.Drawing.Point(120, 62);
             this.ReRoll_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ReRoll_Button.Name = "ReRoll_Button";
             this.ReRoll_Button.Size = new System.Drawing.Size(75, 23);
             this.ReRoll_Button.TabIndex = 11;
             this.ReRoll_Button.Text = "Roll";
-            this.ReRoll_Button.UseVisualStyleBackColor = true;
+            this.ReRoll_Button.UseVisualStyleBackColor = false;
             this.ReRoll_Button.Click += new System.EventHandler(this.ReRoll_Button_Click);
             // 
             // CC_Create_Button
             // 
+            this.CC_Create_Button.BackColor = System.Drawing.SystemColors.ControlLight;
             this.CC_Create_Button.Location = new System.Drawing.Point(59, 208);
-            this.CC_Create_Button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CC_Create_Button.Margin = new System.Windows.Forms.Padding(4);
             this.CC_Create_Button.Name = "CC_Create_Button";
             this.CC_Create_Button.Size = new System.Drawing.Size(100, 28);
             this.CC_Create_Button.TabIndex = 12;
             this.CC_Create_Button.Text = "Create";
-            this.CC_Create_Button.UseVisualStyleBackColor = true;
+            this.CC_Create_Button.UseVisualStyleBackColor = false;
             this.CC_Create_Button.Click += new System.EventHandler(this.Create_Button_Click);
             // 
             // CC_PlayerModel_PicBox
@@ -202,13 +204,14 @@
             // 
             // CC_Cancel_Button
             // 
+            this.CC_Cancel_Button.BackColor = System.Drawing.SystemColors.ControlLight;
             this.CC_Cancel_Button.Location = new System.Drawing.Point(59, 244);
             this.CC_Cancel_Button.Margin = new System.Windows.Forms.Padding(4);
             this.CC_Cancel_Button.Name = "CC_Cancel_Button";
             this.CC_Cancel_Button.Size = new System.Drawing.Size(100, 28);
             this.CC_Cancel_Button.TabIndex = 14;
             this.CC_Cancel_Button.Text = "Cancel";
-            this.CC_Cancel_Button.UseVisualStyleBackColor = true;
+            this.CC_Cancel_Button.UseVisualStyleBackColor = false;
             this.CC_Cancel_Button.Click += new System.EventHandler(this.CC_Cancel_Button_Click);
             // 
             // PlayerCreationForm
