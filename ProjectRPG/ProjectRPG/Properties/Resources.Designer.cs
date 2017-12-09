@@ -59,5 +59,14 @@ namespace ProjectRPG.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream sawsquarenoise___03___Field_Force {
+            get {
+                return ResourceManager.GetStream("sawsquarenoise___03___Field_Force", resourceCulture);
+            }
+        }
     }
 }

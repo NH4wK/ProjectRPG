@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+using System.IO;
 
 /// <summary>
 /// Name: Paul Jerrold Biglete
@@ -25,6 +27,9 @@ namespace ProjectRPG
 
         private void GameWindow_Load(object sender, EventArgs e)
         {
+            //Play Game Battle Music
+            Game.SPlayer.PlayLooping();
+
             //On Game Window Load
             EnemyInit();
             CharacterInit();
@@ -925,12 +930,14 @@ namespace ProjectRPG
 
         private void GW_GameStatus_Button_Click(object sender, EventArgs e)
         {
+            Game.SPlayer.Stop();
             this.Close();
             this.Dispose();
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Game.SPlayer.Stop();
             this.Close();
             this.Dispose();
         }
@@ -1027,6 +1034,20 @@ namespace ProjectRPG
         {
             Game.Enemy.Health = (Game.Enemy.MaxHealth / 2) / 2;
             EnemyUpdate();
+        }
+
+        private void musicPlayStopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Game.IsMusicPlaying)
+            {
+                Game.IsMusicPlaying = false;
+                Game.SPlayer.Stop();
+            }
+            else
+            {
+                Game.IsMusicPlaying = true;
+                Game.SPlayer.PlayLooping();
+            }
         }
     }
 }

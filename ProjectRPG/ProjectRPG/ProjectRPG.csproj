@@ -125,5 +125,8 @@
   <ItemGroup>
     <Folder Include="Resources\Assets\Enemy_Sprites\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\Music\sawsquarenoise_-_03_-_Field_Force.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

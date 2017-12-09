@@ -141,6 +141,8 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GW_ToolTips = new System.Windows.Forms.ToolTip(this.components);
+            this.soundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.musicPlayStopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GW_PlayerPanel1.SuspendLayout();
             this.GW_Enemy_Panel.SuspendLayout();
             this.GW_Battle_Panel.SuspendLayout();
@@ -1279,6 +1281,7 @@
             this.GW_menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.GW_menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gameToolStripMenuItem,
+            this.soundToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.GW_menuStrip.Location = new System.Drawing.Point(0, 0);
             this.GW_menuStrip.Name = "GW_menuStrip";
@@ -1414,6 +1417,21 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.HelpToolStripMenuItem_Click);
+            // 
+            // soundToolStripMenuItem
+            // 
+            this.soundToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.musicPlayStopToolStripMenuItem});
+            this.soundToolStripMenuItem.Name = "soundToolStripMenuItem";
+            this.soundToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
+            this.soundToolStripMenuItem.Text = "Sound";
+            // 
+            // musicPlayStopToolStripMenuItem
+            // 
+            this.musicPlayStopToolStripMenuItem.Name = "musicPlayStopToolStripMenuItem";
+            this.musicPlayStopToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
+            this.musicPlayStopToolStripMenuItem.Text = "Music - Play/Stop";
+            this.musicPlayStopToolStripMenuItem.Click += new System.EventHandler(this.musicPlayStopToolStripMenuItem_Click);
             // 
             // GameWindow
             // 
@@ -1592,5 +1610,7 @@
         private System.Windows.Forms.ToolStripMenuItem setPlayerWeaponMoveAmmoTo999ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem healthTo25ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem soundToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem musicPlayStopToolStripMenuItem;
     }
 }

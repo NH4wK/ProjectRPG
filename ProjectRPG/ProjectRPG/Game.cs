@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+using System.IO;
 /// <summary>
 /// Name: Paul Jerrold Biglete
 /// RedID: 8115430506
@@ -32,6 +34,7 @@ namespace ProjectRPG
         /// <summary>
         /// My Global Variables/Objects
         /// </summary>
+        /// 
         public static Player Player = null;
         public static Weapon PlayerWeapon = null;
         public static Weapon PlayerWeaponTemp = null;
@@ -43,6 +46,7 @@ namespace ProjectRPG
         public static ProjectRPG_MainForm MainWindow = null;
         public static Enemy Enemy = null;
         public static List<Weapon> WeaponBox = new List<Weapon>();
-
+        public static bool IsMusicPlaying = true;
+        public static SoundPlayer SPlayer = new SoundPlayer(ProjectRPG.Properties.Resources.sawsquarenoise___03___Field_Force);
     }
 }
