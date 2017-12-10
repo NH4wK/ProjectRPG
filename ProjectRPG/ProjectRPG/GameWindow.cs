@@ -56,6 +56,7 @@ namespace ProjectRPG
             GW_DexVal_Label.Text = Convert.ToString(Game.Player.Dexterity);
             GW_VitVal_Label.Text = Convert.ToString(Game.Player.Vitality);
 
+
             Game.PlayerHealthPotion = new HealthPotion();
             Game.PlayerManaPotion = new ManaPotion();
             Game.PlayerWeapRestorePotion = new WeapRestorePotion();
@@ -778,26 +779,27 @@ namespace ProjectRPG
 
         private void GW_Attack_Button_Click(object sender, EventArgs e)
         {
+            //Initially disable buttons
             GW_ExecMove_Button.Enabled = false;
             GW_WeapMove1_RadButton.Checked = false;
             GW_WeapMove2_RadButton.Checked = false;
             GW_WeapMove3_RadButton.Checked = false;
             GW_WeapMove4_RadButton.Checked = false;
 
-            if (!GW_Weapon_Panel.Visible)
+            if (!GW_Weapon_Panel.Visible) //if Weapon Panel is not visible then show it, otherwise hide it
             {
-                GW_Weapon_Panel.Show();
-                GW_Inventory_Panel.Hide();
+                GW_Weapon_Panel.Show(); //show weapon panel
+                GW_Inventory_Panel.Hide(); //hide inventory panel
             }
             else
                 GW_Weapon_Panel.Hide();
         }
         private void GW_Items_Button_Click(object sender, EventArgs e)
         {
-            if (!GW_Inventory_Panel.Visible)
+            if (!GW_Inventory_Panel.Visible) //if Inventory Panel is not visible, then show it, otherwise hide it
             {
-                GW_Inventory_Panel.Show();
-                GW_Weapon_Panel.Hide();
+                GW_Inventory_Panel.Show(); //show inventory panel
+                GW_Weapon_Panel.Hide(); //hide the weapon panel
             }
             else
                 GW_Inventory_Panel.Hide();
@@ -819,9 +821,14 @@ namespace ProjectRPG
             PlayerWeaponUpdate();
         }
 
+        /// <summary>
+        /// When a Radial Button is selected in to the Weapon Panel, enable the Exec Button 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GW_WeapMove1_RadButton_CheckedChanged(object sender, EventArgs e)
         {
-            GW_ExecMove_Button.Enabled = true;
+            GW_ExecMove_Button.Enabled = true; 
         }
 
         private void GW_WeapMove2_RadButton_CheckedChanged(object sender, EventArgs e)
@@ -839,13 +846,18 @@ namespace ProjectRPG
             GW_ExecMove_Button.Enabled = true;
         }
 
+        /// <summary>
+        /// Take 50% less damage from the enemey.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GW_Defend_Button_Click(object sender, EventArgs e)
         {
             GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} goes into a defensive stance! (50% Damage Taken)");
             GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
             GW_BattleAction_TextBox.ScrollToCaret();
            
-            int eDamage = Game.Enemy.Attack() / 2;
+            int eDamage = Game.Enemy.Attack() / 2; //dividie enemy damage by 2
 
             if (Game.Player.LevelNumber == 999)
                 eDamage = 0;
@@ -863,6 +875,12 @@ namespace ProjectRPG
             PlayerUpdate();
         }
 
+        /// <summary>
+        /// Retreat
+        /// Give the player a chance to fight a new enemy
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GW_Retreat_Button_Click(object sender, EventArgs e)
         {
             Random rand = new Random();
@@ -889,6 +907,11 @@ namespace ProjectRPG
 
         }
 
+        /// <summary>
+        /// Use a Health Potion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GW_HPPotUse_Button_Click(object sender, EventArgs e)
         {
             Game.PlayerHealthPotion.Use();
@@ -901,6 +924,11 @@ namespace ProjectRPG
             InventoryUpdate();
         }
 
+        /// <summary>
+        /// Use Mana Potion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GW_MPPotUse_Button_Click(object sender, EventArgs e)
         {
             Game.PlayerManaPotion.Use();
@@ -913,6 +941,11 @@ namespace ProjectRPG
             InventoryUpdate();
         }
 
+        /// <summary>
+        /// Equip the selected weapon
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GW_WeapEquip_Button_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < Game.WeaponBox.Count; i++)
@@ -929,6 +962,11 @@ namespace ProjectRPG
             GW_BattleAction_TextBox.ScrollToCaret();
         }
 
+        /// <summary>
+        /// Use a Weapon Restore Potion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GW_WRPotUse_Button_Click(object sender, EventArgs e)
         {
             Game.PlayerWeapRestorePotion.Use();

@@ -176,5 +176,23 @@
   <ItemGroup>
     <None Include="Resources\Assets\MenuClickneg20dB.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\HowToPlay\HowToPlay_Step1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\HowToPlay\HowToPlay_Step2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\HowToPlay\HowToPlay_Step3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\HowToPlay\HowToPlay_Step4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\HowToPlay\HowToPlay_Step5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\HowToPlay\HowToPlay_Step6.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
