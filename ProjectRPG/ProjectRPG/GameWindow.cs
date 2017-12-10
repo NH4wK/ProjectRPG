@@ -124,6 +124,8 @@ namespace ProjectRPG
             GW_ToolTips.SetToolTip(GW_WeapMove2_RadButton, $"{Game.PlayerWeapon.Move2Description}");
             GW_ToolTips.SetToolTip(GW_WeapMove3_RadButton, $"{Game.PlayerWeapon.Move3Description}");
             GW_ToolTips.SetToolTip(GW_WeapMove4_RadButton, $"{Game.PlayerWeapon.Move4Description}");
+            GW_ToolTips.SetToolTip(GW_Boss_Yes_Button, $"Fight the Boss!");
+            GW_ToolTips.SetToolTip(GW_Boss_No_Button, $"Continue fighting regular enemies.");
 
             //Beginning Message in Battle Log
             GW_BattleAction_TextBox.Text += ($"ProjectRPG - {Game.Player.Name} {Environment.NewLine} - Attack the Enemy!");
@@ -228,11 +230,8 @@ namespace ProjectRPG
                 GW_WeapMove4_RadButton.Enabled = true;
             }
 
-
-
-
             //Update Labels
-            GW_WeaponName_Label.Text = Game.PlayerWeapon.Name;
+            GW_WeaponName_Label.Text = $"{Game.PlayerWeapon.Name} | ({Game.PlayerWeapon.ElementType})";
             GW_WeapMove1_RadButton.Text = Game.PlayerWeapon.Move1Name;
             GW_WeapMove2_RadButton.Text = Game.PlayerWeapon.Move2Name;
             GW_WeapMove3_RadButton.Text = Game.PlayerWeapon.Move3Name;
@@ -242,6 +241,8 @@ namespace ProjectRPG
             GW_M2AmmoCount_Label.Text = $"{Convert.ToString(Game.PlayerWeapon.Move2Ammo)} / {Convert.ToString(Game.PlayerWeapon.Move2MaxAmmo)}";
             GW_M3AmmoCount_Label.Text = $"{Convert.ToString(Game.PlayerWeapon.Move3Ammo)} / {Convert.ToString(Game.PlayerWeapon.Move3MaxAmmo)}";
             GW_M4AmmoCount_Label.Text = $"{Convert.ToString(Game.PlayerWeapon.Move4Ammo)} / {Convert.ToString(Game.PlayerWeapon.Move4MaxAmmo)}";
+
+
 
             //Update Weapon Stats
             if ((Game.PlayerWeapon is WarHammer) || (Game.PlayerWeapon is Mace))
@@ -564,8 +565,26 @@ namespace ProjectRPG
                 pDamage = 0;
             }
 
+            int ElementalDamage = 0;
+
+            //Calculate and Add Elemental Damage
+            if (Game.PlayerWeapon.ElementType == "Fire" && (Game.Enemy.Type == "Ice"))
+                ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.15);
+            else if (Game.PlayerWeapon.ElementType == "Holy" && (Game.Enemy.Type == "Undead" || Game.Enemy.Type == "Demon" || Game.Enemy.Type == "Raging Demon"))
+                ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.12);
+            else if (Game.PlayerWeapon.ElementType == "Normal" && (Game.Enemy.Type == "Normal"))
+                ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.10);
+            else if (Game.PlayerWeapon.ElementType == "Wind" && (Game.Enemy.Type == "Spirit"))
+                ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.12);
+            else if (Game.PlayerWeapon.ElementType == "Thunder" && (Game.Enemy.Type == "Water"))
+                ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.12);
+            else if (Game.PlayerWeapon.ElementType == "Magic")
+                ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.10);
+            else
+                ElementalDamage = 0;
+         
             //Show how much damage the player did to the enemy in the battle log
-            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} attacked {Game.Enemy.Name} for {pDamage} Damage!");
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} attacked {Game.Enemy.Name} for {pDamage} Damage (+{ElementalDamage} {Game.PlayerWeapon.ElementType})!");
             GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
             GW_BattleAction_TextBox.ScrollToCaret();
 
@@ -573,7 +592,7 @@ namespace ProjectRPG
             if (pDamage < 0 || Game.Player.LevelNumber == 999)
                 pDamage = Game.Enemy.Health;
 
-            Game.Enemy.Health -= pDamage; //Subtract pDamage from Enemy Health
+            Game.Enemy.Health -= pDamage + ElementalDamage; //Subtract pDamage from Enemy Health
 
             //Update Label
             GW_EnemyHealthVal_Label.Text = ($"{Convert.ToString(Game.Enemy.Health)} / {Convert.ToString(Game.Enemy.MaxHealth)}");
@@ -761,7 +780,6 @@ namespace ProjectRPG
 
         private void GW_Attack_Button_Click(object sender, EventArgs e)
         {
-
             GW_ExecMove_Button.Enabled = false;
             GW_WeapMove1_RadButton.Checked = false;
             GW_WeapMove2_RadButton.Checked = false;
@@ -830,9 +848,12 @@ namespace ProjectRPG
             GW_BattleAction_TextBox.ScrollToCaret();
            
             int eDamage = Game.Enemy.Attack() / 2;
+
             if (Game.Player.LevelNumber == 999)
                 eDamage = 0;
+
             Game.Player.Health -= eDamage; 
+
             if (eDamage == 0)
                 GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Enemy.Name} missed their attack! ({eDamage} Damage Taken!)");
             else

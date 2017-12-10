@@ -103,7 +103,7 @@ namespace ProjectRPG
             Name = GenerateEnemyName();
             Type = GenerateEnemyType();
 
-            //If Enemy Health is set to a negative numeber then set it to 999999
+            //If Enemy Health is set to a negative numeber then set it to 0
             if (Game.Enemy.Health < 0)
                 Health = 0;
 
@@ -164,7 +164,7 @@ namespace ProjectRPG
         {
             Random RanVal = new Random();
 
-            string[] type = { "Fire", "Normal", "Ice", "Undead", "Demon", "Raging Demon" };
+            string[] type = { "Fire", "Normal", "Ice", "Undead", "Demon", "Raging Demon", "Spirit", "Water" };
             int value = RanVal.Next(0, type.Count());
 
             return type[value];

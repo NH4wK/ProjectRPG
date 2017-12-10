@@ -34,7 +34,6 @@ namespace ProjectRPG
         /// <summary>
         /// My Global Variables/Objects
         /// </summary>
-        /// 
         public static Player Player = null;
         public static Weapon PlayerWeapon = null;
         public static Weapon PlayerWeaponTemp = null;

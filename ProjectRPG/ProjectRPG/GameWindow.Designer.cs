@@ -751,13 +751,13 @@
             this.GW_Weapon_Panel.Location = new System.Drawing.Point(403, 491);
             this.GW_Weapon_Panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GW_Weapon_Panel.Name = "GW_Weapon_Panel";
-            this.GW_Weapon_Panel.Size = new System.Drawing.Size(426, 183);
+            this.GW_Weapon_Panel.Size = new System.Drawing.Size(508, 183);
             this.GW_Weapon_Panel.TabIndex = 3;
             // 
             // GW_M4AmmoCount_Label
             // 
             this.GW_M4AmmoCount_Label.AutoSize = true;
-            this.GW_M4AmmoCount_Label.Location = new System.Drawing.Point(215, 112);
+            this.GW_M4AmmoCount_Label.Location = new System.Drawing.Point(307, 112);
             this.GW_M4AmmoCount_Label.Name = "GW_M4AmmoCount_Label";
             this.GW_M4AmmoCount_Label.Size = new System.Drawing.Size(126, 17);
             this.GW_M4AmmoCount_Label.TabIndex = 10;
@@ -766,7 +766,7 @@
             // GW_M3AmmoCount_Label
             // 
             this.GW_M3AmmoCount_Label.AutoSize = true;
-            this.GW_M3AmmoCount_Label.Location = new System.Drawing.Point(215, 62);
+            this.GW_M3AmmoCount_Label.Location = new System.Drawing.Point(307, 62);
             this.GW_M3AmmoCount_Label.Name = "GW_M3AmmoCount_Label";
             this.GW_M3AmmoCount_Label.Size = new System.Drawing.Size(126, 17);
             this.GW_M3AmmoCount_Label.TabIndex = 9;
@@ -796,7 +796,7 @@
             this.GW_ExecMove_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GW_ExecMove_Button.Enabled = false;
             this.GW_ExecMove_Button.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GW_ExecMove_Button.Location = new System.Drawing.Point(137, 140);
+            this.GW_ExecMove_Button.Location = new System.Drawing.Point(186, 140);
             this.GW_ExecMove_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GW_ExecMove_Button.Name = "GW_ExecMove_Button";
             this.GW_ExecMove_Button.Size = new System.Drawing.Size(123, 31);
@@ -808,7 +808,7 @@
             // GW_WeapMove4_RadButton
             // 
             this.GW_WeapMove4_RadButton.AutoSize = true;
-            this.GW_WeapMove4_RadButton.Location = new System.Drawing.Point(196, 91);
+            this.GW_WeapMove4_RadButton.Location = new System.Drawing.Point(288, 91);
             this.GW_WeapMove4_RadButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GW_WeapMove4_RadButton.Name = "GW_WeapMove4_RadButton";
             this.GW_WeapMove4_RadButton.Size = new System.Drawing.Size(71, 21);
@@ -821,7 +821,7 @@
             // GW_WeapMove3_RadButton
             // 
             this.GW_WeapMove3_RadButton.AutoSize = true;
-            this.GW_WeapMove3_RadButton.Location = new System.Drawing.Point(196, 37);
+            this.GW_WeapMove3_RadButton.Location = new System.Drawing.Point(288, 37);
             this.GW_WeapMove3_RadButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GW_WeapMove3_RadButton.Name = "GW_WeapMove3_RadButton";
             this.GW_WeapMove3_RadButton.Size = new System.Drawing.Size(71, 21);
