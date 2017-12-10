@@ -37,5 +37,39 @@ namespace ProjectRPG
             HowToPlayWindow HTPForm = new HowToPlayWindow();
             HTPForm.ShowDialog();
         }
+
+        private void MainMenu_StartButton_MouseHover(object sender, EventArgs e)
+        {
+            Game.SPlayerMainMenu.Play();
+            MainMenu_StartButton.ImageIndex = 1;
+        }
+
+        private void MainMenu_StartButton_MouseLeave(object sender, EventArgs e)
+        {
+
+            MainMenu_StartButton.ImageIndex = 0;
+        }
+
+        private void MainMenu_HowToPlay_Button_MouseHover(object sender, EventArgs e)
+        {
+            Game.SPlayerMainMenu.Play();
+            MainMenu_HowToPlay_Button.ImageIndex = 1;
+        }
+
+        private void MainMenu_HowToPlay_Button_MouseLeave(object sender, EventArgs e)
+        {
+            MainMenu_HowToPlay_Button.ImageIndex = 0;
+        }
+
+        private void MainMenu_ExitButton_MouseHover(object sender, EventArgs e)
+        {
+            Game.SPlayerMainMenu.Play();
+            MainMenu_ExitButton.ImageIndex = 1;
+        }
+
+        private void MainMenu_ExitButton_MouseLeave(object sender, EventArgs e)
+        {
+            MainMenu_ExitButton.ImageIndex = 0;
+        }
     }
 }

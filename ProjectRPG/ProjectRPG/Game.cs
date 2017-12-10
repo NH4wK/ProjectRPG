@@ -47,5 +47,6 @@ namespace ProjectRPG
         public static List<Weapon> WeaponBox = new List<Weapon>();
         public static bool IsMusicPlaying = true;
         public static SoundPlayer SPlayer = new SoundPlayer(ProjectRPG.Properties.Resources.sawsquarenoise___03___Field_Force_neg25dB);
+        public static SoundPlayer SPlayerMainMenu = new SoundPlayer(ProjectRPG.Properties.Resources.MenuClickneg20dB);
     }
 }

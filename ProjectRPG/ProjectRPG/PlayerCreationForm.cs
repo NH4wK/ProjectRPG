@@ -96,6 +96,7 @@ namespace ProjectRPG
 
         private void Create_Button_Click(object sender, EventArgs e)
         {
+            Game.SPlayerMainMenu.Play();
             //Create a new player object and assign values to the player object
             Game.Player = new Player();
             Game.Player.Name = CharName_TextBox.Text;

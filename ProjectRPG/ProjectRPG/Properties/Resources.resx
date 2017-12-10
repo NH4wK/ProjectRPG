@@ -139,10 +139,34 @@
   <data name="Player_Idle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Assets\Enemy_Sprites\Player_Idle.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ProjectRPG_MainMenu_BKG2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\GameWindow_Back\ProjectRPG_MainMenu_BKG2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PRPG_Start_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\GameWindow_Back\PRPG_Start_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PRPG_Start_Button_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\GameWindow_Back\PRPG_Start_Button_Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sawsquarenoise___03___Field_Force" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Assets\Music\sawsquarenoise_-_03_-_Field_Force.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="sawsquarenoise___03___Field_Force_neg25dB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Assets\Music\sawsquarenoise_-_03_-_Field_Force_neg25dB.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MenuClickneg20dB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\MenuClickneg20dB.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PRPG_HTP_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\GameWindow_Back\PRPG_HTP_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PRPG_HTP_Button_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\GameWindow_Back\PRPG_HTP_Button_Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PRPG_Quit_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\GameWindow_Back\PRPG_Quit_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PRPG_Quit_Button_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\GameWindow_Back\PRPG_Quit_Button_Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -122,7 +122,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Assets\GameWindow_Back\ProjectRPG_MainMenu_BKG.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Assets\Music\sawsquarenoise_-_03_-_Field_Force.wav" />
   </ItemGroup>
@@ -149,6 +151,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Assets\Enemy_Sprites\Enemy_Boss_Damage.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\GameWindow_Back\ProjectRPG_MainMenu_BKG2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\GameWindow_Back\PRPG_Start_Button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\GameWindow_Back\PRPG_Start_Button_Hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\GameWindow_Back\PRPG_HTP_Button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\GameWindow_Back\PRPG_HTP_Button_Hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\GameWindow_Back\PRPG_Quit_Button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\GameWindow_Back\PRPG_Quit_Button_Hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\MenuClickneg20dB.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

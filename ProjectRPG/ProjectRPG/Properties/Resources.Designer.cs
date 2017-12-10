@@ -110,6 +110,15 @@ namespace ProjectRPG.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream MenuClickneg20dB {
+            get {
+                return ResourceManager.GetStream("MenuClickneg20dB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Player_Damaged {
@@ -125,6 +134,76 @@ namespace ProjectRPG.Properties {
         internal static System.Drawing.Bitmap Player_Idle {
             get {
                 object obj = ResourceManager.GetObject("Player_Idle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProjectRPG_MainMenu_BKG2 {
+            get {
+                object obj = ResourceManager.GetObject("ProjectRPG_MainMenu_BKG2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PRPG_HTP_Button {
+            get {
+                object obj = ResourceManager.GetObject("PRPG_HTP_Button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PRPG_HTP_Button_Hover {
+            get {
+                object obj = ResourceManager.GetObject("PRPG_HTP_Button_Hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PRPG_Quit_Button {
+            get {
+                object obj = ResourceManager.GetObject("PRPG_Quit_Button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PRPG_Quit_Button_Hover {
+            get {
+                object obj = ResourceManager.GetObject("PRPG_Quit_Button_Hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PRPG_Start_Button {
+            get {
+                object obj = ResourceManager.GetObject("PRPG_Start_Button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PRPG_Start_Button_Hover {
+            get {
+                object obj = ResourceManager.GetObject("PRPG_Start_Button_Hover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
