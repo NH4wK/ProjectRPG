@@ -231,7 +231,7 @@ namespace ProjectRPG
             }
 
             //Update Labels
-            GW_WeaponName_Label.Text = $"{Game.PlayerWeapon.Name} | ({Game.PlayerWeapon.ElementType})";
+            GW_WeaponName_Label.Text = $"{Game.PlayerWeapon.Name} | {Game.PlayerWeapon.ElementType}";
             GW_WeapMove1_RadButton.Text = Game.PlayerWeapon.Move1Name;
             GW_WeapMove2_RadButton.Text = Game.PlayerWeapon.Move2Name;
             GW_WeapMove3_RadButton.Text = Game.PlayerWeapon.Move3Name;
@@ -241,8 +241,6 @@ namespace ProjectRPG
             GW_M2AmmoCount_Label.Text = $"{Convert.ToString(Game.PlayerWeapon.Move2Ammo)} / {Convert.ToString(Game.PlayerWeapon.Move2MaxAmmo)}";
             GW_M3AmmoCount_Label.Text = $"{Convert.ToString(Game.PlayerWeapon.Move3Ammo)} / {Convert.ToString(Game.PlayerWeapon.Move3MaxAmmo)}";
             GW_M4AmmoCount_Label.Text = $"{Convert.ToString(Game.PlayerWeapon.Move4Ammo)} / {Convert.ToString(Game.PlayerWeapon.Move4MaxAmmo)}";
-
-
 
             //Update Weapon Stats
             if ((Game.PlayerWeapon is WarHammer) || (Game.PlayerWeapon is Mace))
