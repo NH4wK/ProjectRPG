@@ -743,6 +743,9 @@ namespace ProjectRPG
 
             InventoryUpdate();
         }
+        /// <summary>
+        /// Give the player a weapon drop.
+        /// </summary>
         void WeaponDrop()
         {
             //Randomly drop a weapon for the Player
@@ -978,7 +981,11 @@ namespace ProjectRPG
             PlayerWeaponUpdate();
             InventoryUpdate();
         }
-
+        /// <summary>
+        /// Button to fight the Boss at the Boss Encounter Panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GW_Boss_Yes_Button_Click(object sender, EventArgs e)
         {
             GW_BattleAction_TextBox.Text += ($"{Environment.NewLine} The dark energy has consumed {Game.Enemy.Name}! A powerful enemy has spawned!");
@@ -995,7 +1002,11 @@ namespace ProjectRPG
             PlayerUpdate();
             EnemyUpdate();
         }
-
+        /// <summary>
+        /// Button to continue on with the game at the Boss Encounter Panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GW_Boss_No_Button_Click(object sender, EventArgs e)
         {
             GW_Attack_Button.Enabled = true;
@@ -1004,33 +1015,53 @@ namespace ProjectRPG
             GW_Retreat_Button.Enabled = true;
             GW_Boss_Encounter_Panel.Hide();
         }
-
+        /// <summary>
+        /// Exit Button from the Game Status Panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GW_GameStatus_Button_Click(object sender, EventArgs e)
         {
             Game.SPlayer.Stop();
             this.Close();
             this.Dispose();
         }
-
+        /// <summary>
+        /// Exit Application and Stop Music
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.SPlayer.Stop();
             this.Close();
             this.Dispose();
         }
-
+        /// <summary>
+        /// Set Player Stats to Max
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MaxStatsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.Player.CheatGodMode();
             PlayerUpdate();
         }
-
+        /// <summary>
+        /// Give the player a super weapon, able to kill any enemy in one hit.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SuperWeaponToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.PlayerWeapon = new SuperWeapon(Game.Player.Strength);
             PlayerWeaponUpdate();
         }
-
+        /// <summary>
+        /// Turn Enemy into a Boss
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GenerateBossToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.Enemy.SetToBoss();
@@ -1043,7 +1074,11 @@ namespace ProjectRPG
             PlayerUpdate();
             EnemyUpdate();
         }
-
+        /// <summary>
+        /// Give player 999 of each item.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ToAllItemQuantityToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.PlayerHealthPotion.Quantity += 999;
@@ -1058,36 +1093,62 @@ namespace ProjectRPG
 
             InventoryUpdate();
         }
-
+        /// <summary>
+        /// Give the player a random weapon drop
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RandomWeaponDropToolStripMenuItem_Click(object sender, EventArgs e)
         {
             WeaponDrop();
         }
-
+        /// <summary>
+        /// Level Up Player Cheat
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LevelUpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.Player.LevelUp();
             PlayerUpdate();
         }
-
+        /// <summary>
+        /// Open up How To Play Window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HelpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HowToPlayWindow HTPForm = new HowToPlayWindow();
             HTPForm.Show();
         }
-
+        /// <summary>
+        /// Set Player Health to 50%
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SetPlayerHealthTo50ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.Player.Health = (Game.Player.MaxHealth / 2);
             PlayerUpdate();
         }
 
+        /// <summary>
+        /// Set Enemy Health tp 50%
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SetEnemyHealthTo50ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.Enemy.Health = (Game.Enemy.MaxHealth / 2);
             EnemyUpdate();
         }
 
+        /// <summary>
+        /// Give Player's Weapon 999 Max Ammo for all weapon moves.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SetPlayerWeaponMoveAmmoTo999ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.PlayerWeapon.Move1MaxAmmo = 999;
@@ -1103,19 +1164,31 @@ namespace ProjectRPG
             PlayerWeaponUpdate();
 
         }
-
+        /// <summary>
+        /// Set Player Health to 25%
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HealthTo25ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.Player.Health = (Game.Player.MaxHealth / 2) / 2;
             PlayerUpdate();
         }
-
+        /// <summary>
+        /// Set Enemy Health to 25%
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game.Enemy.Health = (Game.Enemy.MaxHealth / 2) / 2;
             EnemyUpdate();
         }
-
+        /// <summary>
+        /// Music Control - Toggle Play/Stop
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MusicPlayStopToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Game.IsMusicPlaying)
@@ -1129,25 +1202,44 @@ namespace ProjectRPG
                 Game.SPlayer.PlayLooping();
             }
         }
-
+        /// <summary>
+        /// Set Player Mana to 75%
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             Game.Player.Mana = (int)(Game.Player.MaxMana * 0.75);
             PlayerUpdate();
         }
 
+        /// <summary>
+        /// Set Player Mana to 50%
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             Game.Player.Mana = (int)(Game.Player.MaxMana * 0.50);
             PlayerUpdate();
         }
 
+        /// <summary>
+        /// Set Player Mana to 25%
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ToolStripMenuItem4_Click(object sender, EventArgs e)
         {
             Game.Player.Mana = (int)(Game.Player.MaxMana * 0.25);
             PlayerUpdate();
         }
 
+        /// <summary>
+        /// Set Player Mana to 15%
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ToolStripMenuItem5_Click(object sender, EventArgs e)
         {
             Game.Player.Mana = (int)(Game.Player.MaxMana * 0.15);
