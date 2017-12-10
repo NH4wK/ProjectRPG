@@ -574,7 +574,7 @@ namespace ProjectRPG
                 ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.12);
             else if (Game.PlayerWeapon.ElementType == "Normal" && (Game.Enemy.Type == "Normal"))
                 ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.10);
-            else if (Game.PlayerWeapon.ElementType == "Wind" && (Game.Enemy.Type == "Spirit"))
+            else if (Game.PlayerWeapon.ElementType == "Wind" && (Game.Enemy.Type == "Spirit" || Game.Enemy.Type == "Fire"))
                 ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.12);
             else if (Game.PlayerWeapon.ElementType == "Thunder" && (Game.Enemy.Type == "Water"))
                 ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.12);
@@ -582,17 +582,17 @@ namespace ProjectRPG
                 ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.10);
             else
                 ElementalDamage = 0;
-         
-            //Show how much damage the player did to the enemy in the battle log
-            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} attacked {Game.Enemy.Name} for {pDamage} Damage (+{ElementalDamage} {Game.PlayerWeapon.ElementType})!");
-            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
-            GW_BattleAction_TextBox.ScrollToCaret();
 
             //if pDamage is negative or Player is at Max Level
             if (pDamage < 0 || Game.Player.LevelNumber == 999)
                 pDamage = Game.Enemy.Health;
 
             Game.Enemy.Health -= pDamage + ElementalDamage; //Subtract pDamage from Enemy Health
+
+            //Show how much damage the player did to the enemy in the battle log
+            GW_BattleAction_TextBox.Text += ($"{Environment.NewLine}{Game.Player.Name} attacked {Game.Enemy.Name} for {pDamage} Damage (+{ElementalDamage} {Game.PlayerWeapon.ElementType})!");
+            GW_BattleAction_TextBox.SelectionStart = GW_BattleAction_TextBox.Text.Length;
+            GW_BattleAction_TextBox.ScrollToCaret();
 
             //Update Label
             GW_EnemyHealthVal_Label.Text = ($"{Convert.ToString(Game.Enemy.Health)} / {Convert.ToString(Game.Enemy.MaxHealth)}");
