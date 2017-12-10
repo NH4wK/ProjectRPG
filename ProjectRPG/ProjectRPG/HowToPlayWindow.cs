@@ -90,6 +90,7 @@ namespace ProjectRPG
             }
             else
             {
+                HTP_NEXT_BUTTON.Enabled = true;
                 HTP_PREVIOUS_BUTTON.Enabled = true;
             }
 
