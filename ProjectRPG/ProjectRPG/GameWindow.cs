@@ -566,18 +566,23 @@ namespace ProjectRPG
             int ElementalDamage = 0;
 
             //Calculate and Add Elemental Damage
-            if (Game.PlayerWeapon.ElementType == "Fire" && (Game.Enemy.Type == "Ice"))
-                ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.15);
-            else if (Game.PlayerWeapon.ElementType == "Holy" && (Game.Enemy.Type == "Undead" || Game.Enemy.Type == "Demon" || Game.Enemy.Type == "Raging Demon"))
-                ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.12);
-            else if (Game.PlayerWeapon.ElementType == "Normal" && (Game.Enemy.Type == "Normal"))
-                ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.10);
-            else if (Game.PlayerWeapon.ElementType == "Wind" && (Game.Enemy.Type == "Spirit" || Game.Enemy.Type == "Fire"))
-                ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.12);
-            else if (Game.PlayerWeapon.ElementType == "Thunder" && (Game.Enemy.Type == "Water"))
-                ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.12);
-            else if (Game.PlayerWeapon.ElementType == "Magic")
-                ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.10);
+            if (pDamage > 0)
+            {
+                if (Game.PlayerWeapon.ElementType == "Fire" && (Game.Enemy.Type == "Ice"))
+                    ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.15);
+                else if (Game.PlayerWeapon.ElementType == "Holy" && (Game.Enemy.Type == "Undead" || Game.Enemy.Type == "Demon" || Game.Enemy.Type == "Raging Demon"))
+                    ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.12);
+                else if (Game.PlayerWeapon.ElementType == "Normal" && (Game.Enemy.Type == "Normal"))
+                    ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.10);
+                else if (Game.PlayerWeapon.ElementType == "Wind" && (Game.Enemy.Type == "Spirit" || Game.Enemy.Type == "Fire"))
+                    ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.12);
+                else if (Game.PlayerWeapon.ElementType == "Thunder" && (Game.Enemy.Type == "Water"))
+                    ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.12);
+                else if (Game.PlayerWeapon.ElementType == "Magic")
+                    ElementalDamage = (int)(Game.Enemy.MaxHealth * 0.10);
+                else
+                    ElementalDamage = 0;
+            }
             else
                 ElementalDamage = 0;
 
