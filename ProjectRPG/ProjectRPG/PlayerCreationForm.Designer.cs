@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerCreationForm));
             this.CharacterName_Label = new System.Windows.Forms.Label();
             this.CharName_TextBox = new System.Windows.Forms.TextBox();
             this.Str_NumUpDown = new System.Windows.Forms.NumericUpDown();
@@ -194,7 +193,7 @@
             // CC_PlayerModel_PicBox
             // 
             this.CC_PlayerModel_PicBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CC_PlayerModel_PicBox.Image = ((System.Drawing.Image)(resources.GetObject("CC_PlayerModel_PicBox.Image")));
+            this.CC_PlayerModel_PicBox.Image = global::ProjectRPG.Properties.Resources.Player_Idle;
             this.CC_PlayerModel_PicBox.Location = new System.Drawing.Point(201, 62);
             this.CC_PlayerModel_PicBox.Name = "CC_PlayerModel_PicBox";
             this.CC_PlayerModel_PicBox.Size = new System.Drawing.Size(181, 222);

@@ -194,5 +194,8 @@
   <ItemGroup>
     <None Include="Resources\Assets\HowToPlay\HowToPlay_Step6.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\GameWindow_Back\ProjectRPG_GameWin_Back.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
