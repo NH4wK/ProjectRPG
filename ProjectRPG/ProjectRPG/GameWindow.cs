@@ -56,7 +56,6 @@ namespace ProjectRPG
             GW_DexVal_Label.Text = Convert.ToString(Game.Player.Dexterity);
             GW_VitVal_Label.Text = Convert.ToString(Game.Player.Vitality);
 
-
             Game.PlayerHealthPotion = new HealthPotion();
             Game.PlayerManaPotion = new ManaPotion();
             Game.PlayerWeapRestorePotion = new WeapRestorePotion();

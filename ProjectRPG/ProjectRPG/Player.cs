@@ -131,5 +131,10 @@ namespace ProjectRPG
             Mana = 999999;
             MaxMana = 999999;
         }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }

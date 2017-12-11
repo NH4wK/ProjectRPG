@@ -23,17 +23,20 @@ namespace ProjectRPG
 
         private void MainMenu_StartButton_Click(object sender, EventArgs e)
         {
+            //Open Player Creation Form
             PlayerCreationForm playerCF = new PlayerCreationForm();
             playerCF.ShowDialog();
         }
 
         private void MainMenu_ExitButton_Click(object sender, EventArgs e)
         {
+            //Exit Application
             Application.Exit();
         }
 
         private void MainMenu_HowToPlay_Button_Click(object sender, EventArgs e)
         {
+            //Open How To Play Form
             HowToPlayWindow HTPForm = new HowToPlayWindow();
             HTPForm.ShowDialog();
         }

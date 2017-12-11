@@ -226,5 +226,10 @@ namespace ProjectRPG
 
             return AttackPoints;
         }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }

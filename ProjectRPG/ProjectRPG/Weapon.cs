@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 /// </summary>
 namespace ProjectRPG
 {
-    public abstract class Weapon
+    public abstract class Weapon : IComparable<Weapon>
     {
         public string Name { get; set; }
 
@@ -45,5 +45,17 @@ namespace ProjectRPG
         public int Move4Damage { get; set; } //High Damage
 
         public abstract void UpdateWeapon(int Str = 0, int Intel = 0, int Dex = 0);
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
+
+        public int CompareTo(Weapon other)
+        {
+            return this.Name.CompareTo(other.Name);
+        }
     }
+
+
 }
